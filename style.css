@@ -1,0 +1,19 @@
+/*
+Theme Name: Neo Leon
+Theme URI: http://www.3museos.com/
+Author: Raidho
+Author URI: https://www.raidho.mx/
+Description: We're here for the light.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: 
+Text Domain: raidho
+*/
+
+
+
+
+@import	url(css/index.css);
+@import	url(css/weather.css);
+@import	url(css/extra.css);

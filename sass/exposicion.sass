@@ -1,0 +1,309 @@
+/*  List  */
+
+.expo .slider .caption 
+	background-color: rgba($white, 0.7)
+	color: $black
+	.bottom
+		background-color: $white
+		border: none
+	h1
+		color: $purple
+	h2
+		margin-top: 0
+	.counter
+		color: $light_purple	
+
+
+
+
+ul.rooms 
+	> li
+		background-color: #f4f4f4
+	section.head wrap
+		padding-top: 2em
+		padding-bottom: 1.75em
+		cursor: pointer
+		> div:nth-child(1)
+			@include span(2)
+			font-family: $FU_CB
+			font-size: 3em
+			line-height: .95em
+			color: rgba($black, .25)
+		> div:nth-child(2)
+			@include span(11)
+			font-family: $FU_B
+			color: $purple
+			p
+				text-transform: uppercase
+				color: $light_purple
+				font-size: $t12
+			h2
+				font-size: $t20
+				+relative($top: .15em)
+		> div:nth-child(3)
+			display: none
+			color: $purple
+		> div:nth-child(4)
+			@include span(1)
+			text-align: center
+			a.open_btn
+				display: inline-block
+				width: 2.5em
+				height: 2.5em
+				border: 2px solid
+				+border-radius(50%)
+				div
+					@extend .animate
+					border-bottom: 3px solid $purple
+					border-left: 3px solid $purple
+					width: 1em
+					height: 1em
+					@include transform(rotate(135deg))
+					margin: .8em auto
+		@media (min-width: 850px)
+			> div:nth-child(1)
+				@include span(1)
+			> div:nth-child(2)
+				@include span(5)
+			> div:nth-child(3)
+				@include span(8)
+				display: block
+	> li.unique section.head wrap
+		> div:nth-child(1)
+			display: none
+		> div:nth-child(4)
+			display: none
+
+
+
+ul.rooms > li:nth-child(2n+1)
+	background-color: $gray
+
+
+
+
+// ul.rooms > li
+// 	section.head.ui-state-active, section.head.ui-state-hover
+
+ul.rooms > li:hover, ul.rooms > li.open
+	section.head
+		background-color: $purple
+		cursor: pointer
+		wrap
+			h2
+				color: $white
+			> div:nth-child(3)
+				color: $light_purple
+			a.open_btn
+				border-color: $light_purple !important
+				div
+					@include transform(rotate(-45deg))
+					border-color: $white
+					margin-top: .4em
+
+
+
+
+/*  Content  */
+
+.rooms article
+	h1, h2
+		font-family: $FU_B
+	> .description
+		background-color: $dark_purple
+		padding: 4em 0
+		wrap > div
+			> div
+				margin-top: .5em
+				color: $gray
+			@media (min-width: $lil_s)
+				@include span(9)
+		h2
+			font-size: $t12
+			text-transform: uppercase
+			color: $light_purple
+		h1
+			font-size: $t20
+			color: $white
+	.explanation
+		background-repeat: no-repeat
+		padding: 3em 0
+		font-size: $t20
+		h2
+			color: $purple
+			margin-bottom: 2em
+		@media (min-width: $lil_s)
+			padding: 6em 0
+			wrap > div
+				@include span(11)
+	.explanation.image
+		font-size: $t16
+		background-color: $white
+		wrap 
+			> div
+				img
+					max-width: 100%
+					max-height: 30em
+					width: auto
+				@media (min-width: 800px)
+					@include span(6 of 12)
+					h2
+						margin: 0 0 2em !important
+			> div:nth-child(2)
+				padding-left: 1.25em
+			h2
+				font-size: $t26
+				margin: 2em 0 1em 
+	.collection
+		padding-top: 4em
+		padding-bottom: 4em
+		@extend #collection-post
+		h2
+			@include span(8)
+			color: $purple
+			font-size: $t32
+			padding-bottom: 1em
+			float: none
+		.masonry 
+			@include container(90%)
+			> li, > li.w2
+				width: 50%
+				@media (max-width: $mini_s)
+					width: 100%
+				@media (min-width: $lil_s)
+					width: 33.3333%
+				@media (min-width: $big_s)
+					width: 25%
+	.slider
+		max-width: none
+		.image 
+			margin: 0
+			background-position: center !important
+		.caption
+			@include container(80%)
+			width: 68.5%
+			position: relative
+			float: none
+			background-color: $purple
+			color: $white
+			padding: 1em
+			margin-top: -2.85em
+			height: 2.85em
+			@media (max-width: $mini_s)
+				width: 100%
+			h2
+				margin-bottom: 0
+				color: $white
+			.bottom
+				background-color: transparent
+				padding: 1em
+				height: inherit
+				text-align: right
+				right: 4.5em
+				top: -.1em
+		a.rslides_nav
+			right: 17.5%
+			left: inherit
+			width: 2.9em
+			height: 2.9em
+			bottom: 0
+			background-color: $light_purple
+			background-position: center
+			&:hover
+				background-color: $purple
+		a.rslides_nav.next
+			margin-right: -2.9em
+	.video
+		background-color: $black
+		background-repeat: no-repeat
+		padding-top: 4em
+		padding-bottom: 4em
+		color: $white
+		*:focus
+			outline: none
+			border: none
+		> div
+			@extend wrap
+			.video-container
+				width: 85%
+				@media (min-width: 800px)
+					@include span(9)
+				img
+					width: 100%
+			.no-description 
+				.video-container
+					width: 100%
+			.caption
+				display: none
+				padding-left: 1em
+				+absolute($right: 0)
+				height: 100%
+				@media (min-width: 800px)
+					display: block
+					@include span(6)
+				h1
+					font-size: $t20
+					margin-bottom: 2em
+			.bottom 
+				background-color: $purple
+				+absolute($bottom: 0, $left: 1px)
+				padding: 1.1em 7em 0 0
+				width: 98.2%
+				height: 3.35em
+				font-family: $FU_B
+				font-size: $t12
+				text-align: right
+			a.rslides_nav 
+				+absolute($right: .65%, $bottom: 0)
+				color: rgba($white, 0)
+				background: url('../img/arr-r.svg') no-repeat center
+				z-index: 2
+				height: 2.5em
+				width: 2em
+				@media (max-width: 800px)
+					width: 2.5em
+					border: 2px solid $white
+					+border-radius(50%)
+					margin: 0
+			a.rslides_nav.prev
+				margin-right: 2em
+				background-image: url('../img/arr-l.svg')
+				@media (max-width: 800px)
+					margin: 0 0 4em 0
+			li.slide
+				// min-height: 25em
+				.video-container
+					+absolute($bottom: 0)
+				@media (max-width: $mini_s)
+					min-height: 18em
+	.quote
+		position: relative
+		height: 30em
+		.bg-img
+			background-size: cover
+			background-position: center
+			position: absolute
+			width: 100%
+			height: 30em
+			opacity: .35
+		wrap div:nth-child(2)
+			position: absolute
+			width: 100%
+			text-align: center
+			padding-top: 10em
+		blockquote
+			font-size: $t32
+		h2
+			color: $purple
+			&:before
+				content: '– '
+
+
+
+ul.rooms li.open
+	section.head 
+		+box-shadow(0 0.5em 0.5em -0.5em rgba($black, 1))
+		position: relative
+
+
+

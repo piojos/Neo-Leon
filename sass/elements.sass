@@ -1,0 +1,644 @@
+/*  Paddings?  */
+
+.pt
+	overflow: auto
+	padding-top: 6em
+.ptb
+	@extend .pt
+	padding-bottom: 6em
+
+
+
+
+/*  Atoms  */
+
+.mask
+	background-color: $purple
+	position: absolute
+	width: 100%
+	height: 100%
+	display: block
+	top: 0
+	left: 0
+	opacity: .8
+
+.bg_img
+	+background-size(cover)
+	background-position: center
+
+.tag
+	+border-radius(.4em)
+	font-family: $FU_B
+	font-size: $t12
+	padding: .75em 1em .6em
+	background-color: $purple
+	width: initial
+	margin: 1em 0 0 1em
+	display: inline-block
+	color: $white
+	position: relative
+	text-transform: uppercase
+	a
+		color: $white
+	span
+		display: none
+
+ul.tags 
+	width: 90%
+	li
+		@extend .tag
+
+
+
+
+/*  Elements  */
+
+.slider
+	@extend wrap
+	position: relative
+	max-width: 100%
+	@media (min-width: $mid_s)
+		max-width: 90%
+	.caption
+		@include span(9)
+		top: initial
+		bottom: 0
+		position: absolute
+		z-index: 6
+		padding: 2em 1.5em 6em
+		background-color: rgba($purple, .9)
+		color: $white
+		a
+			color: $white
+		h1, h2
+			font-family: $FU_B
+			text-transform: uppercase
+		h2
+			font-size: $t12
+			opacity: .5
+			margin-bottom: .5em
+		h1
+			font-size: $t32
+		p
+			margin-top: 1.5em
+			display: none
+		.bottom
+			position: absolute
+			bottom: 0
+			height: 4em
+			margin-left: -1.5em
+			width: 100%
+			padding: 1.4em
+			font-family: $FU_B
+			border-top: .2em solid rgba(0,0,0,0.5)
+			background-color: $purple
+		@media (min-width: $lil_s)
+			@include span(7)
+			height: 100%
+			padding: 6em 1.5em 0
+			p
+				display: block
+		@media (min-width: $mid_s)
+			@include span(6)
+			margin-left: 3em
+			padding: 6em 1.5em 0
+			p
+				font-size: $t20
+	p.details
+		+absolute($bottom: 6em)
+		font-family: $FU_B
+		font-size: $t16
+		width: 86%
+	a.rslides_nav
+		position: absolute
+		bottom: 1.2em
+		left: 1em
+		z-index: 10
+		text-indent: -9999px
+		overflow: hidden
+		background: url('../img/arr-l.svg') no-repeat
+		background-size: contain
+		width: .75em
+		height: 1.5em
+		margin-left: 48%
+	a.rslides_nav.next 
+		background-image: url('../img/arr-r.svg')
+		margin-left: 52%
+	.image
+		min-height: 22em
+		margin: 2.5em 0
+		background-position: center !important
+		@media (min-width: $lil_s)
+			min-height: 30em
+		@media (min-width: $mid_s)
+			min-height: 40em
+	@media (max-width: $mini_s)
+		.caption
+			@include span(15)
+			padding: 2em 1.5em 6em
+		.image
+			padding: 2em 0 4em
+		a.rslides_nav
+			margin-left: 85%
+		a.rslides_nav.next 
+			margin-left: 89%
+	@media (min-width: $lil_s)
+		a.rslides_nav
+			margin-left: 36%
+		a.rslides_nav.next 
+			margin-left: 39%
+	@media (min-width: $big_s)
+		.caption
+			@include span(5)
+			padding: 6em 1.5em 0
+		a.rslides_nav
+			margin-left: 31%
+		a.rslides_nav.next 
+			margin-left: 33%
+
+
+
+
+
+
+.search_box
+	@extend .bg_img
+	position: relative
+	.content
+		padding-top: 4em
+		padding-bottom: 4em
+		position: relative
+		text-align: center
+		h2
+			font-family: $FU_B
+			font-size: $t20
+			color: $white
+			margin-bottom: 1em
+		label
+			font-size: $t26
+			color: tint($light_purple, 40%)
+			line-height: 2.5em
+			span.on
+				display: none
+			@media (max-width: $mini_s)
+				font-size: $t20
+				span
+					display: none
+				span.on
+					display: inline-block
+		select
+			margin: 0 .25em
+			font-size: $t16
+			@media (min-width: $lil_s)
+				font-size: $t20
+		input[type="submit"]
+			margin-top: 1em
+			font-size: $t20
+			text-transform: none
+	@media (min-width: $big_s)
+		h2
+			font-size: $t26
+		label
+			font-size: $t32
+		select
+			font-size: $t26
+
+
+
+
+.store-rent
+	@extend .ptb
+	@extend wrap
+	h2
+		font-family: $FU_B
+		font-size: $t28
+		color: $purple
+		text-transform: uppercase
+		@media (min-width: $joker_s)
+			max-width: 80%
+	p
+		font-size: $meta12
+		width: span(4 of 7)
+		color: adjust-lightness($black, 40%)
+		margin-bottom: 1.250em
+	.store
+		width: 70%
+		margin: 0 auto 6em 
+		position: relative
+		padding-top: .15em
+		> div
+			position: relative
+		h1
+			font-size: $t16
+			margin: 1em 0 2em
+			color: $purple
+		img.piece
+			max-height: 15em
+			+absolute($top:-1em, $right:0)
+	.store.amigo 
+		z-index: 1
+		img.piece
+			right: inherit
+			top: 0
+			float: left
+			position: relative
+			@media (max-width: $mid_s)
+				margin-right: 1em
+			@media (min-width: $mid_s)
+				display: none
+			@media (min-width: 1100px)
+				display: block
+				max-width: 6em
+			@media (min-width: 1200px)
+				max-width: 7em
+			@media (min-width: 1300px)
+				max-width: 8em
+	a.button
+		background-color: $purple
+		font-size: $t14
+		display: inline-block
+	.rent
+		width: 70%
+		+box-shadow(0 .5em 1.25em -.5em rgba(0, 0, 0, 0.25))
+		background-color: $white
+		position: relative
+		margin: 0 auto
+		padding: .005em 0
+		> div	
+			padding: 1em 1em 2em
+			border: solid 1px $gray
+			border-left: none
+			margin: .5em .5em .5em 6em
+			min-height: 12em
+			@media (max-width: $mid_s)
+				padding-left: 5.5em
+			h1
+				font-family: $FU_B
+				font-size: $t16
+				color: adjust-lightness($black, 40%)
+				margin-bottom: 1em
+			p 
+				width: inherit
+		img.decor
+			max-height: 16em
+			+absolute($top:-1em, $left:-4em)
+			@media (min-width: 1100px)
+				left: -3em
+	@media (min-width: $mid_s)
+		.store
+			@include span(5)
+			margin-bottom: 0
+		.rent
+			@include span(5 rtl)
+			width: 30%
+			padding-right: 0
+			> div
+				margin-left: 4.5em
+
+
+
+
+.friends
+	margin: 2em 0 4em
+	text-align: center
+	li
+		display: inline-block
+		margin: 0 1.5em 1em
+	img
+		max-height: 4em
+		max-width: 100%
+		@include filter(grayscale(100%))
+
+
+
+.easy-access 
+	overflow: auto
+	margin-bottom: 4em
+	li
+		background-color: $purple
+		text-align: center
+		font-size: 1.25em
+		font-family: $FU_B
+		text-transform: uppercase
+		padding: 1em 2em
+		border-top: 2px solid $gray
+		a
+			color: $white
+	li:nth-last-of-type(1), li:nth-last-of-type(2)
+		float: left
+		width: 50%
+	li:nth-last-of-type(1)
+		border-left: 2px solid $gray
+
+	
+
+
+.heading
+	@extend wrap
+	padding: 2em 0
+	font-family: $FU_B
+	color: $purple
+	> div
+		@include span(15)
+	h1
+		font-size: $t32
+	p
+		font-family: $meta
+		font-size: $t20
+		margin-top: .5em
+		color: $light_purple
+	@media (min-width: $mid_s)
+		padding: 4em 0
+		h1
+			font-size: $t44
+		p
+			font-size: $t26
+
+
+
+
+.masonry 
+	@extend wrap
+	> li
+		@include span(15)
+		margin-bottom: 1em
+	> li.w2 h1 
+		font-size: $t32
+	@media (min-width: $lil_s)
+		> li
+			width: 50%
+		> li.w2
+			width: 100%
+	@media (min-width: $mid_s)
+		> li
+			width: 33.3333%
+		> li.w2
+			width: 66.6666%
+	@media (min-width: $big_s)
+		> li
+			width: 25%
+		> li.w2
+			width: 50%
+
+#collection-post .masonry
+	> li
+		width: 50%
+	> li.w2
+		width: 100%
+	@media (min-width: $lil_s)
+		> li
+			width: 33.3333%
+		> li.w2
+			width: 66.6666%
+	@media (min-width: $mid_s)
+		> li
+			width: 25%
+		> li.w2
+			width: 50%
+	@media (min-width: $big_s)
+		> li
+			width: 20%
+		> li.w2
+			width: 40%
+
+
+
+
+
+.cards
+	word-break: break-word
+	a
+		position: relative
+		display: block
+	img
+		width: 100%
+		display: block
+	.feature-img .tag
+		position: absolute
+	.description
+		background-color: $white
+		padding: 1.25em
+		font-family: $FU_B
+		.tag
+			margin: 0 0 1em
+	.description.pieza p
+		margin: 1em 0 .75em
+	h1
+		font-size: $t26
+		color: $black
+	p
+		color: adjust-lightness($gray, -20%)
+		margin-top: 1em
+	.date
+		font-size: $t12
+		text-transform: uppercase
+		color: $light_purple
+		margin-bottom: 1em
+
+
+
+
+.featured_img
+	@extend wrap
+	padding-bottom: 4em
+	img
+		width: 100%
+		display: block
+
+body.page .featured_img
+	max-width: 100%
+	padding-bottom: 0
+
+
+
+
+.more_news
+	background-color: #dcd8e3 // adjust-lightness($purple, 64%)
+	padding-top: 2em
+	padding-bottom: 6em
+	margin-bottom: -2.5em
+	h2
+		@include span(15)
+		font-family: $FU_B
+		color: $purple
+		padding-bottom: 2em
+		text-transform: uppercase
+	li
+		@include span(6 of 12)
+		position: relative
+		&:nth-child(3), &:nth-child(4)
+			display: none
+		@media (min-width: $mid_s)
+			width: 33.3333%
+			&:nth-child(3)
+				display: block
+		@media (min-width: $big_s)
+			width: 25%
+			&:nth-child(4)
+				display: block
+	@media (max-width: $mini_s)
+		li
+			width: 100%
+			img
+				display: none
+			.description
+				padding-top: 4.5em
+			.tag
+				margin: 1.75em
+		li:nth-child(1)
+			margin-bottom: 1em
+	.feature-img
+		// height: 180px
+		background-size: cover
+		background-position: center
+
+
+// article
+.single, .page
+	.heading
+		text-align: center
+	.contain
+		@extend .ptb
+		background-color: $gray
+		h2:nth-child(1)
+			margin-top: 0
+		.back, .options
+			@include span(4)
+			li
+				margin-bottom: 1em
+			a
+				font-family: $FU_B
+				color: $orange
+				cursor: pointer
+			a.current
+				color: adjust-lightness($black, 40%)
+		.content
+			font-family: $meta
+			@media (min-width: $lil_s)
+				@include span(10)
+				// @include span(11)
+		p
+			font-size: $t20
+			margin-bottom: .5em
+		.date, h2
+			font-family: $FU_B
+			color: $purple
+			margin: .65em 0 1em
+			@media (max-width: $lil_s)
+				font-size: $t16
+		div.half
+			overflow: auto
+			img
+				width: 49%
+				float: left
+			img:nth-child(2n)
+				margin-left: 2%
+		form 
+			overflow: auto
+			img
+				margin: 0
+			> div
+				margin: 1em 0
+				width: 49%
+				float: left
+				overflow: auto
+			> div:nth-child(2n+1)
+				margin-left: 2%
+			> div.textarea
+				width: 100%
+		label
+			font-family: $FU_B
+			font-size: $t12
+			color: $purple
+			margin-bottom: .5em
+			display: inline-block
+		input, select, textarea
+			font-family: $meta
+			font-size: $t16
+			width: 100%
+			background-color: white
+			background-position: 97%
+			display: block
+			color: $black
+			+border-radius(.2em)
+		input[type="submit"]
+			font-size: $t16
+			font-family: $FU_B
+			background-color: $purple
+			color: $white
+			display: inline-block
+			width: inherit
+			float: right
+
+
+// .single, (.single.info)
+article
+	h2
+		font-size: $t20
+		margin: 1em 0
+		clear: both
+	.content img
+		max-width: 100%
+		height: auto
+		margin: 4em 0
+	img.half
+		width: 49%
+		float: left
+	img.half:nth-child(2n), a:nth-child(2n) img.half 
+		margin-left: 2%
+	@media (max-width: $lil_s)
+		.contain .back
+			width: 100%
+			border-bottom: 2px solid $white
+			margin-bottom: 2em
+			text-align: center
+			padding-bottom: 1em
+			li
+				display: inline-block
+				margin-right: 2em
+
+
+.single.news .back
+	display: none
+	@media (min-width: $lil_s)
+		display: block
+
+.single article 
+	.date, h2
+		font-size: $t12
+
+
+
+ul.dropdown
+	background: url('../img/pu-arr-b.svg') no-repeat $gray
+	background-position: 95% .75em
+	width: 100%
+	+border-radius(.3em)
+	overflow: hidden
+	margin: 1em 0
+	position: absolute
+	z-index: 1
+	h1
+		font-size: $t26
+		padding: .75em
+	li 
+		> ul 
+			display: none
+			li a
+				padding: 1.25em
+				display: block
+				&:hover
+					background: $light_purple
+					color: $white
+		&:hover > ul
+			display: block
+	@media (min-width: $lil_s)
+		background-position: 95% 1.75em
+		width: 75%
+		h1
+			font-size: $t32
+	@media (min-width: $mid_s)
+		width: 50%
+
+
+

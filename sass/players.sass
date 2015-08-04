@@ -1,0 +1,242 @@
+/*  Bottom Player  */
+
+#audio-player .mejs-container 
+	position: fixed
+	bottom: 0
+	color: white
+	height: inherit !important
+	z-index: 10
+	font-size: 16px
+	@include transition-property(bottom)
+	@include transition-duration(.5s)
+	@include transition-timing-function(ease)
+	*:focus
+		outline: none
+		border: none
+
+#audio-player .mejs-container.show-playlist
+	bottom: 6em
+	@media (min-width: $lil_s)
+		bottom: 8.5em
+
+.mejs-controls
+	background: adjust-lightness($black, 10%)
+	width: 100%
+	overflow: auto
+	font-family: $FU_B
+	visibility: visible !important
+	opacity: 1 !important
+	div 
+		display: block
+		float: left
+		width: 2.5em
+		height: 2.5em
+		text-align: center
+	.mejs-button button
+		cursor: pointer
+		display: inline-block
+		border-radius: 0
+		padding: 1.25em 1em 1em
+		height: 100%
+		background: url('../img/play.svg') no-repeat center
+	.mejs-button.mejs-pause button
+		background-image: url('../img/pause.svg')
+	.mejs-button.mejs-playlist-button button
+		width: 100%
+		text-align: left
+		background-color: adjust-lightness($black, -5%)
+		background-image: none
+		height: 100%
+	.mejs-button.mejs-playlist-button button:after
+		@extend .animate
+		background: url('../img/arr-b.svg') no-repeat center 45%
+		content: ''
+		display: inline-block
+		width: 2em
+		height: 1em
+		float: right
+		+rotate(180deg)
+	.mejs-playlist-button.mejs-hide-playlist button:after
+		+rotate(0deg)
+	div.mejs-time-rail
+		direction: ltr
+		+absolute($top: -.5em)
+		width: 100% !important
+		height: .5em
+		.mejs-time-total 
+			width: 100% !important
+			background: $gray
+		.mejs-time-buffering
+			width: 100%
+		span, a
+			display: block
+			position: absolute
+			width: 5em
+			height: .5em
+			cursor: pointer
+		.mejs-time-loaded
+			background: $light_purple
+		.mejs-time-current 
+			background: $purple
+		.mejs-time-handle
+			display: none
+			+absolute($top: -.2em)
+			+border-radius(50%)
+			margin: 0
+			width: .75em
+			height: .75em !important
+			background: $white
+			cursor: pointer
+		.mejs-time-float
+			+absolute($top: -2em)
+			+border-radius(.35em)
+			display: none
+			background: $light_purple
+			width: 5em
+			height: 1.5em
+			text-align: center
+			color: $white
+			font-size: .75em
+			padding-top: .15em
+	.mejs-currenttime-container
+		display: none
+	div.mejs-playlist-button
+		+absolute($right: 0)
+		width: 5.5em
+		z-index: 1
+	div.mejs-prevtrack
+		+absolute($right: 8em)
+		button
+			background-image: url('../img/arr-l.svg')
+	div.mejs-nexttrack
+		+absolute($right: 5.5em)
+		button
+			background-image: url('../img/arr-r.svg')
+	div.mejs-time 
+		padding-top: .75em
+		width: 80%
+		text-align: left
+		list-style: none
+		li
+			display: inline
+			margin: 0 1em
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+		span
+			opacity: .6
+			font-size: $t12
+	@media (max-width: $mini_s)
+		.mejs-button.mejs-playlist-button span
+			display: none
+		div.mejs-playlist-button
+			width: 2.75em
+	.mejs-nexttrack, .mejs-prevtrack
+		display: none
+		@media (min-width: $lil_s)
+			display: block
+
+
+#audio-player .mejs-playlist
+	+absolute($left: 0)
+	height: 8.5em !important
+	background: adjust-lightness($black, -5%)
+	margin-top: 2.55em
+	overflow-y: hidden
+	display: block !important
+	font-family: $FU_B
+	ul
+		margin: 0
+		padding: 5px
+		li
+			color: white
+			font-size: $t12
+			height: 5em
+			vertical-align: top
+			margin: .5em
+			padding: .75em 1em
+			cursor: pointer
+			width: 19em
+			display: inline-block
+			background-color: adjust-lightness($black, 10%)
+			position: relative
+			@media (min-width: $lil_s)
+				height: 8em
+		li.current
+			background-color: $purple
+			&:after 
+				content: 'NOW PLAYING'
+				display: block
+				+absolute($bottom: 1em)
+				color: $yellow
+				font-size: .75em
+
+
+.mejs-mediaelement
+	display: none
+
+
+#audio-player .mejs-offscreen
+	opacity: 0
+	position: relative
+	display: block
+	height: 10em
+
+
+#audio-player .mejs-offscreen.hide-playlist
+	height: 2.5em
+
+
+
+
+/*  Video  */
+
+.video 
+	.mejs-offscreen
+		display: none
+	.mejs-container
+		position: relative
+		width: 100% !important
+		height: auto !important
+		*:focus
+			outline: none
+			border: none
+	.mejs-mediaelement
+		display: block
+	.mejs-poster, .mejs-overlay
+		+absolute($top: 0, $left: 0)
+		width: 100% !important
+	.mejs-overlay-play
+		cursor: pointer
+	video
+		width: 100%
+		height: auto
+	.mejs-controls
+		background-color: $purple
+		position: relative
+		.mejs-currenttime-container
+			display: block
+			padding-top: .6em
+			float: right
+			width: 10%
+		.mejs-duration-container
+			display: none
+		div.mejs-time-rail
+			top: 1em
+			left: 3.5em
+			width: 75% !important
+			.mejs-time-total
+				background: $dark_purple
+				+border-radius(3em)
+			.mejs-time-loaded
+				background: $light_purple
+				+border-radius(3em)
+			.mejs-time-current
+				background: $white
+				+border-radius(3em)
+			.mejs-time-handle
+				display: block
+			.mejs-time-float
+				display: none !important
+			span, a
+				height: .35em

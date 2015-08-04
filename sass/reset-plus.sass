@@ -1,0 +1,57 @@
+* 
+	+box-sizing(border-box)
+
+wrap, .wrap
+	@include container(90%)
+	display: block
+	font-size: inherit
+	line-height: inherit
+	position: relative
+	@media (min-width: $big_s)
+		@include container(80%)
+
+
+a
+	text-decoration: none
+	color: $purple
+
+.animate
+	+transition(all, .5s, ease)
+
+
+
+// Forms
+
+select, input[type="text"], input[type="email"], textarea, a.button, button, input[type="submit"]
+	+appearance(none)
+	+border-radius(.4em)
+	font-family: $FU_B
+	color: $white
+	border: none
+	padding: .65em 1em .6em
+	background-color: rgba($white, .2)
+
+select
+	background-image: url('../img/arr-b.svg')
+	background-repeat: no-repeat
+	background-position: 95%
+	padding-right: 2em
+	// width: 6.5em
+
+a.button, button, input[type="submit"]
+	text-align: center
+	background-color: rgba($dark_purple, .8)
+	text-transform: uppercase
+
+
+
+
+//  Baselines 
+
+body
+	font-size: 14px
+	@media (min-width: $lil_s)
+		font-size: 16px
+	@media (min-width: $mid_s)
+		font-size: 18px
+

@@ -1,0 +1,220 @@
+.plan
+	font-family: $FU_B
+	.commute, .events
+		position: relative
+		wrap
+			max-width: 100% 
+			> div
+				padding-bottom: 1.5em
+				padding-top: 1.5em
+			@media (min-width: $lil_s)
+				max-width: 90%
+	.line
+		@include span(2)
+		text-align: center
+		position: absolute
+		height: 100%
+		> div:nth-child(1)
+			width: 2.25em
+			height: 2.25em
+			border: 2px solid rgba($white, .5)
+			background-color: $yellow
+			+border-radius(50%)
+			display: inline-block
+			position: relative
+			z-index: 1
+			img
+				height: 75%
+				margin-top: 10%
+				@media (max-width: $mini_s)
+					height: 70%
+					margin-top: 15%
+		> div:nth-child(2)
+			width: 3px
+			background-color: $yellow
+			height: 100%
+			+absolute($left: 48%, $top: 0)
+		@media (min-width: $lil_s)
+			> div:nth-child(1)
+				width: 3em
+				height: 3em
+				border: .5em solid rgba($white, .5)
+		@media (min-width: $mid_s)
+			@include span(1)
+	.title
+		@include span(isolate 11 at 3)
+		h2
+			font-size: $t20
+		@media (min-width: $lil_s)
+			@include span(isolate 12 at 3)
+			h2
+				font-size: $t26
+		@media (min-width: $mid_s)
+			@include span(isolate 13 at 2)
+
+	.icon
+		@include span(2 rtl)
+		color: adjust-lightness($black, 20%)
+		opacity: .6
+		text-align: center
+		font-size: $t12
+		padding-top: 2em !important
+		@media (max-width: $mini_s)
+			width: 23%
+			img
+				width: 30%
+
+
+
+	.commute
+		.title
+			p
+				color: $yellow
+
+
+
+
+	.events
+		background-color: $gray
+		.line
+			> div
+				background-color: $purple !important
+		.title
+			p
+				color: $light_purple
+			h2
+				color: $purple
+
+
+
+
+	.slider
+		padding: 3em 0 2em
+		margin-left: 0
+		.image
+			@include span(4 of 12)
+			@extend .bg_img
+			min-height: 18em
+			margin: 0
+		.caption
+			@include span(8 of 12 rtl)
+			background-color: $white
+			margin-left: 0
+			position: relative
+			padding: 1em
+			height: 18em
+			h1
+				font-size: $t26
+				color: $black
+				text-transform: none
+			ul
+				font-size: $t16
+				color: adjust-lightness($black, 30%)
+				+absolute($bottom: 1em)
+		a.rslides_nav 
+			border: 3px solid
+			+border-radius(50%)
+			width: 2.5em
+			height: 2.5em
+			left: inherit
+			right: -4em
+			bottom: 6em
+			background: url('../img/pu-arr-l.svg') no-repeat center $gray
+		a.rslides_nav.next 
+			bottom: 2em
+			margin-left: 0
+			left: inherit
+			background-image: url('../img/pu-arr-r.svg')
+			@media(min-width: $big_s)
+				width: 3em
+				height: 3em
+
+		@media (max-width: $mini_s)
+			.image
+				display: none
+				min-height: 12em
+			.caption
+				width: 100%
+				height: 12em
+			a.rslides_nav
+				right: -2.9em
+
+		@media (min-width: $mid_s)
+			margin-left: auto 
+			.image
+				@include span(7 of 12)
+			.caption
+				@include span(5 of 12 rtl)
+				padding: 1em
+			a.rslides_nav 
+				right: inherit
+				left: 1em
+				bottom: 9.5em
+				margin-left: -4.5em
+			a.rslides_nav.next 
+				right: -3.5em
+				bottom: 9.5em
+
+	.small .slider
+		.image
+			min-height: 12em
+		.caption
+			height: 12em
+		@media (min-width: $mid_s)
+			a.rslides_nav
+				bottom: 6.5em
+
+
+
+
+	.commute.first
+		.title
+			@include span(isolate 7 at 3)
+		.buttons
+			height: 100%
+			+absolute($right: 0)
+			@include span(6 rtl)
+			a
+				background-color: $yellow
+				height: 100%
+				width: 50%
+				+absolute($top: 0, $right: 0)
+				text-align: center
+				color: $white
+				font-size: $t12
+				padding-top: 1.25em
+				img
+					margin-bottom: .5em
+					opacity: .7
+				&:nth-child(1)
+					border-right: 3px solid rgba($black, .2)
+					left: 0
+					right: inherit
+				span
+					display: none
+					@media (min-width: $lil_s)
+						display: inline
+		@media (max-width: $mini_s)
+			.buttons
+				max-width: 36%
+				a img
+					height: 2.5em
+					margin-top: 1em
+
+		@media (min-width: $lil_s)
+			.title
+				@include span(isolate 9 at 3)
+			.buttons
+				@include span(5 rtl)
+				a
+					padding-top: 2em
+
+		@media (min-width: $mid_s)
+			.title
+				@include span(isolate 9 at 2)
+			.buttons
+				@include span(4 rtl)
+
+
+
+

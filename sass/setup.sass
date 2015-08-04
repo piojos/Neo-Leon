@@ -1,0 +1,52 @@
+//
+//  Setup Variables & atoms
+//
+
+
+//  Breaks
+
+$joker_s: 1700px
+$big_s: 1400px
+$mid_s: 1024px
+$lil_s: 600px
+$mini_s: 460px
+
+
+
+//  Color  
+
+$gray: #eeeeee
+$black: #262626
+$purple: #52318e
+$light_purple: adjust-lightness($purple, 40%)
+$dark_purple: adjust-lightness($purple, -15%)
+$yellow: #f1a604
+$footer: #1f1f1f
+$white: #fff
+$orange: #f8511d
+
+
+
+
+//  Susy
+
+$susy: ( columns: 15, gutters: 1/4, math: fluid, output: float, gutter-position: inside )
+
+
+
+
+//  Offset Mixins
+
+=absolute($top: null, $right: null, $bottom: null, $left: null)
+	position: absolute
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left
+
+=relative($top: null, $right: null, $bottom: null, $left: null)
+	position: relative
+	top: $top
+	right: $right
+	bottom: $bottom
+	left: $left

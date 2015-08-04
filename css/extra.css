@@ -1,0 +1,356 @@
+* {-moz-osx-font-smoothing: grayscale;}
+*:focus {outline: none;}
+
+.post-type-archive-eventos .caption h2 span {display: none;}
+.heading.list {
+    padding-bottom: 12em;
+    text-align: left;
+}
+
+
+.no-description.ul .caption {
+    width: 15% !important;
+}
+
+.no-description.ul .caption .bottom {
+    width: 94% !important;
+}
+
+.video .no-description.ul .mejs-controls {
+    width: 85%;
+}
+
+.video .mejs-controls .mejs-currenttime-container {
+    text-align: right;
+    padding-right: 1em;
+}
+
+.rooms article .video > div .bottom {
+    padding: 1.15em 1em 0;
+    text-align: left;
+}
+
+.yt.no-description .caption {
+    width: 100% !important;
+}
+
+.yt.no-description .caption .bottom {
+    margin-left: .6%;
+    width: 98.6666%;
+}
+
+.rooms article .video > div li.slide.no-description.yt .video-container {
+    bottom: 52px;
+}
+
+.video .mejs-poster {
+    background-image: none !important;
+}
+
+img.exposition-logo {
+    margin-bottom: 1em;
+}
+
+.single-eventos .heading p span {
+  display: none;
+}
+
+@media (max-width: 800px) {
+    .rooms article .video > div .no-description .video-container {
+        width: 88%;
+    }
+    .video .no-description.ul .mejs-controls {
+        width: 100%;
+    }
+    .rooms article .video > div li.slide.no-description.yt .video-container {
+    	bottom: 0;
+    }
+}
+
+@media (min-width: 1100px) {
+	.no-description.ul .caption {
+	    width: 15% !important;
+	}
+
+	.video .no-description.ul .mejs-controls {
+	    width: 85%;
+	}
+	.video .mejs-controls div.mejs-time-rail {
+	    width: 77% !important;
+	}
+}
+
+@media (min-width: 1600px) {
+	.video .mejs-controls div.mejs-time-rail {
+	    width: 80% !important;
+	}
+    header nav li {
+        font-size: 1em;
+        padding-left:1.5em;
+    }
+}
+
+
+
+
+
+
+
+
+.pagination {
+    text-align: center;
+    margin-top: 2em;
+}
+
+.pagination a {
+    display: inline-block !important;
+    font-family: FU_B;
+    background-color: lightgray;
+    color: white;
+    width: 2em;
+    height: 2em;
+    margin: 0 .25em;
+    padding-top: .45em;
+}
+
+.pagination a.current {
+    background-color: #52318e; /* purple */
+    cursor: default;
+}
+
+.pagination a:hover {
+    background-color: gray;
+}
+
+
+
+
+
+
+
+input[type="text"] {
+  font-size: 1.25em;
+  width: 11.25em;
+}
+div#ui-datepicker-div {
+    background-color: white;
+    font-family: FU_B;
+    min-width:14em;
+    -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;
+    border-radius: 0.4em;
+}
+
+.ui-datepicker-header {
+    background-color: #21172d;
+    color: #be8ef2;
+    font-size: 16px;
+    text-align: center;
+}
+
+.ui-datepicker thead,
+.ui-datepicker tbody {
+    font-size: 12px;
+}
+.ui-datepicker-calendar th,
+.ui-datepicker-calendar td a {
+    text-align:center;
+    padding: .5em;
+}
+
+.ui-datepicker-calendar tbody tr {
+    border-top: 1px solid #e1e1e1;
+}
+.ui-datepicker-calendar tbody tr:nth-child(1) {
+    border-top: none;
+}
+
+.ui-datepicker-calendar tbody td {
+    border-left: 1px solid #e1e1e1;
+}
+.ui-datepicker-calendar tbody td a {
+    color: gray;
+    display:block
+}
+.ui-datepicker-calendar tbody td a:hover,
+td.ui-datepicker-current-day a {
+    background-color: #52318e; /* purple */
+    color: white !important;
+}
+td.ui-datepicker-today a {
+    color: #52318e !important; /* purple */ 
+}
+
+.ui-datepicker-calendar tbody td:nth-child(1) {
+    border-left: none;
+}
+
+table.ui-datepicker-calendar {
+    width: 100%;
+}
+
+
+
+
+/*.ui-accordion .ui-accordion-content {
+    padding-bottom: 0px;
+}*/
+
+
+ul.rooms > li.open {
+    height: inherit;
+}
+ul.rooms > li {
+    height: 6.5em;
+    overflow: hidden;
+} 
+.rooms article .quote blockquote {
+  padding: 0 4em;
+}
+
+
+.feature-img, .featured_img {position: relative;}
+.feature-img .warn, .featured_img .warn {
+    background-color: #F2CD27;
+    position: absolute;
+    display: block;
+    width: 100%;
+    color: #FFF;
+    padding: .5em 1.25em;
+    bottom: 0;
+}
+.warn.red { background-color: #EA1344; }
+.warn.aqua { background-color: #00BD5D; }
+
+
+
+
+
+#events-post .masonry.permanents > li { width: 33.3333%; }
+#events-post h2 {
+	font-family: FU_B;
+	padding: 0 .25em 1.6em;
+	font-size: 1.75em;
+	color: #52318e; /* purple */
+}
+.page-id-345 #events-post:nth-child(2n+1){
+	padding-top: 0;
+}
+
+
+
+
+
+p.iso {
+	width: 8em;
+	text-align: left;
+	display: inline-block;
+	bottom: 1em;
+	position: relative;
+}
+
+
+
+
+
+
+
+ul.dropdown li:hover > ul li > ul li a {
+    padding-left: 3em;
+}
+
+ul.dropdown li > ul.sub {
+    display: block;
+}
+
+
+
+
+
+div.wpcf7-response-output {
+    top: -3.4em;
+    position: relative;
+    padding: .5em 1em .75em !important;
+}
+
+div.wpcf7-mail-sent-ok {
+    background-color: #398f14;
+}
+
+div.wpcf7-mail-sent-ng {
+    background-color: #ff0000;
+}
+
+div.wpcf7-spam-blocked {
+    background-color: #ffa500;
+}
+
+div.wpcf7-validation-errors {
+    background-color: #f7e700;
+}
+
+.page .contain input,
+.page .contain label.acceptance {
+    display: inline-block;
+    width: inherit;
+}
+label.acceptance a {
+    color: #666666;
+}
+
+
+
+
+.content h1, .content h3 {
+    font-family: FU_B, helvetica, arial, sans-serif;
+    color: #52318e;
+    margin: 0.65em 0 1em;
+}
+.content h1 {font-size: 1.5em;} 
+.content h3 {color: #333; }
+.content h1:nth-child(1),
+.content h2:nth-child(1),
+.content h3:nth-child(1),
+.content p:nth-child(1) {
+    margin-top:0;
+}
+
+.content em { font-style: italic; }
+
+.content strong {
+    font-weight: bold;
+    color: #000;
+}
+
+.content ul, .content ol {
+    list-style: initial;
+    padding-left: 3em;
+}
+.content ol { list-style-type: decimal; }
+
+.content hr {
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    margin: 3em 0;
+}
+
+
+
+
+section#video-posts {
+    padding: 4em 0 6em;
+    background-color: #eee;
+}
+.video-container { text-align: center; }
+.single-videos .contain { background-color: #2C2931; }
+
+
+
+
+
+@media (min-width: 600px) {
+    .single-eventos .contain .details p.contact-info {
+        font-size: .75em !important;
+        line-height: 1.5em;
+    }
+}
