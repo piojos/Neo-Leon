@@ -14,12 +14,10 @@
 
 .mask
 	background-color: $purple
-	position: absolute
+	+absolute($top: 0, $left: 0)
 	width: 100%
 	height: 100%
 	display: block
-	top: 0
-	left: 0
 	opacity: .8
 
 .bg_img
@@ -43,7 +41,7 @@
 	span
 		display: none
 
-ul.tags 
+ul.tags
 	width: 90%
 	li
 		@extend .tag
@@ -61,9 +59,7 @@ ul.tags
 		max-width: 90%
 	.caption
 		@include span(9)
-		top: initial
-		bottom: 0
-		position: absolute
+		+absolute($top: initial, $bottom: 0)
 		z-index: 6
 		padding: 2em 1.5em 6em
 		background-color: rgba($purple, .9)
@@ -83,8 +79,7 @@ ul.tags
 			margin-top: 1.5em
 			display: none
 		.bottom
-			position: absolute
-			bottom: 0
+			+absolute($bottom: 0)
 			height: 4em
 			margin-left: -1.5em
 			width: 100%
@@ -110,9 +105,7 @@ ul.tags
 		font-size: $t16
 		width: 86%
 	a.rslides_nav
-		position: absolute
-		bottom: 1.2em
-		left: 1em
+		+absolute($bottom: 1.2em, $left: 1em)
 		z-index: 10
 		text-indent: -9999px
 		overflow: hidden
@@ -121,7 +114,7 @@ ul.tags
 		width: .75em
 		height: 1.5em
 		margin-left: 48%
-	a.rslides_nav.next 
+	a.rslides_nav.next
 		background-image: url('../img/arr-r.svg')
 		margin-left: 52%
 	.image
@@ -140,12 +133,12 @@ ul.tags
 			padding: 2em 0 4em
 		a.rslides_nav
 			margin-left: 85%
-		a.rslides_nav.next 
+		a.rslides_nav.next
 			margin-left: 89%
 	@media (min-width: $lil_s)
 		a.rslides_nav
 			margin-left: 36%
-		a.rslides_nav.next 
+		a.rslides_nav.next
 			margin-left: 39%
 	@media (min-width: $big_s)
 		.caption
@@ -153,7 +146,7 @@ ul.tags
 			padding: 6em 1.5em 0
 		a.rslides_nav
 			margin-left: 31%
-		a.rslides_nav.next 
+		a.rslides_nav.next
 			margin-left: 33%
 
 
@@ -223,7 +216,7 @@ ul.tags
 		margin-bottom: 1.250em
 	.store
 		width: 70%
-		margin: 0 auto 6em 
+		margin: 0 auto 6em
 		position: relative
 		padding-top: .15em
 		> div
@@ -235,13 +228,11 @@ ul.tags
 		img.piece
 			max-height: 15em
 			+absolute($top:-1em, $right:0)
-	.store.amigo 
+	.store.amigo
 		z-index: 1
 		img.piece
-			right: inherit
-			top: 0
+			+relative($top: 0, $right: initial)
 			float: left
-			position: relative
 			@media (max-width: $mid_s)
 				margin-right: 1em
 			@media (min-width: $mid_s)
@@ -264,7 +255,7 @@ ul.tags
 		position: relative
 		margin: 0 auto
 		padding: .005em 0
-		> div	
+		> div
 			padding: 1em 1em 2em
 			border: solid 1px $gray
 			border-left: none
@@ -277,7 +268,7 @@ ul.tags
 				font-size: $t16
 				color: adjust-lightness($black, 40%)
 				margin-bottom: 1em
-			p 
+			p
 				width: inherit
 		img.decor
 			max-height: 16em
@@ -311,7 +302,7 @@ ul.tags
 
 
 
-.easy-access 
+.easy-access
 	overflow: auto
 	margin-bottom: 4em
 	li
@@ -330,7 +321,7 @@ ul.tags
 	li:nth-last-of-type(1)
 		border-left: 2px solid $gray
 
-	
+
 
 
 .heading
@@ -357,12 +348,12 @@ ul.tags
 
 
 
-.masonry 
+.masonry
 	@extend wrap
 	> li
 		@include span(15)
 		margin-bottom: 1em
-	> li.w2 h1 
+	> li.w2 h1
 		font-size: $t32
 	@media (min-width: $lil_s)
 		> li
@@ -533,7 +524,7 @@ body.page .featured_img
 				float: left
 			img:nth-child(2n)
 				margin-left: 2%
-		form 
+		form
 			overflow: auto
 			img
 				margin: 0
@@ -584,7 +575,7 @@ article
 	img.half
 		width: 49%
 		float: left
-	img.half:nth-child(2n), a:nth-child(2n) img.half 
+	img.half:nth-child(2n), a:nth-child(2n) img.half
 		margin-left: 2%
 	@media (max-width: $lil_s)
 		.contain .back
@@ -603,7 +594,7 @@ article
 	@media (min-width: $lil_s)
 		display: block
 
-.single article 
+.single article
 	.date, h2
 		font-size: $t12
 
@@ -621,8 +612,8 @@ ul.dropdown
 	h1
 		font-size: $t26
 		padding: .75em
-	li 
-		> ul 
+	li
+		> ul
 			display: none
 			li a
 				padding: 1.25em
@@ -639,6 +630,3 @@ ul.dropdown
 			font-size: $t32
 	@media (min-width: $mid_s)
 		width: 50%
-
-
-

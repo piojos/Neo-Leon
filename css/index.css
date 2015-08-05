@@ -778,7 +778,8 @@ header .search-box input[type="text"] {
   font-size: 1em;
   border-radius: 0;
   padding: 0.5em 0 0.25em;
-  background-color: inherit;
+  -webkit-box-shadow: 0 0 0px 1000px #52318e inset;
+  -webkit-text-fill-color: #fff;
   border-bottom: 1px solid #bdaae1;
 }
 header .search-box input[type="text"]:focus {
@@ -1228,11 +1229,11 @@ div.newsletter form input[type="submit"] {
 .mask {
   background-color: #52318e;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   display: block;
-  top: 0;
-  left: 0;
   opacity: 0.8;
 }
 
@@ -1288,9 +1289,9 @@ ul.tags {
   float: left;
   padding-left: 0.66667%;
   padding-right: 0.66667%;
+  position: absolute;
   top: initial;
   bottom: 0;
-  position: absolute;
   z-index: 6;
   padding: 2em 1.5em 6em;
   background-color: rgba(82, 49, 142, 0.9);
@@ -1546,10 +1547,10 @@ ul.tags {
   z-index: 1;
 }
 .store-rent .store.amigo img.piece {
-  right: inherit;
-  top: 0;
-  float: left;
   position: relative;
+  top: 0;
+  right: initial;
+  float: left;
 }
 @media (max-width: 1024px) {
   .store-rent .store.amigo img.piece {
@@ -3458,5 +3459,3 @@ ul.rooms li.open section.head {
   box-shadow: 0 0.5em 0.5em -0.5em #262626;
   position: relative;
 }
-
-/*# sourceMappingURL=index.css.map */
