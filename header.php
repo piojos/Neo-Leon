@@ -24,9 +24,11 @@
 	<script>
 	$(function() {
 		$( "form #date" ).datepicker({
-			dateFormat: "d M yy"
-		});
+				dateFormat: "d M yy",
+				altFormat : "yymmdd",
+				altField : 'form #dateFormat:hidden'
 
+			});
 
 		$(".slider .rslides").responsiveSlides({
 			auto: true,
@@ -45,7 +47,7 @@
 	</script>
 	<?php wp_head(); ?>
 </head>
-	
+
 <body <?php body_class($bClass); ?>>
 
 	<header>
@@ -65,8 +67,8 @@
 			</div>
 
 
-<?php 
-		if( have_rows('h_menu', 'option') ) : 
+<?php
+		if( have_rows('h_menu', 'option') ) :
 			echo '<nav><ul class="menu">';
 			while( have_rows('h_menu', 'option') ): the_row(); ?>
 
@@ -76,7 +78,7 @@
 					</a>
 				</li>
 
-<?php 		endwhile; 
+<?php 		endwhile;
 			echo '</ul></nav>';
 		endif;  ?>
 
