@@ -6,7 +6,8 @@
 		<div class="slider">
 			<ul class="rslides">
 	        <?php foreach( $images as $image ): ?>
-	            <li class="slide">
+	            <li class="slide <?php 
+					if($image['width'] < $image['height']){ echo 'vertical'; } ?>">
 					<div class="image" style="background: url('<?php echo $image['sizes']['largest']; ?>'); background-size: cover;"></div>
 					<div class="caption">
 						<h2><?php echo $image['caption']; ?></h2>

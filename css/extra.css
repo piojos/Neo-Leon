@@ -354,3 +354,11 @@ section#video-posts {
         line-height: 1.5em;
     }
 }
+
+
+/*  Exposición  */
+.slide.vertical .image {
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-color: #262626 !important;
+}
