@@ -46,9 +46,12 @@
 
 	</script>
 	<?php wp_head(); ?>
+	<?php echo get_template_part('inc/color', 'or');?>
 </head>
 
-<body <?php body_class($bClass); ?>>
+<body <?php 
+	global $bClass; 
+	body_class($bClass); ?> >
 
 	<header>
 		<wrap>

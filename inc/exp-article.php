@@ -1,6 +1,5 @@
 <?php 
     while ( have_rows('modules') ) : the_row();
-
     	if(get_row_layout() == 'intro') { ?>
 
 			<div class="description">
@@ -136,34 +135,45 @@
 			$img_large = wp_get_attachment_image_src($bgImg, 'large'); ?>
 
 				<div class="explanation image">
-					<wrap>
-					<?php	if(get_sub_field('order') == 'right') { ?>
-						<div>
-							<?php if(get_sub_field('title')) { echo '<h2>'.get_sub_field('title').'</h2>'; } ?>
+				
+					<wrap><?php	
+						if(get_sub_field('order') == 'right') { ?>
+						
 							<div>
-								<?php the_sub_field('description'); ?>
-							</div>
-						</div>
-						<div>
-							<img src="<?php echo $img_large[0]; ?>">
-						</div>
+								<?php if(get_sub_field('title')) { echo '<h2>'.get_sub_field('title').'</h2>'; } ?>
+								<div>
+									<?php the_sub_field('description'); ?>
+								</div>
+							</div><?php
 
+							if(is_singular('post')) { ?>
+								<div>
+									<img src="<?php echo $img_large[0]; ?>">
+								</div><?php 
+							}
 
-					<?php 	} else { ?>
-						<div>
-							<img src="<?php echo $img_large[0]; ?>">
-						</div>
-						<div>
-							<?php if(get_sub_field('title')) { echo '<h2>'.get_sub_field('title').'</h2>'; } ?>
+						} else { 
+
+							if(is_singular('post')) { ?>
+								<div>
+									<img src="<?php echo $img_large[0]; ?>">
+								</div><?php 
+							} ?>
 							<div>
-								<?php the_sub_field('description'); ?>
-							</div>
-						</div>
+								<?php if(get_sub_field('title')) { echo '<h2>'.get_sub_field('title').'</h2>'; } ?>
+								<div>
+									<?php the_sub_field('description'); ?>
+								</div>
+							</div><?php 	
 
+						}  ?>
+					</wrap><?php 
 
-					<?php 	}  ?>
+					if(is_page('cafe')) { ?>
+						<div class="outer_image" style="background-image:url(<?php echo $img_large[0]; ?>);">
+						</div><?php 
+					} ?>
 
-					</wrap>
 				</div>
 
 
@@ -184,7 +194,66 @@
 				</div>
 
 
-<?php  	}
+<?php  	} elseif(get_row_layout() == 'free_style') { ?>
+	
+				<div class="free-style">
+					<wrap>
+						<?php the_sub_field('content'); ?>
+					</wrap>
+				</div>
+
+<?php 	} elseif(get_row_layout() == 'menu') { ?>
+
+				<div class="menu">
+					<wrap style="background-image: url(<?php 
+						$bgImg = get_sub_field('bg-img'); 
+						$bgImgUrl = wp_get_attachment_image_src( $bgImg, 'larger' );
+						echo $bgImgUrl[0];
+						?>)">
+						<h1>Nuestro Menú</h1>
+						<ul class="tabs FU_B"><?php
+							$a = 1;
+							while ( have_rows('groups') ) : the_row();
+								echo '<li';
+								if($a == 1){
+									echo ' class="current"';
+								}
+								echo '><a href="#tab-'.$a++.'">'.get_sub_field('title').'</a></li>';
+							endwhile; ?>
+						</ul>
+
+						<ul class="content"><?php 
+							$b = 1;
+							while ( have_rows('groups') ) : the_row(); ?>
+								<li class="<?php 
+								if (get_sub_field('2_cols')) {
+									echo 'cols_2 ';
+								}
+								if($b == 1){
+									echo 'current';
+								} ?>" id="tab-<?php echo $b++; ?>" >
+									<?php the_sub_field('list'); ?>
+								</li><?php 
+							endwhile; ?>
+						</ul>
+
+					</wrap>
+				</div>
+
+				<script>
+					$(document).ready(function() {
+						$(".tabs a").click(function(event) {
+							event.preventDefault();
+							$(this).parent().addClass("current");
+							$(this).parent().siblings().removeClass("current");
+							var tab = $(this).attr("href");
+							$(".content li").not(tab).css("display", "none");
+							$(tab).fadeIn();
+						});
+					});
+				</script>
+
+<?php	}
 
     endwhile; ?>
 

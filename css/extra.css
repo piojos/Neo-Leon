@@ -345,9 +345,6 @@ section#video-posts {
 .single-videos .contain { background-color: #2C2931; }
 
 
-
-
-
 @media (min-width: 600px) {
     .single-eventos .contain .details p.contact-info {
         font-size: .75em !important;
@@ -357,8 +354,84 @@ section#video-posts {
 
 
 /*  Exposición  */
-.slide.vertical .image {
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-color: #262626 !important;
-}
+	.slide.vertical .image {
+	    background-size: contain !important;
+	    background-repeat: no-repeat !important;
+	    background-color: #262626 !important;
+	}
+
+
+
+
+
+/* Cafe */
+
+	.cafe .slider .caption h2 {
+	display: none;
+	}
+
+	@media (min-width: 600px) {
+		.cafe .slider .caption {
+			padding-top: 14em;
+		}
+		.cafe .slider .caption p {
+			margin-top:0;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.cafe .slider .caption {
+			padding-top: 18em;
+		}
+	}
+
+	.rooms article .menu {
+	background-color: #eee;
+	}
+	.rooms article .menu wrap {
+	background-size: contain;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	padding: 6em 0;
+	}
+	.rooms article .menu h1 {
+	font-size: 2em;
+	color: #c63513;
+	}
+	.rooms article .menu ul.tabs {
+	margin:1em 0 2em;
+	}
+	.rooms article .menu ul.tabs li {
+	display: inline;
+	margin-right: 2em;
+	}
+	.rooms article .menu ul.tabs li a {color: #999;}
+	.rooms article .menu ul.tabs li.current a {color: #c63513;}
+	.rooms article .menu ul.content li {
+	display:none;
+	font-size: .875em;
+	line-height:2em;
+	}
+	.rooms article .menu ul.content li.cols_2 {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+	-webkit-column-gap: 2em;
+	-moz-column-gap: 2em;
+	column-gap: 2em;
+	}
+	.rooms article .menu ul.content li.current { display:block; }
+
+	.cafe .rooms .explanation.image { position: relative; }
+	.cafe .rooms .explanation.image .outer_image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 50%;
+		background-size: cover;
+		background-position: center;
+	}
+
+	.rooms article .explanation.image wrap > div > div { width: 80%; }
+	.rooms article .explanation.image wrap > div > div p { margin-bottom: 1em; }

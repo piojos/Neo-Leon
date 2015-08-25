@@ -76,6 +76,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: META;
   src: url("../fonts/Meta_Serif_Book.otf");
 }
+@font-face {
+  font-family: META_IT;
+  src: url("../fonts/Meta_Serif_Book_Italic.otf");
+}
 body {
   -webkit-font-smoothing: antialiased;
   background-color: #fff;
@@ -98,6 +102,11 @@ body {
 
 .meta {
   font-family: META, Georgia, serif;
+}
+
+em {
+  font-family: META_IT, Georgia, serif;
+  font-style: italic;
 }
 
 /*  Size  */
