@@ -15,7 +15,8 @@
 						<?php the_sub_field('name'); ?>
 					</a>
 
-<?php 			if( have_rows('submenu') ): 
+<?php 			$opts = get_sub_field('opts');
+				if( in_array('Submenu', $opts) ): 
 					echo '<ul>';
 					while( have_rows('submenu') ): the_row(); ?>
 					<li>
