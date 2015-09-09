@@ -211,18 +211,23 @@ ul.rooms > li {
 
 .feature-img, .featured_img {position: relative;}
 .feature-img .warn, .featured_img .warn {
-    background-color: #F2CD27;
+    background-color: #efb005;
     position: absolute;
+    bottom: -1em;
     display: block;
-    width: 100%;
+    min-width: 75%;
     color: #FFF;
     padding: .5em 1.25em;
-    bottom: 0;
 }
 .warn.red { background-color: #EA1344; }
-.warn.aqua { background-color: #00BD5D; }
-
-
+.warn.orange { background-color: #fc621f; }
+.warn img {
+    display: inline;
+    width: initial;
+    vertical-align: top;
+    margin-right: .25em;
+}
+.cards .description.warned {padding-top: 2.25em;}
 
 
 
@@ -353,6 +358,8 @@ section#video-posts {
 }
 
 
+
+
 /*  Exposición  */
 	.slide.vertical .image {
 	    background-size: contain !important;
@@ -435,3 +442,11 @@ section#video-posts {
 
 	.rooms article .explanation.image wrap > div > div { width: 80%; }
 	.rooms article .explanation.image wrap > div > div p { margin-bottom: 1em; }
+
+
+
+
+.tag img {
+    vertical-align: sub;
+    margin-right: .5em;
+}

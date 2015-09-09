@@ -27,21 +27,27 @@
 					<div class="tag">
 						<?php echo get_template_part('funct/tag'); ?>
 					</div>
-					<img src="<?php if(get_field('wider')){ echo $img_large[0]; } else { echo $img_card[0]; } ?>" atl="3 museos">
-					<?php
-						if( in_array( 'cancel', get_field('options') ) ) {
-							echo '<div class="warn FU_B red">CANCELADO</div> ';
-						} elseif( in_array( 'update', get_field('options') ) ) {
-							echo '<div class="warn FU_B">ACTUALIZADO</div> ';
-						} elseif( in_array( 'live', get_field('options') ) ) {
-							echo '<div class="warn FU_B aqua">TRANSMISIÓN EN VIVO</div> ';
-						} ?>
+					<img src="<?php if(get_field('wider')){ echo $img_large[0]; } else { echo $img_card[0]; } ?>" atl="3 museos"><?php
+
+					if( in_array( 'update', get_field('options') ) AND in_array( 'live', get_field('options') ) ) {
+						echo '<div class="warn FU_B"><img src="'. get_bloginfo("template_url") .'/img/ev-change.svg"> <img src="'. get_bloginfo("template_url") .'/img/ev-live.svg"> Transmisión en vivo</div> ';
+						$status = "warned";
+					} elseif( in_array( 'cancel', get_field('options') ) ) {
+						echo '<div class="warn FU_B red"><img src="'. get_bloginfo("template_url") .'/img/ev-cancel.svg"> Cancelado</div> ';
+						$status = "warned";
+					} elseif( in_array( 'update', get_field('options') ) ) {
+						echo '<div class="warn FU_B"><img src="'. get_bloginfo("template_url") .'/img/ev-change.svg"> Actualizado</div> ';
+						$status = "warned";
+					} elseif( in_array( 'live', get_field('options') ) ) {
+						echo '<div class="warn FU_B orange"><img src="'. get_bloginfo("template_url") .'/img/ev-live.svg"> Transmisión en vivo</div> ';
+						$status = "warned";
+					} ?>
 
 				</div>
 			<?php } ?>
 
 
-		<div class="description">
+		<div class="description <?php echo $status; $status = ''; ?>">
 
 
 			<?php if(!$img_med) { 								// Si no tenía imagen ?> 
