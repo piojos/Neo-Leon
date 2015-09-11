@@ -10,9 +10,15 @@
 					if($image['width'] < $image['height']){ echo 'vertical'; } ?>">
 					<div class="image" style="background: url('<?php echo $image['sizes']['largest']; ?>'); background-size: cover;"></div>
 					<div class="caption">
-						<h2><?php echo $image['caption']; ?></h2>
+						<h2><?php 
+							if(is_single()){
+								echo $image['caption'];
+							} ?></h2>
 						<div class="bottom">
-							<div class="counter">
+							<div class="counter"><?php
+								if(is_single()){} else {
+									echo '<span class="cptn">'.$image['caption'].'</span>';
+								} ?>
 							    <span class="current"><?php echo ++$i; ?></span> / <span class="total"><?php echo $count; ?></span>
 							</div>
 						</div>

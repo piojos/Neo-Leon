@@ -472,7 +472,9 @@ section#video-posts {
 .pg-c .slider .caption .bottom {
     padding: .75em;
     height: 3em;
+    color: #bdaae1;
 }
+.pg-c .slider .caption .bottom .cptn {color: white;}
 .pg-c .slider a.rslides_nav {
     right: 2.5em;
     left: inherit;
@@ -484,15 +486,16 @@ section#video-posts {
     overflow: auto;
     margin: 4em 0;
 }
-.pg-c.img_txt > img,
+.pg-c.img_txt > figure,
 .pg-c.img_txt > div {
     vertical-align: top;
     width: 48%;
     float: left;
-    margin: 0;
 }
+.pg-c.img_txt img {margin: 0;}
+.pg-c.img_txt figcaption {font-size: .75em;}
 .pg-c.img_txt > div p {font-size:.975em;}
-.pg-c.img_txt.left > img,
+.pg-c.img_txt.left > figure,
 .pg-c.img_txt.right > div {margin-right:4%;}
-.pg-c.img_txt.right > img,
+.pg-c.img_txt.right > figure,
 .pg-c.img_txt.right > div {float:right;}
