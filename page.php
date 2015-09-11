@@ -34,7 +34,12 @@
 
 		if ($image) { echo '</div>'; } ?>
 
-		<div class="contain">
+		<div class="contain" <?php 
+			$lastColor = get_field('bg-color');
+			if($lastColor == "#FFF"){
+				echo 'style="background-color:#FFF"';
+			}
+		?> >
 			<wrap>
 				<div class="back">
 					<?php echo get_template_part('inc/sidelist'); ?>
@@ -44,16 +49,58 @@
 					<?php the_content(); ?>
 
 
-			<?php 	while ( have_rows('widgets') ) : the_row();
-			        if( get_row_layout() == 'gallery-block' ):
+			<?php 	while ( have_rows('page') ) : the_row();
+			        if( get_row_layout() == 'content' ): ?>
 
-			        	// the_sub_field('text');
-			        	echo 'gallery';
+						<div>
+							<?php the_sub_field('content'); ?>
+						</div><?php
 
-			        elseif( get_row_layout() == 'c_forms' ): ?>
+			        elseif( get_row_layout() == 'bg-color-select' ): 
 
-				<h2><?php the_sub_field('form_title'); ?></h2>
-				<?php the_sub_field('form_select'); ?><?php 		
+			        	$lastColor = get_sub_field('bg-color'); ?>
+				
+				</div>
+			</wrap>
+		</div>
+		<div class="contain" style="background-color:<?php echo $lastColor; ?>">
+			<wrap>
+				<div class="back">&nbsp;</div>
+				<div class="content"> <?php
+
+			        elseif( get_row_layout() == 'img_txt' ): ?>
+
+						<div class="pg-c img_txt <?php the_sub_field('order'); ?>"><?php 
+							$image = get_sub_field('img');
+							if( $image ) {
+								echo wp_get_attachment_image( $image, 'larger' );
+							} ?>
+							<div>
+								<?php the_sub_field('txt'); ?>
+							</div>
+						</div><?php
+
+			        elseif( get_row_layout() == 'slider' ): ?>
+
+						<div class="pg-c">
+			        		<?php echo get_template_part('inc/exp-slider'); ?>
+			        	</div><?php 
+
+			        elseif( get_row_layout() == 'forms' ): 
+			        	if($lastColor == "#FFF") : ?>
+
+				</div>
+			</wrap>
+		</div>
+		<div class="contain" style="background-color:#EEE">
+			<wrap>
+				<div class="back">&nbsp;</div>
+				<div class="content"> <?php 
+
+						endif; ?>
+
+						<h2><?php the_sub_field('form_title'); ?></h2>
+						<?php the_sub_field('forms'); ?><?php 		
 				
 					endif;
 			    endwhile; ?>

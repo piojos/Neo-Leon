@@ -294,14 +294,13 @@ div.wpcf7-validation-errors {
     background-color: #f7e700;
 }
 
-.page .contain input,
-.page .contain label.acceptance {
+.page .contain input{display: inline-block;}
+.page .contain .acceptance {
     display: inline-block;
     width: inherit;
 }
-label.acceptance a {
-    color: #666666;
-}
+    label.acceptance {margin-left: .5em;}
+    .acceptance a {color: #666666;}
 
 
 
@@ -450,3 +449,50 @@ section#video-posts {
     vertical-align: sub;
     margin-right: .5em;
 }
+
+
+/* Page: Rich Content */
+
+.pg-c .slider {
+    background-color: #262626;
+    margin: 4em 0;
+}
+.pg-c .slider .rslides {padding: 0;}
+.pg-c .slider .image {
+    min-height: 30em;
+    margin: 0;
+    position: relative;
+    top: -1.5em;
+}
+.pg-c .slider .caption {
+    background: none !important;
+    width: 100%;
+    margin: 0;
+}
+.pg-c .slider .caption .bottom {
+    padding: .75em;
+    height: 3em;
+}
+.pg-c .slider a.rslides_nav {
+    right: 2.5em;
+    left: inherit;
+    bottom: .75em;
+}
+.pg-c .slider a.rslides_nav.next {right: 1em;}
+
+.pg-c.img_txt {
+    overflow: auto;
+    margin: 4em 0;
+}
+.pg-c.img_txt > img,
+.pg-c.img_txt > div {
+    vertical-align: top;
+    width: 48%;
+    float: left;
+    margin: 0;
+}
+.pg-c.img_txt > div p {font-size:.975em;}
+.pg-c.img_txt.left > img,
+.pg-c.img_txt.right > div {margin-right:4%;}
+.pg-c.img_txt.right > img,
+.pg-c.img_txt.right > div {float:right;}
