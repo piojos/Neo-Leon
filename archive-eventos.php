@@ -2,24 +2,26 @@
 
 	// Eventos Archive Template
 
+
+
 	get_header();
 
-		echo get_template_part('inc/slider');
 
-		echo get_template_part('inc/search-box'); 
 
-		// FALTA: get dia-en-query ( $_GET['date'] ), sumarle y restarle para los botones de los lados
 
-		$date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
-		// $dayFormat = date('Ymd', strtotime($date));
-		// $day = date('d M Y', strtotime($date));		
-		$niceDay = date('l, F j Y.', strtotime($date));		
 
-		$prev_date = date('d+M+Y', strtotime($date .' -1 day'));
-		$next_date = date('d+M+Y', strtotime($date .' +1 day'));
+	echo get_template_part('inc/slider');
 
-		$prev_df = date('Ymd', strtotime($date .' -1 day'));
-		$next_df = date('Ymd', strtotime($date .' +1 day'));
+	echo get_template_part('inc/search-box'); 
+
+	$date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+	$niceDay = date_i18n('l, j', strtotime($date)).' de '.date_i18n('F Y.', strtotime($date));		
+
+	$prev_date = date('d+M+Y', strtotime($date .' -1 day'));
+	$next_date = date('d+M+Y', strtotime($date .' +1 day'));
+
+	$prev_df = date('Ymd', strtotime($date .' -1 day'));
+	$next_df = date('Ymd', strtotime($date .' +1 day'));
 
 
 		$prev_url = '?';
@@ -58,10 +60,6 @@
 			$next_url .= '&dateFormat='.$next_df;						
 		}
 
-		// echo $prev_url .'<br>';
-		// echo 'Today: '.$niceDay .'<br>';
-		// echo $next_url .'<br>';
-
 		?>
 
 		<section id="<?php
@@ -72,7 +70,7 @@
 
 		<div class="nav"><wrap>
 			<a href="<?php echo $prev_url ?>" class="button">&lt;</a>
-			<h2><?php echo $niceDay; // current_time('l, F j Y.'); ?></h2>
+			<h2><?php echo $niceDay; ?></h2>
 			<a href="<?php echo $next_url ?>" class="button r">&gt;</a>
 		</wrap></div>
 
