@@ -35,18 +35,20 @@
 echo '<ul class="masonry cards">';
 
 	foreach($posts as $post) {
-
 		if($_GET['museum'] == 1){
 			echo get_template_part('inc/cards');
 		} elseif($post->museum == $_GET['museum']){
 			echo get_template_part('inc/cards');
 		}
-
 	} 
 
 	if($posts){} else {
 		global $niceDay;
-		echo 'No habrán eventos el '.$niceDay;
+			echo 'No hay eventos programados';
+		if($_GET['museum'] == 1) {} else {
+			echo ' en el '.$_GET['museum'];
+		}
+		echo ' el '.$niceDay;
 	}
 
 echo '</ul>';
