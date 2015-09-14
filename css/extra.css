@@ -499,3 +499,30 @@ section#video-posts {
 .pg-c.img_txt.right > div {margin-right:4%;}
 .pg-c.img_txt.right > figure,
 .pg-c.img_txt.right > div {float:right;}
+
+
+.content select {background-image: url("../img/arr-b-c.svg");}
+.search_box .content select {background-image: url("../img/arr-b.svg");}
+
+
+
+#live-prev {
+    width: 8em;
+    height: 5.5em;
+    position: absolute;
+    top: -1.5em;
+    right: -4.5em;
+    background-size: cover;
+}
+#live-prev .tag {
+    font-size: .5em;
+    left: 0;
+    position: absolute;
+    background-color: #fc621f;
+}
+header .search-temp.live a.search-btn {
+    position: relative;
+    left: -3em;
+}
+
+.page .about-live p {font-size: .85em;}

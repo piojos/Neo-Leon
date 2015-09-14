@@ -41,15 +41,24 @@
 			}
 		?> >
 			<wrap>
-				<div class="back">
-					<?php echo get_template_part('inc/sidelist'); ?>
-				</div>
-				<div class="content">
-					
-					<?php the_content(); ?>
+				<?php 
+					if(is_page('en-vivo')){ 
+						echo '<div class="back about-live">'.get_field('description').'</div>';
+					} else {
+						echo '<div class="back">';
+						echo get_template_part('inc/sidelist').'</div>';
+					} ?>				
+				<div class="content"><?php 
+
+					if(is_page('en-vivo')){ 
+						the_field('embed');
+					} else {
+						the_content(); 
+					}
 
 
-			<?php 	while ( have_rows('page') ) : the_row();
+// WIDGETS
+				 	while ( have_rows('page') ) : the_row();
 			        if( get_row_layout() == 'content' ): ?>
 
 						<div>

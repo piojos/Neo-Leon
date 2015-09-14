@@ -32,11 +32,11 @@
 
 		if ($image) { 
 			if( in_array( 'cancel', get_field('options') ) ) {
-				echo '<div class="warn FU_B red">CANCELADO</div> ';
+				echo '<div class="warn FU_B red"><img src="'. get_bloginfo("template_url") .'/img/ev-cancel.svg"> CANCELADO</div> ';
 			} elseif( in_array( 'update', get_field('options') ) ) {
-				echo '<div class="warn FU_B">ACTUALIZADO</div> ';
+				echo '<div class="warn FU_B"><img src="'. get_bloginfo("template_url") .'/img/ev-change.svg"> ACTUALIZADO</div> ';
 			} elseif( in_array( 'live', get_field('options') ) ) {
-				echo '<div class="warn FU_B aqua">TRANSMISIÓN EN VIVO</div> ';
+				echo '<div class="warn FU_B orange"><img src="'. get_bloginfo("template_url") .'/img/ev-live.svg"> TRANSMISIÓN EN VIVO</div> ';
 			}
 			echo '</div>'; 
 		} ?>

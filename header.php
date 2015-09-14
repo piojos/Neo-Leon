@@ -46,6 +46,7 @@
 
 	</script>
 	<?php wp_head(); ?>
+	<?php echo get_template_part('inc/favicon'); ?>
 	<?php echo get_template_part('inc/color', 'or');?>
 </head>
 
@@ -79,19 +80,22 @@
 					<a href="<?php if( in_array( 'Enlace Externo', get_sub_field('opts')) ){ echo 'http://'.get_sub_field('out_link'); } else { the_sub_field('in_link'); } ?>">
 						<?php the_sub_field('name'); ?>
 					</a>
-				</li>
+				</li><?php 
 
-<?php 		endwhile;
+			endwhile;
 			echo '</ul></nav>';
 		endif;  ?>
 
 
-			<div class="search-temp">
-				<a href="#" class="search-btn"><img src="<?php bloginfo('template_url');?>/img/search.svg"></a>
-
-			<?php if(get_field('on_w', 'option')){ ?>
-				<div id="temp-hold"></div>
-			<?php } ?>
+			<div class="search-temp <?php if(get_field('on_ls', 'option')) {echo 'live'; } ?>">
+				<a href="#" class="search-btn"><img src="<?php bloginfo('template_url');?>/img/search.svg"></a><?php 
+				if(get_field('on_ls', 'option')) {
+					$image = get_field('ls_img', 'option');
+					$imgUrl = wp_get_attachment_image_src( $image, 'thumbnail' );
+					echo '<a href="'.esc_url( home_url( '/en-vivo' ) ).'" id="live-prev" style="background-image:url('.$imgUrl[0].'); "><div class="tag">EN VIVO</div></a>';
+				} elseif(get_field('on_w', 'option')) {
+					echo '<div id="temp-hold"></div>';
+				} ?>
 			</div>
 		</wrap><!-- wrap -->
 	</header>
