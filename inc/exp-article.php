@@ -17,7 +17,14 @@
 
 <?php  	} elseif(get_row_layout() == 'explain') { 
 			$bgImg = get_sub_field( 'bg-img' );
-			$img_large = wp_get_attachment_image_src($bgImg, 'large'); ?>
+			$img_large = wp_get_attachment_image_src($bgImg, 'large'); 
+			if(get_post_field('post_title', $bgImg)){
+				$bgCap = get_post_field('post_title', $bgImg);
+			} elseif(get_post_field('post_excerpt', $bgImg)) {
+				$bgCap = get_post_field('post_excerpt', $bgImg);
+			} elseif(get_post_field('post_content', $bgImg)) {
+				$bgCap = get_post_field('post_content', $bgImg); 
+			} ?>
 
 			<div class="explanation" style="<?php if($bgImg){
 					echo 'background-image: url('.$img_large[0].'); ';
@@ -30,6 +37,7 @@
 						<?php if(get_sub_field('title')) { echo '<h2>'.get_sub_field('title').'</h2>'; } ?>
 						<div>
 							<?php the_sub_field('description'); ?>
+							<p class="bg-caption"><?php if($bgCap){echo 'Imagen: '.$bgCap; } $bgCap = ''; ?></p>
 						</div>
 					</div>
 				</wrap>
@@ -132,7 +140,14 @@
 
 <?php  	} elseif(get_row_layout() == 'explain_image') { 
 			$bgImg = get_sub_field( 'image' );
-			$img_large = wp_get_attachment_image_src($bgImg, 'large'); ?>
+			$img_large = wp_get_attachment_image_src($bgImg, 'large'); 
+			if(get_post_field('post_title', $bgImg)){
+				$bgCap = get_post_field('post_title', $bgImg);
+			} elseif(get_post_field('post_excerpt', $bgImg)) {
+				$bgCap = get_post_field('post_excerpt', $bgImg);
+			} elseif(get_post_field('post_content', $bgImg)) {
+				$bgCap = get_post_field('post_content', $bgImg); 
+			} ?>
 
 				<div class="explanation image">
 				
@@ -149,6 +164,7 @@
 							if(is_singular('post')) { ?>
 								<div>
 									<img src="<?php echo $img_large[0]; ?>">
+									<p class="bg-caption"><?php if($bgCap){echo 'Imagen: '.$bgCap; } $bgCap = ''; ?></p>
 								</div><?php 
 							}
 
@@ -157,6 +173,7 @@
 							if(is_singular('post')) { ?>
 								<div>
 									<img src="<?php echo $img_large[0]; ?>">
+									<p class="bg-caption"><?php if($bgCap){echo 'Imagen: '.$bgCap; } $bgCap = ''; ?></p>
 								</div><?php 
 							} ?>
 							<div>
@@ -179,7 +196,14 @@
 
 <?php  	} elseif(get_row_layout() == 'quote_img') { 
 			$bgImg = get_sub_field( 'bg_img' );
-			$img_large = wp_get_attachment_image_src($bgImg, 'large'); ?>
+			$img_large = wp_get_attachment_image_src($bgImg, 'large'); 
+			if(get_post_field('post_title', $bgImg)){
+				$bgCap = get_post_field('post_title', $bgImg);
+			} elseif(get_post_field('post_excerpt', $bgImg)) {
+				$bgCap = get_post_field('post_excerpt', $bgImg);
+			} elseif(get_post_field('post_content', $bgImg)) {
+				$bgCap = get_post_field('post_content', $bgImg); 
+			} ?>
 
 				<div class="quote image">
 					<wrap>
@@ -189,6 +213,7 @@
 								<?php the_sub_field('quote'); ?>
 							</blockquote>
 							<h2><?php the_sub_field('author'); ?></h2>
+							<p class="bg-caption"><?php if($bgCap){echo 'Imagen: '.$bgCap; } $bgCap = ''; ?></p>
 						</div>
 					</wrap>
 				</div>
