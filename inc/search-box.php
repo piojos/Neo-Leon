@@ -19,7 +19,7 @@
 	<div class="mask"></div>
 	<div class="content">
 	<?php if(get_post_type() == 'eventos') : ?>
-		<h2>En 3 Museos hay una gran variedad de Eventos para tí</h2>
+		<h2>En 3 Museos hay muchos eventos para tí</h2>
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='eventos'));?>">
 			<label>Estas viendo <span class="on">me interesa</span></label>
@@ -44,8 +44,13 @@
 				<option value="Museo del Noreste"<?php if ('Museo del Noreste' == $_GET['museum']){ echo 'selected'; } ?>>Museo del Noreste</option>
 				<option value="Museo del Palacio"<?php if ('Museo del Palacio' == $_GET['museum']){ echo 'selected'; } ?>>Museo del Palacio</option>
 			</select><br>
-			<label><span>el día</span></label>
-			<input type="text" id="date" name="date" value="<?php echo $_GET['date'] ?>">
+			<label><span>el día </span></label>
+			<input type="text" id="date" name="date" value="<?php 
+				if(htmlentities($_GET['date']) == "") { 
+					echo date('d M Y');
+				} else {
+					echo $_GET['date'];
+				} ?>">
 			<input type="hidden" id="dateFormat" name="dateFormat" value="<?php echo $_GET['dateFormat'] ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
@@ -70,7 +75,12 @@
 				<option value="360">6 horas</option>
 			</select><br>
 			<label><span>el día</span></label>
-			<input type="text" id="date" name="date" value="<?php echo $_GET['date'] ?>">
+			<input type="text" id="date" name="date" value="<?php 
+				if(htmlentities($_GET['date']) == "") { 
+					echo date('d M Y');
+				} else {
+					echo $_GET['date'];
+				} ?>">
 			<input type="hidden" id="dateFormat" name="dateFormat"  value="<?php echo $_GET['dateFormat'] ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Planea mi Visita">
@@ -100,7 +110,12 @@
 				<option value="Museo del Palacio">Museo del Palacio</option>
 			</select><br>
 			<label><span>el día</span></label>
-			<input type="text" id="date" name="date" value="<?php echo $_GET['date'] ?>">
+			<input type="text" id="date" name="date" value="<?php 
+				if(htmlentities($_GET['date']) == "") { 
+					echo date('d M Y');
+				} else {
+					echo $_GET['date'];
+				} ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
 		</form>

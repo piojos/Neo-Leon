@@ -5,7 +5,9 @@
 	get_header(); ?>
 
 	<?php echo get_template_part('inc/search', 'box'); ?>
-	<div class="plan">
+
+
+<div class="plan">
 	<div class="commute first">
 		<wrap>
 			<div class="line">
@@ -33,7 +35,7 @@
 		</wrap>
 	</div>
 
-
-	<?php echo get_template_part('inc/mini', 'slider');?>
+	<?php echo get_template_part('inc/plan', 'engine');?>
 </div>
+
 <?php get_footer(); ?>

@@ -23,12 +23,11 @@
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script>
 	$(function() {
-		$( "form #date" ).datepicker({
-				dateFormat: "d M yy",
-				altFormat : "yymmdd",
-				altField : 'form #dateFormat:hidden'
-
-			});
+		// $( "form #date" ).datepicker({
+		// 		dateFormat: "d M yy",
+		// 		altFormat : "yymmdd",
+		// 		altField : 'form #dateFormat:hidden'
+		// 	});
 
 		$(".slider .rslides").responsiveSlides({
 			auto: true,
