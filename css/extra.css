@@ -525,6 +525,7 @@ header .search-temp.live a.search-btn {
     left: -3em;
 }
 
+header {overflow: hidden;}
 .page .about-live p {font-size: .85em;}
 
 p.bg-caption {font-size: .75em; color: #909090;}

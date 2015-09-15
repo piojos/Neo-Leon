@@ -46,7 +46,10 @@ if( $post_objects ): ?>
 					<h1><?php the_title(); ?></h1>
 					<h2><?php 
 						if(get_field('museum')){
-							the_field('museum'); 
+							if($post->post_type == 'eventos') {
+								echo get_field('museum').' · '; 
+								echo get_template_part('funct/eventdate');
+							}
 						} else {
 							the_field('description');
 						} ?></h2>
