@@ -178,7 +178,7 @@ td.ui-datepicker-current-day a {
     color: white !important;
 }
 td.ui-datepicker-today a {
-    color: #52318e !important; /* purple */ 
+    color: #52318e !important; /* purple */
 }
 
 .ui-datepicker-calendar tbody td:nth-child(1) {
@@ -203,7 +203,7 @@ ul.rooms > li.open {
 ul.rooms > li {
     height: 6.5em;
     overflow: hidden;
-} 
+}
 .rooms article .quote blockquote {
   padding: 0 4em;
 }
@@ -310,7 +310,7 @@ div.wpcf7-validation-errors {
     color: #52318e;
     margin: 0.65em 0 1em;
 }
-.content h1 {font-size: 1.5em;} 
+.content h1 {font-size: 1.5em;}
 .content h3 {color: #333; }
 .content h1:nth-child(1),
 .content h2:nth-child(1),
@@ -517,8 +517,11 @@ section#video-posts {
 #live-prev .tag {
     font-size: .5em;
     left: 0;
+    margin: 0;
     position: absolute;
     background-color: #fc621f;
+    border-radius: 0;
+    padding: .3em .5em;
 }
 header .search-temp.live a.search-btn {
     position: relative;
@@ -537,3 +540,19 @@ p.bg-caption {font-size: .75em; color: #909090;}
     top: 2em;
     left: 4em;
 }
+
+
+
+
+/* 404 */
+    body.error404 {
+        background-color: #EEE;
+    }
+    .error404 .heading {
+        text-align: center;
+        padding: 8em 0 14em;
+    }
+    .error404 h1 {
+        font-size: 5em;
+        margin-top: .5em;
+    }

@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 <div class="heading">
 	<wrap>
-		<h1>404</h1>
-		<p>No encontramos esa página</p>
+		<img src="<?php bloginfo('template_url'); ?>/img/mascots.png" alt="" />
+		<h1>404.Page Not Found</h1>
+		<p>La página que buscas no ha sido encontrada, revisa el URL o visita nuestro <a href="<?php echo esc_url( home_url('/') ); ?>">homepage</a>.</p>
 	</wrap>
 </div>
 <?php get_footer(); ?>
