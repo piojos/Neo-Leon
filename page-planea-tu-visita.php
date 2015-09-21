@@ -59,12 +59,19 @@
 					<?php the_field('auto-details');?>
 				</div>
 				<div class="map"><?php
-					$location = get_field('auto-map');
-					if( !empty($location) ): ?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
+					if( have_rows('auto-map-pins') ): ?>
+						<div class="acf-map"><?php
+							while ( have_rows('auto-map-pins') ) : the_row();
+							$location = get_sub_field('location'); ?>
+
+								<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+									<h4><?php the_sub_field('title'); ?></h4>
+									<p class="address"><?php echo $location['address']; ?></p>
+								</div><?php
+
+							endwhile; ?>
+						</div><?php
+					endif; ?>
 				</div>
 			</div>
 
@@ -73,12 +80,19 @@
 					<?php the_field('publ-details');?>
 				</div>
 				<div class="map"><?php
-					$location = get_field('publ-map');
-					if( !empty($location) ): ?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
+					if( have_rows('auto-map-pins') ): ?>
+						<div class="acf-map"><?php
+							while ( have_rows('auto-map-pins') ) : the_row();
+							$location = get_sub_field('location'); ?>
+
+								<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+									<h4><?php the_sub_field('title'); ?></h4>
+									<p class="address"><?php echo $location['address']; ?></p>
+								</div><?php
+
+							endwhile; ?>
+						</div><?php
+					endif; ?>
 				</div>
 			</div>
 
@@ -87,12 +101,19 @@
 					<?php the_field('hand-details');?>
 				</div>
 				<div class="map"><?php
-					$location = get_field('hand-map');
-					if( !empty($location) ): ?>
-					<div class="acf-map">
-						<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
-					</div>
-					<?php endif; ?>
+					if( have_rows('auto-map-pins') ): ?>
+						<div class="acf-map"><?php
+							while ( have_rows('auto-map-pins') ) : the_row();
+							$location = get_sub_field('location'); ?>
+
+								<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+									<h4><?php the_sub_field('title'); ?></h4>
+									<p class="address"><?php echo $location['address']; ?></p>
+								</div><?php
+
+							endwhile; ?>
+						</div><?php
+					endif; ?>
 				</div>
 			</div>
 
@@ -195,6 +216,9 @@
 		$('a#open-map').click(function(){
     		event.preventDefault();
 			$('.show-maps').toggleClass('open');
+			// $('.acf-map').each(function(){
+			// 	map = new_map( $(this) );
+			// });
 		});
 	});
 
