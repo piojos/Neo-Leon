@@ -160,8 +160,10 @@
 		var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
 		var marker = new google.maps.Marker({
 			position	: latlng,
-			map			: map
+			map			: map,
+		    icon: '<?php bloginfo('template_url'); ?>/img/pin.svg'
 		});
+
 		map.markers.push( marker );
 		if( $marker.html() )
 		{
@@ -211,14 +213,23 @@
 				$('#'+t).removeClass('inactive');
 				$('.map-slider .slide').hide();
 				$('#'+ t +'C').fadeIn('slow');
+				var center = map.getCenter();
+				google.maps.event.trigger(map, "resize");
+				map.setCenter(center);
 			}
+			// google.maps.event.trigger(map, "resize");
 		});
 		$('a#open-map').click(function(){
     		event.preventDefault();
 			$('.show-maps').toggleClass('open');
 		});
 	});
-
+	google.maps.event.addDomListener(window, 'load', initialize);
+	google.maps.event.addListener(map, "idle", function(){
+		var center = map.getCenter();
+		google.maps.event.trigger(map, 'resize');
+		map.setCenter(center);
+	});
 </script>
 
 <?php get_footer(); ?>
