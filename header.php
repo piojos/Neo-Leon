@@ -23,11 +23,11 @@
 	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script>
 	$(function() {
-		// $( "form #date" ).datepicker({
-		// 		dateFormat: "d M yy",
-		// 		altFormat : "yymmdd",
-		// 		altField : 'form #dateFormat:hidden'
-		// 	});
+		$( "form #date" ).datepicker({
+				dateFormat: "d M yy",
+				altFormat : "yymmdd",
+				altField : 'form #dateFormat:hidden'
+			});
 
 		$(".slider .rslides").responsiveSlides({
 			auto: true,
@@ -49,8 +49,8 @@
 	<?php echo get_template_part('inc/color', 'or');?>
 </head>
 
-<body <?php 
-	global $bClass; 
+<body <?php
+	global $bClass;
 	body_class($bClass); ?> >
 
 	<header>
@@ -79,7 +79,7 @@
 					<a href="<?php if( in_array( 'Enlace Externo', get_sub_field('opts')) ){ echo 'http://'.get_sub_field('out_link'); } else { the_sub_field('in_link'); } ?>">
 						<?php the_sub_field('name'); ?>
 					</a>
-				</li><?php 
+				</li><?php
 
 			endwhile;
 			echo '</ul></nav>';
@@ -87,7 +87,7 @@
 
 
 			<div class="search-temp <?php if(get_field('on_ls', 'option')) {echo 'live'; } ?>">
-				<a href="#" class="search-btn"><img src="<?php bloginfo('template_url');?>/img/search.svg"></a><?php 
+				<a href="#" class="search-btn"><img src="<?php bloginfo('template_url');?>/img/search.svg"></a><?php
 				if(get_field('on_ls', 'option')) {
 					$image = get_field('ls_img', 'option');
 					$imgUrl = wp_get_attachment_image_src( $image, 'thumbnail' );
