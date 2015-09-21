@@ -1,18 +1,21 @@
-<?php 
-	
+<?php
+
 	// $bodyClass = "info single";
 	// $newsletter = 0;
-	
-	get_header(); 
+
+	if(is_page('en-vivo')){
+		$bClass = 'single-videos live';
+	}
+	get_header();
 	while (have_posts()) : the_post(); ?>
-	
+
 
 	<article>
 
 <?php	echo get_template_part('inc/heading'); ?>
 
 <?php 		$image = get_post_thumbnail_id( $post_id );
-		
+
 		if ($image) { echo '<div class="featured_img">'; }
 
 			echo '<picture><!--[if IE 9]><video style="display: none;"><![endif]-->';
@@ -30,30 +33,30 @@
 
 			echo '<!--[if IE 9]></video><![endif]-->
 				<img src="' . $img_med[0] . '" srcset ="' . $img_med[0] . '" title="" alt="">
-			</picture>'; 
+			</picture>';
 
 		if ($image) { echo '</div>'; } ?>
 
-		<div class="contain" <?php 
+		<div class="contain" <?php
 			$lastColor = get_field('bg-color');
 			if($lastColor == "#FFF"){
 				echo 'style="background-color:#FFF"';
 			}
 		?> >
 			<wrap>
-				<?php 
-					if(is_page('en-vivo')){ 
-						echo '<div class="back about-live">'.get_field('description').'</div>';
+				<?php
+					if(is_page('en-vivo')){
+						// echo '<div class="back about-live">'.get_field('description').'</div>';
 					} else {
 						echo '<div class="back">';
 						echo get_template_part('inc/sidelist').'</div>';
-					} ?>				
-				<div class="content"><?php 
+					} ?>
+				<div class="content"><?php
 
-					if(is_page('en-vivo')){ 
+					if(is_page('en-vivo')){
 						the_field('embed');
 					} else {
-						the_content(); 
+						the_content();
 					}
 
 
@@ -65,10 +68,10 @@
 							<?php the_sub_field('content'); ?>
 						</div><?php
 
-			        elseif( get_row_layout() == 'bg-color-select' ): 
+			        elseif( get_row_layout() == 'bg-color-select' ):
 
 			        	$lastColor = get_sub_field('bg-color'); ?>
-				
+
 				</div>
 			</wrap>
 		</div>
@@ -80,7 +83,7 @@
 			        elseif( get_row_layout() == 'img_txt' ): ?>
 
 						<div class="pg-c img_txt <?php the_sub_field('order'); ?>">
-							<figure><?php 
+							<figure><?php
 								$image = get_sub_field('img');
 								$caption = get_post_field('post_excerpt', $image);
 								if( $image ) {
@@ -99,9 +102,9 @@
 
 						<div class="pg-c">
 			        		<?php echo get_template_part('inc/exp-slider'); ?>
-			        	</div><?php 
+			        	</div><?php
 
-			        elseif( get_row_layout() == 'forms' ): 
+			        elseif( get_row_layout() == 'forms' ):
 			        	if($lastColor == "#FFF") : ?>
 
 				</div>
@@ -110,13 +113,13 @@
 		<div class="contain" style="background-color:#EEE">
 			<wrap>
 				<div class="back">&nbsp;</div>
-				<div class="content"> <?php 
+				<div class="content"> <?php
 
 						endif; ?>
 
 						<h2><?php the_sub_field('form_title'); ?></h2>
-						<?php the_sub_field('forms'); ?><?php 		
-				
+						<?php the_sub_field('forms'); ?><?php
+
 					endif;
 			    endwhile; ?>
 
@@ -127,7 +130,7 @@
 	</article>
 	<?php // echo get_template_part('inc/more_news'); ?>
 
-<?php 
-	
-	endwhile; 
+<?php
+
+	endwhile;
 	get_footer(); ?>

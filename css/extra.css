@@ -11,46 +11,36 @@
 .no-description.ul .caption {
     width: 15% !important;
 }
-
 .no-description.ul .caption .bottom {
     width: 94% !important;
 }
-
 .video .no-description.ul .mejs-controls {
     width: 85%;
 }
-
 .video .mejs-controls .mejs-currenttime-container {
     text-align: right;
     padding-right: 1em;
 }
-
 .rooms article .video > div .bottom {
     padding: 1.15em 1em 0;
     text-align: left;
 }
-
 .yt.no-description .caption {
     width: 100% !important;
 }
-
 .yt.no-description .caption .bottom {
     margin-left: .6%;
     width: 98.6666%;
 }
-
 .rooms article .video > div li.slide.no-description.yt .video-container {
     bottom: 52px;
 }
-
 .video .mejs-poster {
     background-image: none !important;
 }
-
 img.exposition-logo {
     margin-bottom: 1em;
 }
-
 .single-eventos .heading p span {
   display: none;
 }
@@ -296,22 +286,10 @@ div.wpcf7-response-output {
     position: relative;
     padding: .5em 1em .75em !important;
 }
-
-div.wpcf7-mail-sent-ok {
-    background-color: #398f14;
-}
-
-div.wpcf7-mail-sent-ng {
-    background-color: #ff0000;
-}
-
-div.wpcf7-spam-blocked {
-    background-color: #ffa500;
-}
-
-div.wpcf7-validation-errors {
-    background-color: #f7e700;
-}
+div.wpcf7-mail-sent-ok {background-color: #398f14;}
+div.wpcf7-mail-sent-ng {background-color: #ff0000;}
+div.wpcf7-spam-blocked {background-color: #ffa500;}
+div.wpcf7-validation-errors {background-color: #f7e700;}
 
 .page .contain input{display: inline-block;}
 .page .contain .acceptance {
@@ -337,20 +315,16 @@ div.wpcf7-validation-errors {
 .content p:nth-child(1) {
     margin-top:0;
 }
-
 .content em { font-style: italic; }
-
 .content strong {
     font-weight: bold;
     color: #000;
 }
-
-.content ul, .content ol {
+.page .content ul, .page .content ol {
     list-style: initial;
     padding-left: 3em;
 }
 .content ol { list-style-type: decimal; }
-
 .content hr {
     border: none;
     border-bottom: 2px solid #CCCCCC;
@@ -553,6 +527,8 @@ section#video-posts {
     }
     header {overflow: hidden;}
     .page .about-live p {font-size: .85em;}
+
+    .single-videos.live .contain { width: 100%; text-align: center;}
 
 p.bg-caption {font-size: .75em; color: #909090;}
 .explanation .bg-caption {margin-top: 1em;}

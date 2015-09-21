@@ -1,16 +1,9 @@
-<?php 
-	
-	// $bodyClass = "events single";
-	// $newsletter = 1;
-	
-	?>
-
 	<section>
 
 <?php 	$image = get_post_thumbnail_id( $post_id );
 		$dateformatstring = "l F j, Y";
 		$unixtimestamp = strtotime(get_field('date'));
-		
+
 		if ($image) { echo '<div class="featured_img">'; }
 
 			echo '<picture><!--[if IE 9]><video style="display: none;"><![endif]-->';
@@ -28,9 +21,9 @@
 
 			echo '<!--[if IE 9]></video><![endif]-->
 				<img src="' . $img_med[0] . '" srcset ="' . $img_med[0] . '" title="" alt="">
-			</picture>'; 
+			</picture>';
 
-		if ($image) { 
+		if ($image) {
 			if( in_array( 'cancel', get_field('options') ) ) {
 				echo '<div class="warn FU_B red"><img src="'. get_bloginfo("template_url") .'/img/ev-cancel.svg"> CANCELADO</div> ';
 			} elseif( in_array( 'update', get_field('options') ) ) {
@@ -38,7 +31,7 @@
 			} elseif( in_array( 'live', get_field('options') ) ) {
 				echo '<div class="warn FU_B orange"><img src="'. get_bloginfo("template_url") .'/img/ev-live.svg"> TRANSMISIÓN EN VIVO</div> ';
 			}
-			echo '</div>'; 
+			echo '</div>';
 		} ?>
 
 <?php 	echo get_template_part('inc/heading'); ?>
@@ -54,8 +47,8 @@
 						<ul>
 							<li>Comparte esto</li>
 							<ul class="buttons">
-								<li><a href="#"><img src="<?php bloginfo('template_url');?>/img/c-fb.svg"></a></li>
-								<li><a href="#"><img src="<?php bloginfo('template_url');?>/img/c-tw.svg"></a></li>
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="Share on Facebook" target="_blank"><img src="<?php bloginfo('template_url');?>/img/c-fb.svg"></a></li>
+								<li><a href="http://twitter.com/home?status=<?php the_title(); ?>%20en%20@3museos:%20<?php the_permalink(); ?>" title="Share on Twitter" target="_blank"><img src="<?php bloginfo('template_url');?>/img/c-tw.svg"></a></li>
 							</ul>
 						</ul>
 						<a href="#" class="back">Regresar</a>
@@ -68,21 +61,21 @@
 					<?php if(get_field('museum')){ echo '<br>'.get_field('museum'); } ?></p>
 
 					<p>
-					<?php if(get_field('price')){ 
-							echo 'Entrada: $'.get_field('price').' MXN<br>'; 
+					<?php if(get_field('price')){
+							echo 'Entrada: $'.get_field('price').' MXN<br>';
 						} else {
 							echo 'Evento gratuito<br>';
 						}?>
-					<?php if(get_field('limited')){ 
-						echo 'Cupo limitado'; 
-						if(get_field('limited-num')){ 
+					<?php if(get_field('limited')){
+						echo 'Cupo limitado';
+						if(get_field('limited-num')){
 							echo ' ('.get_field('limited-num').' pers.)';
 						}
 					} ?></p>
 					<?php if(get_field('embed')){ echo '<a class="compra">Compra tu boleto</a>'; } ?>
 
-					
-					<?php 
+
+					<?php
 						$email = get_field('email');
 						$phone = get_field('phone');
 						if ($email or $phone) {
@@ -111,5 +104,3 @@
 	</section>
 
 	<?php echo get_template_part('inc/more_news'); ?>
-
-
