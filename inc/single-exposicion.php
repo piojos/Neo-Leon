@@ -57,8 +57,7 @@
 	if( have_rows('audio-player') ):
 
 		echo '<div id="audio-player"><audio controls="controls" autoplay="autoplay">';
-    	while ( have_rows('audio-player') ) : the_row();
-
+		while ( have_rows('audio-player') ) : the_row();
 
 			$attachment_id = get_sub_field('file');
 			$url = wp_get_attachment_url( $attachment_id );
@@ -68,12 +67,12 @@
 			    ?><source src="<?php echo $url; ?>" title="<?php echo $title; ?>" type="audio/mp3"/><?php
 			endif;
 
-    	endwhile;
-    	echo '</audio></div></body></html>';
+		endwhile;
+		echo '</audio></div></body></html>';
 
-    	wp_footer();
-    else :
-    	get_footer();
+		wp_footer();
+	else :
+		get_footer();
 	endif; ?>
 
 
@@ -148,6 +147,10 @@
 				$(that).parents('li').css('height', 'inherit');
 				var parentHeight = $(that).parent('li').height();
 				$(that).parents('li').height(parentHeight);
+				var thaTop = $(that).parents('li').offset().top;
+				$('html,body').animate({
+					scrollTop: thaTop
+				}, 500);
 			}, 500);
 		});
 

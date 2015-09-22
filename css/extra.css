@@ -362,6 +362,12 @@ section#video-posts {
 	    background-repeat: no-repeat !important;
 	    background-color: #262626 !important;
 	}
+    ul.rooms section.head wrap > div:nth-child(2) h2 {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden !important;
+        text-overflow: ellipsis;
+    }
 
 
 
