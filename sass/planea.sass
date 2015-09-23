@@ -3,7 +3,7 @@
 	.commute, .events
 		position: relative
 		wrap
-			max-width: 100% 
+			max-width: 100%
 			> div
 				padding-bottom: 1.5em
 				padding-top: 1.5em
@@ -111,7 +111,7 @@
 				font-size: $t16
 				color: adjust-lightness($black, 30%)
 				+absolute($bottom: 1em)
-		a.rslides_nav 
+		a.rslides_nav
 			border: 3px solid
 			+border-radius(50%)
 			width: 2.5em
@@ -120,7 +120,7 @@
 			right: -4em
 			bottom: 6em
 			background: url('../img/pu-arr-l.svg') no-repeat center $gray
-		a.rslides_nav.next 
+		a.rslides_nav.next
 			bottom: 2em
 			margin-left: 0
 			left: inherit
@@ -140,18 +140,18 @@
 				right: -2.9em
 
 		@media (min-width: $mid_s)
-			margin-left: auto 
+			margin-left: auto
 			.image
 				@include span(7 of 12)
 			.caption
 				@include span(5 of 12 rtl)
 				padding: 1em
-			a.rslides_nav 
+			a.rslides_nav
 				right: inherit
 				left: 1em
 				bottom: 9.5em
 				margin-left: -4.5em
-			a.rslides_nav.next 
+			a.rslides_nav.next
 				right: -3.5em
 				bottom: 9.5em
 
@@ -217,4 +217,40 @@
 
 
 
+.show-maps
+	height: 0
+	overflow: hidden
+	&.open
+		height: 36.25em
+	.tabs
+		background-color: #f1a604
+		li
+			text-align: center
+			width: inherit
+			display: inline-block
+			padding: 1.25em 1em
+			a
+				color: #3b3b37
+				display: inline-block
+			a.inactive
+				opacity: .5
+			img
+				display: block
+				margin: 0 auto .5em
 
+.map-slider
+	.info
+		width: 40%
+		float: left
+		padding: 4em 6em
+		color: #7f7f7f
+	.map
+		width: 60%
+		float: right
+	.slide
+		overflow: auto
+	.info h2
+		color: #3b3b37
+	.info p
+		margin: 1em 0
+		line-height: 1.75em

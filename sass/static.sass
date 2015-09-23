@@ -7,6 +7,7 @@ header
 	padding-top: 1.5em
 	padding-bottom: 1.5em
 	font-family: $FU_B
+	overflow: auto
 	.logo
 		@extend .animate
 		@include span(6)
@@ -74,6 +75,9 @@ header
 			@media (min-width: $mid_s)
 				font-size: .5em
 				padding-top: .5em
+	&.live a.search-btn
+		position: relative
+		left: -3em
 	.search-box
 		@extend .animate
 		@include span(9)
@@ -160,7 +164,7 @@ header.show-search
 
 
 
-// Aside Menu 
+// Aside Menu
 aside
 	@extend .animate
 	+absolute($top: 0)
@@ -246,7 +250,7 @@ footer
 			margin-left: 1.5em
 			&:first-child
 				margin-left: 0
-	.copyright	
+	.copyright
 		@include span(15 inside)
 		clear: both
 		border-top: solid 1px adjust-lightness($footer, 40%)
@@ -395,3 +399,15 @@ div.newsletter
 
 
 
+#live-prev
+	width: 8em
+	height: 5.5em
+	+absolute($top: -1.5em, $right: -4.5em)
+	background-size: cover
+	.tag
+		+absolute($left: 0)
+		font-size: .5em
+		margin: 0
+		background-color: #fc621f
+		border-radius: 0
+		padding: .3em .5em

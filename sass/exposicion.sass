@@ -1,6 +1,6 @@
 /*  List  */
 
-.expo .slider .caption 
+.expo .slider .caption
 	background-color: rgba($white, 0.7)
 	color: $black
 	.bottom
@@ -11,14 +11,18 @@
 	h2
 		margin-top: 0
 	.counter
-		color: $light_purple	
+		color: $light_purple
 
 
 
 
-ul.rooms 
+
+
+ul.rooms
 	> li
 		background-color: #f4f4f4
+		overflow: hidden
+		+transition(all, .5s, ease)
 	section.head wrap
 		padding-top: 2em
 		padding-bottom: 1.75em
@@ -73,8 +77,10 @@ ul.rooms
 			display: none
 		> div:nth-child(4)
 			display: none
-
-
+	> li.open
+		height: inherit
+	> li.closed
+		height: 6.5em !important
 
 ul.rooms > li:nth-child(2n+1)
 	background-color: $gray
@@ -139,12 +145,17 @@ ul.rooms > li:hover, ul.rooms > li.open
 	.explanation.image
 		font-size: $t16
 		background-color: $white
-		wrap 
+		position: relative
+		wrap
 			> div
 				img
 					max-width: 100%
 					max-height: 30em
 					width: auto
+				> div
+					width: 80%
+					p
+						margin-bottom: 1em
 				@media (min-width: 800px)
 					@include span(6 of 12)
 					h2
@@ -153,7 +164,13 @@ ul.rooms > li:hover, ul.rooms > li.open
 				padding-left: 1.25em
 			h2
 				font-size: $t26
-				margin: 2em 0 1em 
+				margin: 2em 0 1em
+		.outer_image
+			+absolute($top: 0, $right: 0)
+			height: 100%
+			width: 50%
+			background-size: cover
+			background-position: center
 	.collection
 		padding-top: 4em
 		padding-bottom: 4em
@@ -164,7 +181,7 @@ ul.rooms > li:hover, ul.rooms > li.open
 			font-size: $t32
 			padding-bottom: 1em
 			float: none
-		.masonry 
+		.masonry
 			@include container(90%)
 			> li, > li.w2
 				width: 50%
@@ -176,7 +193,7 @@ ul.rooms > li:hover, ul.rooms > li.open
 					width: 25%
 	.slider
 		max-width: none
-		.image 
+		.image
 			margin: 0
 			background-position: center !important
 		.caption
@@ -230,9 +247,29 @@ ul.rooms > li:hover, ul.rooms > li.open
 					@include span(9)
 				img
 					width: 100%
-			.no-description 
+			.no-description
 				.video-container
 					width: 100%
+			.no-description.ul
+				.caption
+					width: 15% !important
+					.bottom
+						width: 94% !important
+				.mejs-controls
+					width: 85%
+					.mejs-currenttime-container
+						text-align: right
+						padding-right: 1em
+			.no-description.yt
+				.caption
+					width: 100% !important
+					.bottom
+						margin-left: .6%
+						width: 98.6666%
+				.video-container
+					bottom: 52px
+			.mejs-poster
+				background-image: none !important
 			.caption
 				display: none
 				padding-left: 1em
@@ -244,7 +281,7 @@ ul.rooms > li:hover, ul.rooms > li.open
 				h1
 					font-size: $t20
 					margin-bottom: 2em
-			.bottom 
+			.bottom
 				background-color: $purple
 				+absolute($bottom: 0, $left: 1px)
 				padding: 1.1em 7em 0 0
@@ -253,7 +290,9 @@ ul.rooms > li:hover, ul.rooms > li.open
 				font-family: $FU_B
 				font-size: $t12
 				text-align: right
-			a.rslides_nav 
+				padding: 1.15em 1em 0
+				text-align: left
+			a.rslides_nav
 				+absolute($right: .65%, $bottom: 0)
 				color: rgba($white, 0)
 				background: url('../img/arr-r.svg') no-repeat center
@@ -293,17 +332,58 @@ ul.rooms > li:hover, ul.rooms > li.open
 			padding-top: 10em
 		blockquote
 			font-size: $t32
+			padding: 0 4em
 		h2
 			color: $purple
 			&:before
 				content: '– '
+	.menu
+		background-color: #eee
+		wrap
+			background-size: contain
+			background-position: bottom
+			background-repeat: no-repeat
+			padding: 6em 0
+		h1
+			font-size: 2em
+			color: #c63513
+		ul.tabs
+			margin: 1em 0 2em
+			li
+				display: inline
+				margin-right: 2em
+				a
+					color: #999
+			li.current a
+				color: #c63513
+		ul.content
+			li
+				display: none
+				font-size: .875em
+				line-height: 2em
+			li.cols_2
+				@include column-count(2)
+				@include column-gap(2em)
+			li.current
+				display: block
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 ul.rooms li.open
-	section.head 
+	section.head
 		+box-shadow(0 0.5em 0.5em -0.5em rgba($black, 1))
 		position: relative
-
-
-

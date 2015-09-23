@@ -40,6 +40,9 @@
 		color: $white
 	span
 		display: none
+	img
+		vertical-align: sub
+		margin-right: .5em
 
 ul.tags
 	width: 90%
@@ -180,6 +183,7 @@ ul.tags
 				span.on
 					display: inline-block
 		select
+			background-image: url("../img/arr-b.svg")
 			margin: 0 .25em
 			font-size: $t16
 			@media (min-width: $lil_s)
@@ -412,6 +416,8 @@ ul.tags
 		font-family: $FU_B
 		.tag
 			margin: 0 0 1em
+		&.warned
+			padding-top: 2.25em
 	.description.pieza p
 		margin: 1em 0 .75em
 	h1
@@ -426,6 +432,25 @@ ul.tags
 		color: $light_purple
 		margin-bottom: 1em
 
+.feature-img, .featured_img
+	position: relative
+	.warn
+		background-color: #efb005
+		+absolute($bottom: -1em)
+		display: block
+		min-width: 75%
+		color: #FFF
+		padding: .5em 1.25em
+
+.warn.red
+	background-color: #EA1344
+.warn.orange
+	background-color: #fc621f
+.warn img
+	display: inline
+	width: initial
+	vertical-align: top
+	margin-right: .25em
 
 
 
@@ -630,3 +655,196 @@ ul.dropdown
 			font-size: $t32
 	@media (min-width: $mid_s)
 		width: 50%
+
+
+
+
+
+.pagination
+	text-align: center
+	margin-top: 2em
+	a
+		display: inline-block !important
+		font-family: $FU_B
+		background-color: lightgray
+		color: $white
+		width: 2em
+		height: 2em
+		margin: 0 .25em
+		padding-top: .45em
+	&:hover
+		background-color: gray
+	a.current
+		background-color: $purple
+		cursor: default
+
+
+
+
+div#ui-datepicker-div
+	background-color: $white
+	font-family: $FU_B
+	min-width: 14em
+	+border-radius(.4em)
+	+box-shadow(0px 4px 10px 0px rgba(0,0,0,0.15))
+
+.ui-datepicker
+	thead, tbody
+		font-size: 12px
+
+.ui-datepicker-header
+	background-color: #21172d
+	color: #be8ef2
+	font-size: 16px
+	text-align: center
+	height: 2.5em
+
+table.ui-datepicker-calendar
+	width: 100%
+	th, td a
+		text-align: center
+		padding: .5em
+	tbody
+		tr
+			border-top: 1px solid #e1e1e1
+		tr:nth-child(1)
+			border-top: none
+		td
+			border-left: 1px solid #e1e1e1
+			a
+				color: $purple
+				display: block
+		td:nth-child(1)
+			border-left: none
+
+.ui-datepicker-calendar tbody td a:hover,
+td.ui-datepicker-current-day a
+	background-color: $purple
+	color: $white !important
+
+td.ui-datepicker-today a
+	color: $white !important
+
+a.ui-datepicker-prev,
+a.ui-datepicker-next
+	+absolute($left: 0)
+	z-index: 1
+	width: 50%
+a.ui-datepicker-next
+	left: inherit
+
+span.ui-icon
+	color: rgba(255, 255, 255, 0)
+	&.ui-icon-circle-triangle-w:before,
+	&.ui-icon-circle-triangle-e:after
+		content: '◀'
+		display: block
+		color: $white
+		+absolute($top: 0.7em, $left: .75em)
+	&.ui-icon-circle-triangle-e:after
+		content: '▶'
+		right: .75em
+		left: inherit
+
+.ui-datepicker-title
+	+relative($top: .75em)
+
+
+
+
+
+.page .content
+	h1, h3
+		font-family: $FU_B
+		color: #52318e
+		margin: 0.65em 0 1em
+	h1
+		font-size: 1.5em
+	h3
+		color: #333
+	h1:nth-child(1), h2:nth-child(1), h3:nth-child(1), p:nth-child(1)
+		margin-top: 0
+	em
+		font-style: italic
+	strong
+		font-weight: bold
+		color: #000
+	ul, ol
+		list-style: initial
+		padding-left: 3em
+	ol
+		list-style-type: decimal
+	hr
+		border: none
+		border-bottom: 2px solid #CCCCCC
+		margin: 3em 0
+	select
+		background-image: url("../img/arr-b-c.svg")
+
+
+.pg-c
+	.slider
+		background-color: #262626
+		margin: 4em 0
+		.rslides
+			padding: 0
+		.image
+			min-height: 30em
+			margin: 0
+			position: relative
+			top: -1.5em
+		.caption
+			background: none !important
+			width: 100%
+			margin: 0
+			.bottom
+				padding: .75em
+				height: 3em
+				color: #bdaae1
+				.cptn
+					color: white
+		a.rslides_nav
+			right: 2.5em
+			left: inherit
+			bottom: .75em
+			&.next
+				right: 1em
+	&.img_txt
+		overflow: auto
+		margin: 4em 0
+		> figure, > div
+			vertical-align: top
+			width: 48%
+			float: left
+		> div
+			float: right
+		img
+			margin: 0
+		figcaption
+			font-size: .75em
+		> div p
+			font-size: .975em
+		> figure, > div
+			margin-right: 4%
+		&.left > div
+			margin: 0
+		&.right > figure
+			float: right
+			margin: 0
+
+	.alignright
+		float: right
+	.alignleft
+		float: left
+
+
+section#video-posts
+	padding: 4em 0 6em
+	background-color: #eee
+.video-container
+	text-align: center
+.single-videos .contain
+	background-color: #2C2931
+.single-videos.live .contain
+	width: 100%
+	text-align: center
