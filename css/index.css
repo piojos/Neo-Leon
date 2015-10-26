@@ -2209,7 +2209,7 @@ ul.dropdown li:hover > ul {
   margin: 0 0.25em;
   padding-top: 0.45em;
 }
-.pagination:hover {
+.pagination a:hover {
   background-color: gray;
 }
 .pagination a.current {

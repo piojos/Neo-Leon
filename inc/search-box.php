@@ -21,7 +21,7 @@
 	<?php if(get_post_type() == 'eventos') : ?>
 		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
-		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='eventos'));?>">
+		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url('hoy-en-3museos'));?>">
 			<label>Estas viendo <span class="on">me interesa</span></label>
 			<?php
 			$terms = get_terms('event-type');
@@ -60,7 +60,7 @@
 	<?php elseif(is_page('planea-tu-visita')) : ?>
 		<h2><?php the_title(); ?></h2>
 
-		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='planea-tu-visita')); ?>">
+		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url('planea-tu-visita')); ?>">
 			<label>Soy</label>
 			<select name="audience" id="museum">
 				<option value="public">público general</option>
@@ -90,7 +90,7 @@
 
 		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
-		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='eventos')); ?>">
+		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='hoy-en-3museos')); ?>">
 			<label>Me interesa </label>
 			<?php
 			$terms = get_terms('event-type');

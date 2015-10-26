@@ -1,11 +1,14 @@
 	<div class="heading">
 		<div>
-			<?php if(get_post_type(get_the_ID()) == "eventos"){ 
+			<?php
+			if(is_archive()) {
+				echo '<p>Todos los </p>';
+			} elseif(get_post_type(get_the_ID()) == "eventos"){
 				echo '<p>';
 				echo get_template_part('funct/tag');
-				echo '</p>'; 
+				echo '</p>';
 			} ?>
-			<h1><?php 
+			<h1><?php
 
 				$obj = get_post_type_object(get_post_type());
 
