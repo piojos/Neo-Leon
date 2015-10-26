@@ -1,6 +1,8 @@
-<?php 	
+<?php
 
-if(is_front_page()) : 						// HOME
+
+// HOME
+if(is_front_page()) :
 
 	if ( get_field('main-featured') ) :
 		$i = 0;
@@ -8,40 +10,40 @@ if(is_front_page()) : 						// HOME
 		while ( have_rows('main-featured') ) : the_row();
 			$post_object = get_sub_field('linke');
 			$override = get_sub_field('override');
-			$descOr = get_sub_field('description'); 
-			$bgImgOr = get_sub_field('bg_img'); 
+			$descOr = get_sub_field('description');
+			$bgImgOr = get_sub_field('bg_img');
 			$newBgImg = wp_get_attachment_image_src( $bgImgOr, 'largest' );
-			$colorOr = get_sub_field('color'); 
-			$rgbaOr = hex2rgba($colorOr, 0.8); 
+			$colorOr = get_sub_field('color');
+			$rgbaOr = hex2rgba($colorOr, 0.8);
 			$repNum = get_field('main-featured');
 			$count = count($repNum);
 
-			if( $post_object ): 
+			if( $post_object ):
 				$post = $post_object;
-				setup_postdata( $post ); 
+				setup_postdata( $post );
 					$oBgImg = get_post_thumbnail_id();
-					$bgImgSrc = wp_get_attachment_image_src($oBgImg, 'largest'); 
+					$bgImgSrc = wp_get_attachment_image_src($oBgImg, 'largest');
 					$expoEnd = strtotime(get_field('end_time'));
 					$logoA = get_field('expo_logo');
-					$logoSrc = wp_get_attachment_image_src($logoA, 'large'); 
+					$logoSrc = wp_get_attachment_image_src($logoA, 'large');
 					$color = get_field('bg-color');
-					$rgba = hex2rgba($color, 0.8); 
+					$rgba = hex2rgba($color, 0.8);
 					 ?>
 
 					<li class="slide">
 						<a href="<?php the_permalink(); ?>">
-							<div class="image" style="background: url('<?php 
-								if($override){ 
+							<div class="image" style="background: url('<?php
+								if($override){
 									if($bgImgOr) {
-										echo $newBgImg[0]; 
+										echo $newBgImg[0];
 									}
-								} else { 
-									echo $bgImgSrc[0]; 
+								} else {
+									echo $bgImgSrc[0];
 								} ?>'); background-size: cover;">
 							</div>
 						</a>
 						<div class="caption" <?php if($override) {
-							echo 'style="background-color:'.$rgbaOr.';"';						 
+							echo 'style="background-color:'.$rgbaOr.';"';
 						} elseif($color) {
 							echo 'style="background-color:'.$rgba.';"';
 						} ?>>
@@ -52,27 +54,27 @@ if(is_front_page()) : 						// HOME
 									} else {
 										the_title();
 										} ?></h1>
-								<p><?php 
-									if($override){ 
+								<p><?php
+									if($override){
 										if($descOr){
-											echo $descOr; 										
+											echo $descOr;
 										}
 									} elseif('noticias' == get_post_type()){
 										the_field('kicker');
-									} else { 
-										the_field('description'); 
+									} else {
+										the_field('description');
 									} ?></p>
-								<p class="details"><?php 
+								<p class="details"><?php
 									if(get_field('expo_status') == 'Temporal'){
 										echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
 									} elseif('eventos' == get_post_type()) {
-										echo get_template_part('funct/eventdate'); 
+										echo get_template_part('funct/eventdate');
 									} elseif('noticias' == get_post_type()) {
-										echo get_the_time('j').' de '.get_the_time('F Y.'); 
+										echo get_the_time('j').' de '.get_the_time('F Y.');
 									} ?></p>
 							</a>
 							<div class="bottom" <?php if($override) {
-								echo 'style="background-color:'.$colorOr.';"';						 
+								echo 'style="background-color:'.$colorOr.';"';
 							} elseif($color) {
 								echo 'style="background-color:'.$color.';"';
 							} ?>>
@@ -86,7 +88,7 @@ if(is_front_page()) : 						// HOME
 					</li>
 
 			    <?php wp_reset_postdata(); ?>
-			<?php endif; 
+			<?php endif;
 
 		endwhile;
 		echo '</ul></div>';
@@ -94,26 +96,27 @@ if(is_front_page()) : 						// HOME
 
 
 
+// Eventos
 elseif(get_post_type() == 'eventos') :
 
 	$post_object = get_field('ftd-events', 'options');
 	$count = count($post_object);
 
-	if( $post_object ): 
+	if( $post_object ):
 		$i = 0;
 		echo '<div class="slider"><ul class="rslides">';
 		// $post = $post_object;
 		// print_r($post_object);
 		foreach( $post_object as $post ):
-		setup_postdata( $post ); 
+		setup_postdata( $post );
 			$oBgImg = get_post_thumbnail_id();
-			$bgImgSrc = wp_get_attachment_image_src($oBgImg, 'largest'); 
-			$rgba = hex2rgba($color, 0.8); 
+			$bgImgSrc = wp_get_attachment_image_src($oBgImg, 'largest');
+			$rgba = hex2rgba($color, 0.8);
 			$expoEnd = strtotime(get_field('end_time')); ?>
 
 			<li class="slide">
 				<a href="<?php the_permalink(); ?>">
-					<div class="image" style="background: url('<?php 
+					<div class="image" style="background: url('<?php
 						if($bgImg){
 							echo $newBgImg[0];
 						} else {
@@ -130,21 +133,21 @@ elseif(get_post_type() == 'eventos') :
 							} else {
 								the_title();
 								} ?></h1>
-						<p><?php 
-							if($desc){ 
-								echo $desc; 
+						<p><?php
+							if($desc){
+								echo $desc;
 							} elseif('noticias' == get_post_type()){
 								the_field('kicker');
-							} else { 
-								the_field('description'); 
+							} else {
+								the_field('description');
 							} ?></p>
-						<p class="details"><?php 
+						<p class="details"><?php
 							if(get_field('expo_status') == 'Temporal'){
 								echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
 							} elseif('eventos' == get_post_type()) {
-								echo get_template_part('funct/eventdate'); 
+								echo get_template_part('funct/eventdate');
 							} elseif('noticias' == get_post_type()) {
-								echo get_the_time('j').' de '.get_the_time('F Y.'); 
+								echo get_the_time('j').' de '.get_the_time('F Y.');
 							} ?></p>
 					</a>
 					<div class="bottom" <?php if($color) {echo 'style="background-color:'.$color.';"';} ?>>
@@ -159,25 +162,24 @@ elseif(get_post_type() == 'eventos') :
 				</div>
 			</li>
 
-	    <?php wp_reset_postdata(); 
-	    endforeach; 
-    	echo '</ul></div>';
-	endif; 
+		<?php wp_reset_postdata();
+		endforeach;
+	echo '</ul></div>';
+	endif;
 
 
 
-
-
+// Else
 else :
-	
+
 	$images = get_field('slider');
 	$count = count($images);
 	$i = 0;
 
 		if( $images ):
 			echo '<div class="slider"><ul class="rslides">';
-		    foreach( $images as $image ): 
-			$color = get_field('bg-color'); 
+			foreach( $images as $image ):
+			$color = get_field('bg-color');
 			$rgba = hex2rgba($color, 0.8); ?>
 
 			<li class="slide">
@@ -186,7 +188,7 @@ else :
 					<h2><?php echo get_template_part('funct/tag'); ?></h2>
 					<h1><?php $logoA = get_field('expo_logo');
 							if($logoA) {
-							$logoSrc = wp_get_attachment_image_src($logoA, 'large'); 
+							$logoSrc = wp_get_attachment_image_src($logoA, 'large');
 							echo '<img class="exposition-logo" src="'.$logoSrc[0].'">';
 						} else {
 							the_title();
@@ -197,9 +199,17 @@ else :
 						} else {
 							echo $image['caption'];
 							} ?></p>
-					<p class="details"><?php 
+					<p class="details"><?php
 						if(get_field('expo_status') == 'Temporal'){
 							echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
+							if(get_field('schedule')){
+							}
+						}
+						echo '<br>';
+						if(get_field('schedule')){
+							echo 'Horario: '.get_field('schedule');
+						} else {
+							echo '<a href="'.home_url('/contacto').'">Horario normal</a>.';
 						} ?></p>
 
 					<div class="bottom" <?php if($color) {echo 'style="background-color:'.$color.';"';} ?>>
@@ -214,7 +224,7 @@ else :
 				</div>
 			</li>
 
-	<?php   endforeach; 
+	<?php   endforeach;
 			echo '</ul></div>';
 		endif;
 endif; ?>

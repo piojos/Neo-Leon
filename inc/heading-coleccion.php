@@ -4,7 +4,7 @@
 		<ul class="dropdown">
 			<li>
 				<h1>
-					<a href="#"><?php 
+					<a href="#"><?php
 						if( is_tax() ) {
 							global $wp_query;
 							$term = $wp_query->get_queried_object();
@@ -13,7 +13,7 @@
 							$description = $term->description;
 							echo $title;
 						} else {
-							$cTerm = get_the_terms($post->ID, 'coleccion');	
+							$cTerm = get_the_terms($post->ID, 'coleccion');
 							echo $cTerm[0]->name;
 						} ?>
 					</a>
@@ -39,13 +39,9 @@
 
 			</li>
 		</ul>
-		<div class="about"><p><?php 
-			echo $description; ?>
+		<div class="about"><p><?php
+			echo nl2br($description); ?>
 		</p></div>
-	
-	</div>	
+
+	</div>
 </div>
-
-
-
-		
