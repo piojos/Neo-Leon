@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 
-// 	Theme Supports 
+// 	Theme Supports
 
-	add_theme_support( 'post-thumbnails' ); 
+	add_theme_support( 'post-thumbnails' );
 	add_editor_style('css/wysiwyg.css');
 
 
@@ -18,10 +18,10 @@
 
 
 /*
- *  ACF - Options  
+ *  ACF - Options
  */
 
-	if( function_exists('acf_add_options_page') ) { 
+	if( function_exists('acf_add_options_page') ) {
 		acf_add_options_page(array(
 			'page_title' 	=> 'Opciones Generales',
 			'menu_title'	=> 'Opciones',
@@ -34,6 +34,11 @@
 			'menu_title'	=> 'Menus',
 			'parent_slug'	=> 'theme-general-settings'
 		));
+		acf_add_options_sub_page(array(
+			'page_title' 	=> 'Detalles de Lenguaje',
+			'menu_title'	=> 'Lenguaje',
+			'parent_slug'	=> 'theme-general-settings'
+		));
 	}
 
 
@@ -44,18 +49,18 @@
  */
 
 function hex2rgba($color, $opacity = false) {
- 
+
 	$default = 'rgb(0,0,0)';
- 
+
 	//Return default if no color provided
 	if(empty($color))
-          return $default; 
- 
-	//Sanitize $color if "#" is provided 
+          return $default;
+
+	//Sanitize $color if "#" is provided
         if ($color[0] == '#' ) {
         	$color = substr( $color, 1 );
         }
- 
+
         //Check if color has 6 or 3 characters and get values
         if (strlen($color) == 6) {
                 $hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
@@ -64,10 +69,10 @@ function hex2rgba($color, $opacity = false) {
         } else {
                 return $default;
         }
- 
+
         //Convert hexadec to rgb
         $rgb =  array_map('hexdec', $hex);
- 
+
         //Check if opacity is set(rgba or rgb)
         if($opacity){
         	if(abs($opacity) > 1)
@@ -76,7 +81,7 @@ function hex2rgba($color, $opacity = false) {
         } else {
         	$output = 'rgb('.implode(",",$rgb).')';
         }
- 
+
         //Return rgb(a) color string
         return $output;
 }
@@ -113,12 +118,12 @@ function pagination($pages = '', $range = 4) {
 			}
 		}
 
-		if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\"> &rsaquo;</a>";  
+		if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\"> &rsaquo;</a>";
 		if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'> &raquo;</a>";
 		echo "</div>\n";
 	}
 }
-	
+
 
 
 
@@ -128,7 +133,7 @@ function pagination($pages = '', $range = 4) {
 
 
 /*
- *  WYSIWYG Combobox styles 
+ *  WYSIWYG Combobox styles
  */
 
 	function wpa_45815($arr){
@@ -136,11 +141,3 @@ function pagination($pages = '', $range = 4) {
 		return $arr;
 	}
 	add_filter('tiny_mce_before_init', 'wpa_45815');
-
-
-
-
-
-
-
-

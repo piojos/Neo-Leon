@@ -19,7 +19,7 @@
 	<div class="mask"></div>
 	<div class="content">
 	<?php if(get_post_type() == 'eventos') : ?>
-		<h2>En 3 Museos hay muchos eventos para tí</h2>
+		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='eventos'));?>">
 			<label>Estas viendo <span class="on">me interesa</span></label>
@@ -29,9 +29,9 @@
 			if ( $count > 0 ){
 				echo '<select name="evType" id="evType"><option value="">Todos los tipos de eventos</option>';
 				foreach ( $terms as $term ) {
-					echo '<option value="'.$term->slug.'" '; 
+					echo '<option value="'.$term->slug.'" ';
 						if ($term->slug == $_GET["evType"]){
-							echo 'selected';	
+							echo 'selected';
 						}
 					echo '>'.$term->name.'</option>';
 				}
@@ -45,8 +45,8 @@
 				<option value="Museo del Palacio"<?php if ('Museo del Palacio' == $_GET['museum']){ echo 'selected'; } ?>>Museo del Palacio</option>
 			</select><br>
 			<label><span>el día </span></label>
-			<input type="text" id="date" name="date" value="<?php 
-				if(htmlentities($_GET['date']) == "") { 
+			<input type="text" id="date" name="date" value="<?php
+				if(htmlentities($_GET['date']) == "") {
 					echo date('d M Y');
 				} else {
 					echo $_GET['date'];
@@ -75,8 +75,8 @@
 				<option value="360">6 horas</option>
 			</select><br>
 			<label><span>el día</span></label>
-			<input type="text" id="date" name="date" value="<?php 
-				if(htmlentities($_GET['date']) == "") { 
+			<input type="text" id="date" name="date" value="<?php
+				if(htmlentities($_GET['date']) == "") {
 					echo date('d M Y');
 				} else {
 					echo $_GET['date'];
@@ -88,7 +88,7 @@
 
 	<?php else : ?>
 
-		<h2>3 Museos tiene muchas cosas para tí</h2>
+		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url($path='eventos')); ?>">
 			<label>Me interesa </label>
@@ -110,8 +110,8 @@
 				<option value="Museo del Palacio">Museo del Palacio</option>
 			</select><br>
 			<label><span>el día</span></label>
-			<input type="text" id="date" name="date" value="<?php 
-				if(htmlentities($_GET['date']) == "") { 
+			<input type="text" id="date" name="date" value="<?php
+				if(htmlentities($_GET['date']) == "") {
 					echo date('d M Y');
 				} else {
 					echo $_GET['date'];
