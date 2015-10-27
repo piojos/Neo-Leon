@@ -17,8 +17,15 @@
 		if($img_huge) { echo ' @media (min-width: 1800px) { .search_box {background-image: url(' . $img_huge[0] . ');} }'; }
 		echo '</style>';  ?>
 	<div class="mask"></div>
-	<div class="content">
-	<?php if(get_post_type() == 'eventos') : ?>
+	<div class="content"><?php
+
+
+
+
+	// Eventos
+
+	// if(get_post_type() == 'eventos') :
+	if(is_page('hoy-en-3museos')) : ?>
 		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url('hoy-en-3museos'));?>">
@@ -54,10 +61,14 @@
 			<input type="hidden" id="dateFormat" name="dateFormat" value="<?php echo $_GET['dateFormat'] ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
-		</form>
+		</form><?php
 
 
-	<?php elseif(is_page('planea-tu-visita')) : ?>
+
+
+	// Planea tu visita
+
+	elseif(is_page('planea-tu-visita')) : ?>
 		<h2><?php the_title(); ?></h2>
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url('planea-tu-visita')); ?>">
@@ -84,9 +95,14 @@
 			<input type="hidden" id="dateFormat" name="dateFormat"  value="<?php echo $_GET['dateFormat'] ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Planea mi Visita">
-		</form>
+		</form><?php
 
-	<?php else : ?>
+
+
+
+	// else
+
+	else : ?>
 
 		<h2><?php the_field('lang-es-searchTitle', 'option'); ?></h2>
 
@@ -118,11 +134,10 @@
 				} ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
-		</form>
+		</form><?php
 
 
-	<?php endif; ?>
-
+	endif; ?>
 
 	</div>
 </div>

@@ -1848,6 +1848,7 @@ ul.tags {
 .cards img {
   width: 100%;
   display: block;
+  min-height: 100px;
 }
 .cards .feature-img .tag, .cards .feature-img ul.tags li, ul.tags .cards .feature-img li {
   position: absolute;

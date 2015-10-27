@@ -1,7 +1,7 @@
 <?php
 
-// First(Empty) Query ( .../eventos )
-	if(htmlentities($_GET['date']) == "") { 
+	// First(Empty) Query ( .../eventos )
+	if(htmlentities($_GET['date']) == "") {
 		$_GET['evType'] = '';
 		$_GET['museum'] = '1';
 		$_GET['date'] = date('d M Y');
@@ -39,7 +39,7 @@
 			} elseif($post->museum == $_GET['museum']){
 				echo get_template_part('inc/cards');
 			}
-		} 
+		}
 
 		if($posts){} else {
 			global $niceDay;
@@ -51,8 +51,6 @@
 		}
 
 	echo '</ul>';
-
-
 
 
 	wp_reset_query(); ?>
