@@ -1,12 +1,10 @@
 	<div class="heading">
 		<div>
 			<?php
-			if(is_archive()) {
+			if(is_post_type_archive('noticias')) {
+				echo '<p>Todas las </p>';
+			} else {
 				echo '<p>Todos los </p>';
-			} elseif(get_post_type(get_the_ID()) == "eventos"){
-				echo '<p>';
-				echo get_template_part('funct/tag');
-				echo '</p>';
 			} ?>
 			<h1><?php
 
@@ -17,6 +15,6 @@
 				} else {
 					the_title();
 				} ?></h1>
-			<?php 	if(get_field('kicker')) { echo '<p>'. get_field('kicker') .'</p>'; } ?>
+			<?php // if(get_field('kicker')) { echo '<p>'. get_field('kicker') .'</p>'; } ?>
 		</div>
 	</div>
