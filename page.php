@@ -78,9 +78,10 @@
 		<div class="contain" style="background-color:<?php echo $lastColor; ?>">
 			<wrap>
 				<div class="back">&nbsp;</div>
-				<div class="content"> <?php
+				<div class="content"><?php
 
-			        elseif( get_row_layout() == 'img_txt' ): ?>
+
+					elseif( get_row_layout() == 'img_txt' ): ?>
 
 						<div class="pg-c img_txt <?php the_sub_field('order'); ?>">
 							<figure><?php
@@ -98,14 +99,16 @@
 							</div>
 						</div><?php
 
-			        elseif( get_row_layout() == 'slider' ): ?>
+
+					elseif( get_row_layout() == 'slider' ): ?>
 
 						<div class="pg-c">
-			        		<?php echo get_template_part('inc/exp-slider'); ?>
-			        	</div><?php
+							<?php echo get_template_part('inc/exp-slider'); ?>
+						</div><?php
 
-			        elseif( get_row_layout() == 'forms' ):
-			        	if($lastColor == "#FFF") : ?>
+
+					elseif( get_row_layout() == 'forms' ):
+						if($lastColor == "#FFF") : ?>
 
 				</div>
 			</wrap>
@@ -120,8 +123,21 @@
 						<h2><?php the_sub_field('form_title'); ?></h2>
 						<?php the_sub_field('forms'); ?><?php
 
+
+					elseif(get_row_layout() == 'teachers_guide') : ?>
+
+						<div class="guide">
+							<wrap><?php
+								the_sub_field('description');
+								$file = get_sub_field('file');
+								if( $file ): ?>
+									<a href="<?php echo $file['url']; ?>" class="button" target="_blank"><?php echo $file['title']; ?></a>
+								<?php endif; ?>
+							</wrap>
+						</div><?php
+
 					endif;
-			    endwhile; ?>
+				endwhile; ?>
 
 				</div>
 			</wrap>

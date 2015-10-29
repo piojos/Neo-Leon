@@ -148,10 +148,10 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 
 @media (min-width: 600px) {
-    .single-eventos .contain .details p.contact-info {
-        font-size: .75em !important;
-        line-height: 1.5em;
-    }
+	.single-eventos .contain .details p.contact-info {
+		font-size: .75em !important;
+		line-height: 1.5em;
+	}
 }
 
 
@@ -159,17 +159,25 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 /*  Exposición  */
 	.slide.vertical .image {
-	    background-size: contain !important;
-	    background-repeat: no-repeat !important;
-	    background-color: #262626 !important;
+		background-size: contain !important;
+		background-repeat: no-repeat !important;
+		background-color: #262626 !important;
 	}
-    ul.rooms section.head wrap > div:nth-child(2) h2 {
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden !important;
-        text-overflow: ellipsis;
-    }
-
+	ul.rooms section.head wrap > div:nth-child(2) h2 {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden !important;
+		text-overflow: ellipsis;
+	}
+	.guide {
+		text-align: center;
+		padding: 4em 0;
+		line-height: normal;
+	}
+	.guide a.button {
+		display: inline-block;
+		margin-top: 1em;
+	}
 
 
 
@@ -202,7 +210,9 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 
 /* Page: Rich Content */
-
+	.page .guide {
+		border-top: 2px solid#eFeFeF;
+	}
 
 
 
@@ -216,17 +226,17 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 
 /* 404 */
-    body.error404 {
-        background-color: #EEE;
-    }
-    .error404 .heading {
-        text-align: center;
-        padding: 8em 0 14em;
-    }
-    .error404 h1 {
-        font-size: 5em;
-        margin-top: .5em;
-    }
+	body.error404 {
+		background-color: #EEE;
+	}
+	.error404 .heading {
+		text-align: center;
+		padding: 8em 0 14em;
+	}
+	.error404 h1 {
+		font-size: 5em;
+		margin-top: .5em;
+	}
 
 
 
