@@ -217,9 +217,11 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 
 
-/* Header: Live Prev */
+/* Header */
 
-
+	header .search-box input[type="text"] {
+		background: none;
+	}
 
 
 
@@ -237,6 +239,21 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 		font-size: 5em;
 		margin-top: .5em;
 	}
+
+
+
+
+/* Recursos */
+
+.tres_museos dl img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 1em;
+}
+.tres_museos dl dt {
+	min-height: initial;
+	margin-bottom: .25em;
+}
 
 
 
