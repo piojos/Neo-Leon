@@ -66,7 +66,7 @@ if(is_front_page()) :
 									} ?></p>
 								<p class="details"><?php
 									if(get_field('expo_status') == 'Temporal'){
-										echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
+										get_template_part('funct/expodate');
 									} elseif('eventos' == get_post_type()) {
 										echo get_template_part('funct/eventdate');
 									} elseif('noticias' == get_post_type()) {
@@ -143,7 +143,7 @@ elseif(get_post_type() == 'eventos') :
 							} ?></p>
 						<p class="details"><?php
 							if(get_field('expo_status') == 'Temporal'){
-								echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
+								get_template_part('funct/expodate');
 							} elseif('eventos' == get_post_type()) {
 								echo get_template_part('funct/eventdate');
 							} elseif('noticias' == get_post_type()) {
@@ -194,15 +194,18 @@ else :
 							the_title();
 							} ?></h1>
 
-					<p><?php if(get_field('description')){
+					<p><?php
+						if(get_field('description')){
 							the_field('description');
 						} else {
 							echo $image['caption'];
 							} ?></p>
 					<p class="details"><?php
 						if(get_field('expo_status') == 'Temporal'){
-							echo 'Termina: '.date_i18n('l, j', $expoEnd).' de '.date_i18n('F Y.', $expoEnd);
-							if(get_field('schedule')){
+							$endDate = strtotime(get_field('end_time'));
+
+							if(get_field('end_time')) {
+								get_template_part('funct/expodate');
 							}
 						}
 						echo '<br>';

@@ -82,12 +82,12 @@ get_header(); ?>
 						<img src="<?php echo $img_med[0]; ?>" atl="3 museos">
 					</div>
 					<div class="description">
-						<h1><?php the_title(); ?></h1>
-						<?php if(get_field('museum')){
+						<h1><?php the_title(); ?></h1><?php
+							if(get_field('museum')){
 								echo '<p>'.get_field('museum');
-							} if(get_field('end_time')) {
-								$endDate = strtotime(get_sub_field('end_time'));
-								echo '<br>Hasta el '.date_i18n('j', $endDate).' de '.date_i18n('F', $endDate).'.</p>';
+							}
+							if(get_field('end_time')) {
+								get_template_part('funct/expodate');
 							} else {
 								echo '</p>';
 							} ?>
