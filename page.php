@@ -10,11 +10,10 @@
 	while (have_posts()) : the_post(); ?>
 
 
-	<article>
+	<article><?php
 
-<?php	echo get_template_part('inc/heading'); ?>
-
-<?php 		$image = get_post_thumbnail_id( $post_id );
+	echo get_template_part('inc/heading');
+	$image = get_post_thumbnail_id( $post_id );
 
 		if ($image) { echo '<div class="featured_img">'; }
 
@@ -41,63 +40,41 @@
 			$lastColor = get_field('bg-color');
 			if($lastColor == "#FFF"){
 				echo 'style="background-color:#FFF"';
-			}
-		?> >
-			<wrap>
-				<?php
-					if(is_page('en-vivo')){
-						// echo '<div class="back about-live">'.get_field('description').'</div>';
-					} else {
-						echo '<div class="back">';
-						echo get_template_part('inc/sidelist').'</div>';
-					} ?>
+			} ?> >
+			<wrap><?php
+				if(is_page('en-vivo')){
+					// echo '<div class="back about-live">'.get_field('description').'</div>';
+				} else {
+					echo '<div class="back">';
+					echo get_template_part('inc/sidelist').'</div>';
+				} ?>
+
 				<div class="content"><?php
 
-					if(is_page('en-vivo')){
-						the_field('embed');
-					} else {
-						the_content();
-					}
+				if(is_page('en-vivo')){
+					the_field('embed');
+				} else {
+					the_content();
+				}
 
 
 // WIDGETS
-				 	while ( have_rows('page') ) : the_row();
-			        if( get_row_layout() == 'content' ): ?>
+				while ( have_rows('page') ) : the_row();
+					if( get_row_layout() == 'content' ): ?>
 
 						<div>
 							<?php the_sub_field('content'); ?>
 						</div><?php
 
-			        elseif( get_row_layout() == 'bg-color-select' ):
 
-			        	$lastColor = get_sub_field('bg-color'); ?>
+					elseif( get_row_layout() == 'bg-color-select' ):
 
-				</div>
-			</wrap>
-		</div>
-		<div class="contain" style="background-color:<?php echo $lastColor; ?>">
-			<wrap>
-				<div class="back">&nbsp;</div>
-				<div class="content"><?php
+						get_template_part('inc/pgwd/bg-color-select');
 
 
-					elseif( get_row_layout() == 'img_txt' ): ?>
+					elseif( get_row_layout() == 'img_txt' ):
 
-						<div class="pg-c img_txt <?php the_sub_field('order'); ?>">
-							<figure><?php
-								$image = get_sub_field('img');
-								$caption = get_post_field('post_excerpt', $image);
-								if( $image ) {
-									echo wp_get_attachment_image( $image, 'larger' );
-									if($caption) {
-										echo '<figcaption>'.$caption.'</figcaption>';
-									}
-								} ?>
-							</figure>
-							<div>
-								<?php the_sub_field('txt'); ?>
-							</div>
-						</div><?php
+						get_template_part('inc/pgwd/img_txt');
 
 
 					elseif( get_row_layout() == 'slider' ): ?>
@@ -108,33 +85,19 @@
 
 
 					elseif( get_row_layout() == 'forms' ):
-						if($lastColor == "#FFF") : ?>
 
-				</div>
-			</wrap>
-		</div>
-		<div class="contain" style="background-color:#EEE">
-			<wrap>
-				<div class="back">&nbsp;</div>
-				<div class="content"> <?php
-
-						endif; ?>
-
-						<h2><?php the_sub_field('form_title'); ?></h2>
-						<?php the_sub_field('forms'); ?><?php
+						get_template_part('inc/pgwd/forms');
 
 
-					elseif(get_row_layout() == 'teachers_guide') : ?>
+					elseif(get_row_layout() == 'teachers_guide') :
 
-						<div class="guide">
-							<wrap><?php
-								the_sub_field('description');
-								$file = get_sub_field('file');
-								if( $file ): ?>
-									<a href="<?php echo $file['url']; ?>" class="button" target="_blank"><?php echo $file['title']; ?></a>
-								<?php endif; ?>
-							</wrap>
-						</div><?php
+						get_template_part('inc/pgwd/teachers-guide');
+
+
+					elseif(get_row_layout() == 'tabs') :
+
+						get_template_part('inc/pgwd/tabs');
+
 
 					endif;
 				endwhile; ?>
