@@ -18,18 +18,20 @@
 		</div>
 	</div>
 
-	<section id="events-post">
-
-		<h2 class="wrap"><?php the_title(); ?></h2><?php
+	<section id="events-post"><?php
 
 		$args = array(
 			'post_type' => 'post',
-			'meta_value' => 'Temporal'
+			'meta_value' => 'Temporal',
+			'meta_key' => 'temporal',
+			'meta_value' => 'futuro'
 		);
 		$exPerm = new WP_Query( $args );
 
-		if ( $exPerm->have_posts() ) {
-			echo '<ul class="masonry cards">';
+		if ( $exPerm->have_posts() ) { ?>
+
+		<h2 class="wrap"><?php the_title(); ?></h2>
+			<ul class="masonry cards"><?php
 			while ( $exPerm->have_posts() ) { $exPerm->the_post();
 				$image = get_post_thumbnail_id( $post_id );
 				$img_med = wp_get_attachment_image_src($image, 'medium');
@@ -37,6 +39,8 @@
 				get_template_part('inc/cards');
 			}
 			echo '</ul>';
+		} else {
+			echo '<wrap style="text-align: center;"><h2>Todavía no hay exposiciones futuras programadas.</h2></wrap>';
 		}
 
 	?></section>

@@ -25,7 +25,9 @@
 
 		$args = array(
 			'post_type' => 'post',
-			'meta_value' => 'Temporal'
+			'meta_value' => 'Temporal',
+			'meta_key' => 'temporal',
+			'meta_value' => 'archivo'
 		);
 		$exPerm = new WP_Query( $args );
 
