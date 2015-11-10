@@ -60,26 +60,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /*  Imports  */
-@font-face {
-  font-family: FU_B;
-  src: url("../fonts/FuturaStd-Bold.otf");
-}
-@font-face {
-  font-family: FU_CB;
-  src: url("../fonts/FuturaStd-CondensedBold.otf");
-}
-@font-face {
-  font-family: FU;
-  src: url("../fonts/FuturaStd-Book.otf");
-}
-@font-face {
-  font-family: META;
-  src: url("../fonts/Meta_Serif_Book.otf");
-}
-@font-face {
-  font-family: META_IT;
-  src: url("../fonts/Meta_Serif_Book_Italic.otf");
-}
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,23 +70,25 @@ body {
 
 /*  Style  */
 .FU_B {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
+  font-weight: 700;
 }
 
 .FU_CB {
-  font-family: FU_CB, helvetica, arial, sans-serif;
+  font-family: "futura-pt-condensed", helvetica, arial, sans-serif;
+  font-weight: 700;
 }
 
 .FU {
-  font-family: FU, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 
 .meta {
-  font-family: META, Georgia, serif;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
 }
 
 em {
-  font-family: META_IT, Georgia, serif;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
   font-style: italic;
 }
 
@@ -197,7 +179,7 @@ select, input[type="text"], input[type="email"], textarea, a.button, button, inp
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
   border-radius: 0.4em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #fff;
   border: none;
   padding: 0.65em 1em 0.6em;
@@ -302,7 +284,7 @@ body {
   background: #404040;
   width: 100%;
   overflow: auto;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   visibility: visible !important;
   opacity: 1 !important;
 }
@@ -469,7 +451,7 @@ body {
   margin-top: 2.55em;
   overflow-y: hidden;
   display: block !important;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 #audio-player .mejs-playlist ul {
   margin: 0;
@@ -602,7 +584,7 @@ header {
   background-color: #52318e;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   overflow: hidden;
 }
 header .logo {
@@ -753,9 +735,8 @@ header .search-temp ul {
     padding-top: 0.5em;
   }
 }
-header.live a.search-btn {
-  position: relative;
-  left: -3em;
+header .search-temp.live a.search-btn {
+  margin-right: 4em;
 }
 header .search-box {
   -moz-box-sizing: border-box;
@@ -839,7 +820,7 @@ header.show-search nav, header.show-search .search-temp {
 .breadcrumbs {
   background-color: #fff;
   color: #52318e;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 0.75em;
   padding: 0.75em;
   -moz-box-shadow: 0 0.5em 1.25em -0.5em rgba(0, 0, 0, 0.25);
@@ -908,7 +889,7 @@ aside .logo {
   display: inline-block;
 }
 aside .logo a {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   text-decoration: none;
   color: #fff;
   padding: 0 0 10px 0;
@@ -923,7 +904,7 @@ aside ul.aside_menu {
   padding: 1.25em 0 2em;
 }
 aside ul.aside_menu > li {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1.25em;
   line-height: 2.25em;
   display: inline-block;
@@ -941,7 +922,7 @@ aside ul.aside_menu > li {
 }
 aside ul.aside_menu > li > ul {
   display: none;
-  font-family: FU, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 0.85em;
   line-height: normal;
 }
@@ -966,7 +947,7 @@ aside.show {
 
 /*  Footer  */
 footer {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   background-color: #262626;
   color: #858585;
   overflow: visible;
@@ -980,7 +961,7 @@ footer ul {
   text-transform: uppercase;
 }
 footer ul li {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   display: inline-block;
   margin-left: 1.5em;
 }
@@ -1002,7 +983,7 @@ footer .copyright {
   padding: 2em 0.66667% 3em;
 }
 footer .copyright > p {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   width: 50%;
   float: left;
 }
@@ -1132,12 +1113,12 @@ div.newsletter .title {
 }
 div.newsletter .title p {
   font-size: 0.75em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   text-transform: uppercase;
   color: #bdaae1;
 }
 div.newsletter .title h3 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #fff;
 }
 div.newsletter form {
@@ -1287,7 +1268,7 @@ div.newsletter form input[type="submit"] {
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
   border-radius: 0.4em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 0.75em;
   padding: 0.75em 1em 0.6em;
   background-color: #52318e;
@@ -1343,7 +1324,7 @@ ul.tags {
   color: #fff;
 }
 .slider .caption h1, .slider .caption h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 .slider .caption h2 {
@@ -1365,7 +1346,7 @@ ul.tags {
   margin-left: -1.5em;
   width: 100%;
   padding: 1.4em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   border-top: 0.2em solid rgba(0, 0, 0, 0.5);
   background-color: #52318e;
 }
@@ -1404,7 +1385,7 @@ ul.tags {
 .slider p.details {
   position: absolute;
   bottom: 6em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1em;
   width: 86%;
 }
@@ -1498,7 +1479,7 @@ ul.tags {
   text-align: center;
 }
 .search_box .content h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1.25em;
   color: #fff;
   margin-bottom: 1em;
@@ -1550,7 +1531,7 @@ ul.tags {
 }
 
 .store-rent h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1.75em;
   color: #52318e;
   text-transform: uppercase;
@@ -1649,7 +1630,7 @@ ul.tags {
   }
 }
 .store-rent .rent > div h1 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1em;
   color: #8c8c8c;
   margin-bottom: 1em;
@@ -1718,7 +1699,7 @@ ul.tags {
   background-color: #52318e;
   text-align: center;
   font-size: 1.25em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   text-transform: uppercase;
   padding: 1em 2em;
   border-top: 2px solid #eeeeee;
@@ -1736,7 +1717,7 @@ ul.tags {
 
 .heading {
   padding: 2em 0;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
 }
 .heading > div {
@@ -1752,7 +1733,7 @@ ul.tags {
   font-size: 2em;
 }
 .heading p {
-  font-family: META, Georgia, serif;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
   font-size: 1.25em;
   margin-top: 0.5em;
   color: #bdaae1;
@@ -1856,7 +1837,7 @@ ul.tags {
 .cards .description {
   background-color: #fff;
   padding: 1.25em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 .cards .description .tag, .cards .description ul.tags li, ul.tags .cards .description li {
   margin: 0 0 1em;
@@ -1908,12 +1889,13 @@ ul.tags {
   width: initial;
   vertical-align: top;
   margin-right: 0.25em;
+  min-height: initial;
 }
 
 .featured_img {
   padding-bottom: 4em;
 }
-.featured_img img {
+.featured_img picture img {
   width: 100%;
   display: block;
 }
@@ -1937,7 +1919,7 @@ body.page .featured_img {
   float: left;
   padding-left: 0.66667%;
   padding-right: 0.66667%;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
   padding-bottom: 2em;
   text-transform: uppercase;
@@ -2015,7 +1997,7 @@ body.page .featured_img {
   margin-bottom: 1em;
 }
 .single .contain .back a, .single .contain .options a, .page .contain .back a, .page .contain .options a {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #f8511d;
   cursor: pointer;
 }
@@ -2023,7 +2005,7 @@ body.page .featured_img {
   color: #8c8c8c;
 }
 .single .contain .content, .page .contain .content {
-  font-family: META, Georgia, serif;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
 }
 @media (min-width: 600px) {
   .single .contain .content, .page .contain .content {
@@ -2041,7 +2023,7 @@ body.page .featured_img {
   margin-bottom: 0.5em;
 }
 .single .contain .date, .single .contain h2, .page .contain .date, .page .contain h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
   margin: 0.65em 0 1em;
 }
@@ -2079,14 +2061,14 @@ body.page .featured_img {
   width: 100%;
 }
 .single .contain label, .page .contain label {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 0.75em;
   color: #52318e;
   margin-bottom: 0.5em;
   display: inline-block;
 }
 .single .contain input, .single .contain select, .single .contain textarea, .page .contain input, .page .contain select, .page .contain textarea {
-  font-family: META, Georgia, serif;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
   font-size: 1em;
   width: 100%;
   background-color: white;
@@ -2099,7 +2081,7 @@ body.page .featured_img {
 }
 .single .contain input[type="submit"], .page .contain input[type="submit"] {
   font-size: 1em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   background-color: #52318e;
   color: #fff;
   display: inline-block;
@@ -2202,7 +2184,7 @@ ul.dropdown li:hover > ul {
 }
 .pagination a {
   display: inline-block !important;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   background-color: lightgray;
   color: #fff;
   width: 2em;
@@ -2220,7 +2202,7 @@ ul.dropdown li:hover > ul {
 
 div#ui-datepicker-div {
   background-color: #fff;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   min-width: 14em;
   -moz-border-radius: 0.4em;
   -webkit-border-radius: 0.4em;
@@ -2311,7 +2293,7 @@ span.ui-icon.ui-icon-circle-triangle-e:after {
 }
 
 .page .content h1, .page .content h3 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
   margin: 0.65em 0 1em;
 }
@@ -2487,7 +2469,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   padding-right: 1em;
 }
 .featured_posts li h1 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 .featured_posts li:nth-child(3) {
   width: 45.33333%;
@@ -2602,7 +2584,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
 }
 .tres_museos dl dt {
   font-size: 1.25em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   text-transform: uppercase;
   min-height: 3em;
   color: #52318e;
@@ -2629,7 +2611,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   float: left;
   padding-left: 0.66667%;
   padding-right: 0.66667%;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #f8511d;
   text-transform: uppercase;
   margin-bottom: 3em;
@@ -2646,7 +2628,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   text-align: left;
 }
 .single-eventos .heading p {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1em;
 }
 .single-eventos .contain {
@@ -2696,7 +2678,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   }
 }
 .single-eventos .contain .share {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 .single-eventos .contain .share > ul {
   width: 72%;
@@ -2731,7 +2713,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   text-transform: uppercase;
 }
 .single-eventos .contain .details {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #fff;
   background-color: #52318e;
   padding: 2em 1.5em 4em;
@@ -2776,7 +2758,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
   margin-bottom: 2.5em;
 }
 #events-post .nav wrap h2, #events-post .nav .slider h2, #events-post .nav .store-rent h2, #events-post .nav .heading h2, #events-post .nav .masonry h2, #events-post .nav .featured_img h2, #events-post .nav .rooms article .video > div h2, .rooms article #events-post .nav .video > div h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 1.625em;
   display: inline-block;
   position: relative;
@@ -2853,13 +2835,13 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
 }
 .single-pieza .piece wrap > div:nth-child(2) h1, .single-pieza .piece .slider > div:nth-child(2) h1, .single-pieza .piece .store-rent > div:nth-child(2) h1, .single-pieza .piece .heading > div:nth-child(2) h1, .single-pieza .piece .masonry > div:nth-child(2) h1, .single-pieza .piece .featured_img > div:nth-child(2) h1, .single-pieza .piece .rooms article .video > div > div:nth-child(2) h1, .rooms article .single-pieza .piece .video > div > div:nth-child(2) h1 {
   font-size: 1.625em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
   margin: 1em 0;
 }
 .single-pieza .piece wrap > div:nth-child(2) h2, .single-pieza .piece .slider > div:nth-child(2) h2, .single-pieza .piece .store-rent > div:nth-child(2) h2, .single-pieza .piece .heading > div:nth-child(2) h2, .single-pieza .piece .masonry > div:nth-child(2) h2, .single-pieza .piece .featured_img > div:nth-child(2) h2, .single-pieza .piece .rooms article .video > div > div:nth-child(2) h2, .rooms article .single-pieza .piece .video > div > div:nth-child(2) h2 {
   font-size: 0.75em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #bdaae1;
   margin: 2em 0 0.5em;
 }
@@ -2904,7 +2886,7 @@ body.home .featured_posts, body.home .tres_museos, body.home .store-rent {
 }
 
 .plan {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 .plan .commute, .plan .events {
   position: relative;
@@ -3381,7 +3363,7 @@ ul.rooms section.head wrap > div:nth-child(1), ul.rooms section.head .slider > d
   float: left;
   padding-left: 0.66667%;
   padding-right: 0.66667%;
-  font-family: FU_CB, helvetica, arial, sans-serif;
+  font-family: "futura-pt-condensed", helvetica, arial, sans-serif;
   font-size: 3em;
   line-height: 0.95em;
   color: rgba(38, 38, 38, 0.25);
@@ -3394,7 +3376,7 @@ ul.rooms section.head wrap > div:nth-child(2), ul.rooms section.head .slider > d
   float: left;
   padding-left: 0.66667%;
   padding-right: 0.66667%;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   color: #52318e;
 }
 ul.rooms section.head wrap > div:nth-child(2) p, ul.rooms section.head .slider > div:nth-child(2) p, ul.rooms section.head .store-rent > div:nth-child(2) p, ul.rooms section.head .heading > div:nth-child(2) p, ul.rooms section.head .masonry > div:nth-child(2) p, ul.rooms section.head .featured_img > div:nth-child(2) p, ul.rooms section.head article .video > div > div:nth-child(2) p, ul.rooms article section.head .video > div > div:nth-child(2) p {
@@ -3512,7 +3494,7 @@ ul.rooms > li:hover section.head wrap a.open_btn div, ul.rooms > li:hover sectio
 
 /*  Content  */
 .rooms article h1, .rooms article h2 {
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
 }
 .rooms article > .description {
   background-color: #311d55;
@@ -3801,7 +3783,7 @@ ul.rooms > li:hover section.head wrap a.open_btn div, ul.rooms > li:hover sectio
   padding: 1.1em 7em 0 0;
   width: 98.2%;
   height: 3.35em;
-  font-family: FU_B, helvetica, arial, sans-serif;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
   font-size: 0.75em;
   text-align: right;
   padding: 1.15em 1em 0;
@@ -3873,38 +3855,40 @@ ul.rooms > li:hover section.head wrap a.open_btn div, ul.rooms > li:hover sectio
 .rooms article .quote h2:before {
   content: "– ";
 }
-.rooms article .menu {
+
+article .menu {
   background-color: #eee;
 }
-.rooms article .menu wrap, .rooms article .menu .slider, .rooms article .menu .store-rent, .rooms article .menu .heading, .rooms article .menu .masonry, .rooms article .menu .featured_img, .rooms article .menu .video > div {
+article .menu wrap, article .menu .slider, article .menu .store-rent, article .menu .heading, article .menu .masonry, article .menu .featured_img, .rooms article .menu .video > div {
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
   padding: 6em 0;
 }
-.rooms article .menu h1 {
+article .menu h1 {
   font-size: 2em;
   color: #c63513;
 }
-.rooms article .menu ul.tabs {
+article .menu ul.tabs {
   margin: 1em 0 2em;
+  padding-left: initial;
 }
-.rooms article .menu ul.tabs li {
+article .menu ul.tabs li {
   display: inline;
   margin-right: 2em;
 }
-.rooms article .menu ul.tabs li a {
+article .menu ul.tabs li a {
   color: #999;
 }
-.rooms article .menu ul.tabs li.current a {
-  color: #c63513;
+article .menu ul.tabs li.current a {
+  color: #52318e;
 }
-.rooms article .menu ul.content li {
+article .menu .tContent div {
   display: none;
   font-size: 0.875em;
   line-height: 2em;
 }
-.rooms article .menu ul.content li.cols_2 {
+article .menu .tContent div.cols_2 {
   -moz-column-count: 2;
   -webkit-column-count: 2;
   column-count: 2;
@@ -3912,8 +3896,8 @@ ul.rooms > li:hover section.head wrap a.open_btn div, ul.rooms > li:hover sectio
   -webkit-column-gap: 2em;
   column-gap: 2em;
 }
-.rooms article .menu ul.content li.current {
-  display: block;
+article .menu .tContent div.current {
+  display: block !important;
 }
 
 ul.rooms li.open section.head {

@@ -1,4 +1,10 @@
+.store-rent .store:nth-child(1) h1 {
+	width: 68%;
+}
 
+.single .contain .date {
+	text-transform: capitalize;
+}
 
 .post-type-archive-eventos .caption h2 span {display: none;}
 .heading.list {
@@ -80,7 +86,7 @@ input[type="text"] {
 
 #events-post .masonry.permanents > li { width: 33.3333%; }
 #events-post h2 {
-	font-family: FU_B;
+	font-family: 'futura-pt';
 	padding: 0 .25em 1.6em;
 	font-size: 1.75em;
 	color: #52318e; /* purple */
@@ -211,9 +217,14 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 /* Page: Rich Content */
 	.page .guide {
-		border-top: 2px solid#eFeFeF;
+		border-top: 2px solid #eFeFeF;
 	}
-
+	.content wrap {
+		max-width: 100%;
+	}
+	/*article .menu ul.tabs li {
+		display: inline !important;
+	}*/
 
 
 
@@ -223,7 +234,11 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 		background: none;
 	}
 
-
+	.search_box select option {
+		color: #333;
+		background: #FFF;
+		border: none;
+	}
 
 
 
@@ -245,16 +260,79 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 
 /* Recursos */
 
-.tres_museos dl img {
-	width: 100%;
-	height: auto;
-	margin-bottom: 1em;
-}
-.tres_museos dl dt {
-	min-height: initial;
-	margin-bottom: .25em;
-}
+	.tres_museos dl img {
+		width: 100%;
+		height: auto;
+		margin-bottom: 1em;
+	}
+	.tres_museos dl dt {
+		min-height: initial;
+		margin-bottom: .25em;
+	}
 
 
 
 /* Planea - Maps */
+
+
+
+
+/* Video */
+	.video {
+		position: relative;
+	}
+	.has-caption iframe {
+		width: 70%;
+	}
+	.has-caption .caption {
+		width: 28%;
+		float: right;
+		color: #FFF;
+		font-size: .75em;
+	}
+	@media (max-width: 600px) {
+		.has-caption iframe {
+			width: 100%;
+		}
+		.has-caption .caption {
+			width: 100%;
+			font-size: 1em;
+			margin-top: 1em;
+		}
+	}
+
+
+
+
+
+	.not_nos .contain h1 {
+		font-family: 'futura-pt', helvetica, arial, sans-serif;
+		color: #52318e;
+		font-size: 2.75em;
+		margin: 1em 0 .5em;
+	}
+	.contain img.aligncenter {
+		display: inherit;
+		margin: 0 auto;
+	}
+
+
+
+
+
+	/* Restaurante */
+
+	.cstm-contain {padding-top: 6em; padding-bottom: 6em; overflow: auto;}
+	.half {width:48%; float:left;}
+	.half:nth-child(2) {float:right; position:relative; z-index:1;}
+	.half img {position: relative; z-index: 1; max-width:100%; height: auto;}
+	img#pollito {position: absolute; left: -5em; top: 2em;}
+	.cstm-contain h1, .cstm-contain h2 {color:#f7b900;}
+	.cstm-contain h1 {font-size: 2em;}
+
+	.cafe article .menu ul.tabs li.current a {color: #c63513}
+
+	.page .contain input[disabled="disabled"] {
+		background: #B1B1B1;
+		cursor: default;
+	}
