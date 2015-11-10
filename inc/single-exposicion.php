@@ -20,13 +20,18 @@
 			// 	echo 'open ';
 			// }
 			if ($check == 1) {
-			 	echo ' unique ';
+			 	echo ' unique open';
 			} ?>">
 			<section class="head">
 				<wrap>
 					<div><?php echo $nAp; ?></div>
 					<div>
-						<p><?php the_sub_field('space'); ?></p>
+						<p><?php
+						if(get_sub_field('space')){
+							the_sub_field('space');
+						} else {
+							the_field('museum');
+						} ?></p>
 						<h2><?php the_sub_field('title'); ?></h2>
 					</div>
 					<div>
