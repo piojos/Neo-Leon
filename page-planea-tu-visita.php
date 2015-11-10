@@ -25,12 +25,12 @@
 			<div class="buttons">
 				<a href="#" id="open-map">
 					<img src="<?php bloginfo('template_url'); ?>/img/transporte.svg">
-					<p><span>Consulta</span> Mapa</p>
-				</a>
+					<p><span>Cómo</span> Llegar</p>
+				</a><?php /*
 				<a href="http://<?php the_field('tickets', 'option') ?>">
 					<img src="<?php bloginfo('template_url'); ?>/img/ticket.svg">
 					<p><span>Compra</span> Boletos</p>
-				</a>
+				</a> */ ?>
 			</div>
 		</wrap>
 	</div>
@@ -49,7 +49,11 @@
 				<li><a href="#" id="tab3">
 					<img src="<?php the_field('hand-icon'); ?>"/>
 					Acceso
-				</a></li>
+				</a></li><?php /*
+				<li><a href="#" id="tab4">
+					<img src="<?php the_field('reco-icon'); ?>"/>
+					Recomendaciones
+				</a></li> */ ?>
 			</ul>
 		</div>
 
@@ -58,6 +62,7 @@
 				<div class="info">
 					<?php the_field('auto-details');?>
 				</div>
+
 				<div class="map"><?php
 					if( have_rows('auto-map-pins') ): ?>
 						<div class="acf-map"><?php
@@ -117,6 +122,13 @@
 				</div>
 			</div>
 
+
+			<div class="slide" id="tab4C">
+				<div class="info">
+					<?php the_field('reco-details');?>
+				</div>
+			</div>
+
 		</div>
 
 	</div>
@@ -134,8 +146,10 @@
 }
 
 </style>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
+
+
 (function($) {
 
 	function new_map( $el ) {
@@ -150,7 +164,7 @@
 		var map = new google.maps.Map( $el[0], args);
 		map.markers = [];
 		$markers.each(function(){
-	    	add_marker( $(this), map );
+			add_marker( $(this), map );
 		});
 		center_map( map );
 		return map;
@@ -161,7 +175,7 @@
 		var marker = new google.maps.Marker({
 			position	: latlng,
 			map			: map,
-		    icon: '<?php bloginfo('template_url'); ?>/img/pin.svg'
+			icon: '<?php bloginfo('template_url'); ?>/img/pin.svg'
 		});
 
 		map.markers.push( marker );
@@ -192,44 +206,38 @@
 
 	var map = null;
 	$(document).ready(function(){
-		$('.acf-map').each(function(){
+		$('#tab1C .acf-map').each(function(){
 			map = new_map( $(this) );
 		});
 	});
 
-})(jQuery);
 
+	$('.show-maps .tabs li a:not(:first)').addClass('inactive');
+	$('.map-slider .slide').hide();
+	$('.map-slider .slide:first').show();
+	$('.show-maps .tabs li a').click(function(event){
+		event.preventDefault();
+		var t = $(this).attr('id');
 
-	$(document).ready(function() {
-		$('.show-maps .tabs li a:not(:first)').addClass('inactive');
-		$('.map-slider .slide').hide();
-		$('.map-slider .slide:first').show();
-		$('.show-maps .tabs li a').click(function(){
-    		event.preventDefault();
-			var t = $(this).attr('id');
-
-			if($(this).hasClass('inactive')){ //this is the start of our condition
-				$('.show-maps .tabs li a').addClass('inactive');
-				$('#'+t).removeClass('inactive');
-				$('.map-slider .slide').hide();
-				$('#'+ t +'C').fadeIn('slow');
+		if($(this).hasClass('inactive')){ //this is the start of our condition
+			$('.show-maps .tabs li a').addClass('inactive');
+			$('#'+t).removeClass('inactive');
+			$('.map-slider .slide').hide();
+			$('#'+ t +'C').fadeIn('slow');
+			$('#'+ t +'C .acf-map').each(function(){
+				map = new_map( $(this) );
+				console.log(map);
 				var center = map.getCenter();
 				google.maps.event.trigger(map, "resize");
 				map.setCenter(center);
-			}
-			// google.maps.event.trigger(map, "resize");
-		});
-		$('a#open-map').click(function(){
-    		event.preventDefault();
-			$('.show-maps').toggleClass('open');
-		});
+			});
+		}
 	});
-	google.maps.event.addDomListener(window, 'load', initialize);
-	google.maps.event.addListener(map, "idle", function(){
-		var center = map.getCenter();
-		google.maps.event.trigger(map, 'resize');
-		map.setCenter(center);
+	$('a#open-map').click(function(event){
+		event.preventDefault();
+		$('.show-maps').toggleClass('open');
 	});
+})(jQuery);
 </script>
 
 <?php get_footer(); ?>
