@@ -25,8 +25,7 @@ get_header(); ?>
 
 	<section id="events-post">
 
-		<h2 class="wrap">Exposiciones Permanentes</h2>
-		<?php
+		<h2 class="wrap">Exposiciones Permanentes</h2><?php
 
 		$args = array(
 			'post_type' => 'post',
@@ -74,7 +73,9 @@ get_header(); ?>
 			echo '<ul class="masonry cards">';
 			while ( $exPerm->have_posts() ) { $exPerm->the_post();
 				$image = get_post_thumbnail_id( $post_id );
-				$img_med = wp_get_attachment_image_src($image, 'medium'); ?>
+				$img_med = wp_get_attachment_image_src($image, 'medium');
+
+				get_template_part('inc/cards'); /* ?>
 
 			<li>
 				<a href="<?php the_permalink(); ?>">
@@ -95,7 +96,7 @@ get_header(); ?>
 				</a>
 			</li>
 
-		<?php
+		<?php */
 			}
 			echo '</ul>';
 		}

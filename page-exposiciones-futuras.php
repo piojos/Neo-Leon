@@ -20,8 +20,7 @@
 
 	<section id="events-post">
 
-		<h2 class="wrap"><?php the_title(); ?></h2>
-		<?php
+		<h2 class="wrap"><?php the_title(); ?></h2><?php
 
 		$args = array(
 			'post_type' => 'post',
@@ -33,27 +32,9 @@
 			echo '<ul class="masonry cards">';
 			while ( $exPerm->have_posts() ) { $exPerm->the_post();
 				$image = get_post_thumbnail_id( $post_id );
-				$img_med = wp_get_attachment_image_src($image, 'medium'); ?>
+				$img_med = wp_get_attachment_image_src($image, 'medium');
 
-			<li>
-				<a href="<?php the_permalink(); ?>">
-					<div class="feature-img">
-						<img src="<?php echo $img_med[0]; ?>" atl="3 museos">
-					</div>
-					<div class="description">
-						<h1><?php the_title(); ?></h1>
-						<?php if(get_field('museum')){
-								echo '<p>'.get_field('museum');
-							} if(get_field('end_time')) {
-								get_template_part('funct/expodate');
-							} else {
-								echo '</p>';
-							} ?>
-					</div>
-				</a>
-			</li>
-
-		<?php
+				get_template_part('inc/cards');
 			}
 			echo '</ul>';
 		}
