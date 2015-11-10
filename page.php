@@ -74,7 +74,7 @@
 
 					elseif( get_row_layout() == 'img_txt' ):
 
-						get_template_part('inc/pgwd/img_txt');
+						get_template_part('inc/pgwd/img-txt');
 
 
 					elseif( get_row_layout() == 'slider' ): ?>

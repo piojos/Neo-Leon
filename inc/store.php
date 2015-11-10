@@ -1,28 +1,44 @@
-<div class="store-rent">
-	<div class="store">
-		<img src="<?php the_field('product-img'); ?>" alt="tutankamón" class="piece">
+<div class="store-rent"><?php
+	while(have_rows('product')) : the_row(); ?>
+	<div class="store"><?php
+		if(get_sub_field('img')) { ?>
+			<img src="<?php the_sub_field('img'); ?>" alt="<?php the_sub_field('title'); ?>" class="piece"><?php
+		} ?>
 		<div>
-			<span>Nuevo en la tienda</span>
-			<h2>Colección Tutankamón</h2>
-			<h1>Escultura de gato egipcio</h1>
-			<a href="http://<?php the_field('product-link'); ?>" class="button">Ver en tienda</a>
+			<span><?php the_sub_field('pre-title'); ?></span>
+			<h2><?php the_sub_field('title'); ?></h2>
+			<h1><?php the_sub_field('kicker'); ?></h1>
+			<a href="<?php the_sub_field('link'); ?>" class="button"><?php the_sub_field('btn'); ?></a>
 		</div>
-	</div>
-	<div class="store amigo">
-		<img src="<?php the_field('pase-img'); ?>" alt="tutankamón" class="piece">
+	</div><?php
+	endwhile; ?><?php
+
+
+	while(have_rows('pase_anual')) : the_row(); ?>
+	<div class="store amigo"><?php
+		if(get_sub_field('img')) { ?>
+			<img src="<?php the_sub_field('img'); ?>" alt="<?php the_sub_field('title'); ?>" class="piece"><?php
+		} ?>
 		<div>
-			<span>Conviértete en</span>
-			<h2>AMIGO DE LA HISTORIA</h2>
-			<h1>Obtén tu membresía</h1>
-			<a href="<?php the_field('pase-link'); ?>" class="button">Quiero ser amigo</a>
+			<span><?php the_sub_field('pre-title'); ?></span>
+			<h2><?php the_sub_field('title'); ?></h2>
+			<h1><?php the_sub_field('kicker'); ?></h1>
+			<a href="<?php the_sub_field('link'); ?>" class="button"><?php the_sub_field('btn'); ?></a>
 		</div>
-	</div>
+	</div><?php
+	endwhile;
+
+
+	while(have_rows('rsvp')) : the_row(); ?>
 	<div class="rent">
 		<div>
-			<h2>Reserva</h2>
-			<h1>Tu evento en 3 Museos</h1>
-			<a href="<?php the_field('rsvp-link'); ?>" class="button">Conoce más</a>
-		</div>
-		<img src="<?php the_field('rsvp-img'); ?>" alt="" class="decor">
-	</div>
+			<h2><?php the_sub_field('title'); ?></h2>
+			<h1><?php the_sub_field('kicker'); ?></h1>
+			<a href="<?php the_sub_field('link'); ?>" class="button"><?php the_sub_field('btn'); ?></a>
+		</div><?php
+		if(get_sub_field('img')) { ?>
+			<img src="<?php the_sub_field('img'); ?>" alt="" class="decor"><?php
+		} ?>
+	</div><?php
+	endwhile; ?>
 </div>
