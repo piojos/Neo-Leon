@@ -65,7 +65,17 @@ get_header(); ?>
 
 		$args = array(
 			'post_type' => 'post',
-			'meta_value' => 'Temporal'
+			'meta_query' => array(
+				'relation' => 'AND',
+				array(
+					'key'     => 'expo_status',
+					'value'   => 'Temporal'
+				),
+				array(
+					'key'     => 'temporal',
+					'value'   => 'actual'
+				),
+			)
 		);
 		$exPerm = new WP_Query( $args );
 
