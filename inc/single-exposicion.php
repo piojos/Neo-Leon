@@ -1,24 +1,20 @@
-
-<?php 	// echo get_template_part('inc/heading');
-		echo get_template_part('inc/slider'); ?>
-
-
-
 <?php
+
+	// echo get_template_part('inc/heading');
+	echo get_template_part('inc/slider');
 	$check = count(get_field('sala'));
+
+
 	if( have_rows('sala') ):
 		echo '<ul class="rooms expo">';
 		$nA = 0;
 
 
-	    while ( have_rows('sala') ) : the_row();
-	    	$nA++;
-	    	$nAp = sprintf("%02d", $nA); ?>
+		while ( have_rows('sala') ) : the_row();
+			$nA++;
+			$nAp = sprintf("%02d", $nA); ?>
 
 		<li class="<?php
-			// if($nA == 1){ // only first & add jquery
-			// 	echo 'open ';
-			// }
 			if ($check == 1) {
 			 	echo ' unique open';
 			} ?>">
@@ -160,12 +156,16 @@
 		});
 
 		// Get height
+
 		$( 'ul.rooms li section.head' ).each(function() {
 			var parentHeight = $(this).parent('li').height();
 			$(this).parents('li').height(parentHeight);
-			$(this).parents('li').addClass('closed');
+			<?php
+			if (!($check == 1)) { ?>
+				$(this).parents('li').addClass('closed');
+				<?php
+			} ?>
 		});
-
 	});
 
 	// Window resize
@@ -180,20 +180,6 @@
 		});
 	});
 
-	// $(function() {
-	// 	$('a[href*=#]:not([href=#])').click(function() {
-	// 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-	// 			var target = $(this.hash);
-	// 			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	// 			if (target.length) {
-	// 				$('html,body').animate({
-	// 					scrollTop: target.offset().top
-	// 				}, 1000);
-	// 				return false;
-	// 			}
-	// 		}
-	// 	});
-	// });
 
 	var $container = $('.masonry');
 	$container.imagesLoaded( function() {
