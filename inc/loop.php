@@ -14,7 +14,37 @@
 		echo $title;
 	}
 
-	if(is_page()){
+	$today = date('Ymd',strtotime("-1 day"));
+
+	if (is_page('eventos')) {
+		global $post;
+		$pSlug = $post->post_name;
+
+
+		query_posts(
+			array(
+				'post_type'		=> $pSlug,
+				'posts_per_page' => 12,
+				'paged'			=> get_query_var( 'paged' ),
+				'meta_query'	=> array(
+					array(
+						'key'		=> 'days_%_date',
+						'compare'	=> '>=',
+						'value'		=> $today,
+					)
+				),
+				'orderby' => 'meta_value_num',
+				'order' => 'ASC'
+			)
+		);
+	} elseif (is_page('videos')) {
+		query_posts(
+			array(
+				'posts_per_page' => -1,
+				'post_type' => 'videos'
+			)
+		);
+	} elseif(is_page()){
 		global $post;
 		$pSlug = $post->post_name;
 		query_posts(
@@ -39,13 +69,6 @@
 				'post_type' => 'pieza'
 			)
 		);
-	} elseif (is_page('videos')) {
-		query_posts(
-			array(
-				'posts_per_page' => -1,
-				'post_type' => 'videos'
-			)
-		);
 	}
 
 
@@ -53,7 +76,9 @@
 	if ( have_posts() ) {
 		echo '<ul class="masonry cards">';
 		while ( have_posts() ) { the_post();
+
 			echo get_template_part('inc/cards');
+
 		}
 		echo '</ul>';
 

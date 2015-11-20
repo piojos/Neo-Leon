@@ -28,7 +28,7 @@
 			'menu_slug' 	=> 'theme-general-settings',
 			'capability'	=> 'edit_posts',
 			'redirect'		=> false
-		)); 
+		));
 		acf_add_options_sub_page(array(
 			'page_title' 	=> 'Opciones de Menus',
 			'menu_title'	=> 'Menus',
@@ -141,3 +141,19 @@ function pagination($pages = '', $range = 4) {
 		return $arr;
 	}
 	add_filter('tiny_mce_before_init', 'wpa_45815');
+
+
+
+
+
+/*
+ *	Legalize Date repeater field
+ */
+
+	function my_posts_where( $where ) {
+		$where = str_replace("meta_key = 'days_%_date", "meta_key LIKE 'days_%_date", $where);
+		$where = str_replace("meta_key = 'dates_%_start-day", "meta_key LIKE 'dates_%_start-day", $where);
+		$where = str_replace("meta_key = 'dates_%_end-day", "meta_key LIKE 'dates_%_end-day", $where);
+		return $where;
+	}
+	add_filter('posts_where', 'my_posts_where');

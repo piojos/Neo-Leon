@@ -8,13 +8,6 @@
 		$_GET['dateFormat'] = date('Ymd');
 	}
 
-	function my_posts_where( $where ) {
-		$where = str_replace("meta_key = 'days_%_date", "meta_key LIKE 'days_%_date", $where);
-		$where = str_replace("meta_key = 'dates_%_start-day", "meta_key LIKE 'dates_%_start-day", $where);
-		$where = str_replace("meta_key = 'dates_%_end-day", "meta_key LIKE 'dates_%_end-day", $where);
-		return $where;
-	}
-	add_filter('posts_where', 'my_posts_where');
 
 	$args = array(
 		'numberposts'	=> -1,
