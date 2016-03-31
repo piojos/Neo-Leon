@@ -54,10 +54,12 @@
 		});
 	});
 
-	</script>
-	<?php wp_head(); ?>
-	<?php echo get_template_part('inc/favicon'); ?>
-	<?php echo get_template_part('inc/color', 'or');?>
+	</script><?php
+
+	wp_head();
+	echo get_template_part('inc/favicon');
+	echo get_template_part('inc/color', 'or'); ?>
+
 </head>
 
 <body <?php

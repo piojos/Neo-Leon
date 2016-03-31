@@ -133,7 +133,7 @@
 
 	</div>
 
-	<?php echo get_template_part('inc/plan', 'engine');?>
+	<?php get_template_part('inc/plan', 'engine'); ?>
 </div>
 
 

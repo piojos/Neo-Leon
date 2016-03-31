@@ -7,8 +7,13 @@
 			<div class="image" style="background: url('<?php echo  $img_med[0] ?>');"></div>
 			<div class="caption">
 				<?php echo '<h1>' . get_the_title() . '</h1>';?>
-				<ul><?php 
-					echo '<h3>'. get_field('museum') . '<br>';
+				<ul><?php
+					echo '<h3>';
+					if($post->post_type == 'eventos'){
+						get_template_part('funct/eventdate');
+						echo '<br>';
+					}
+					echo get_field('museum') . '<br>';
 					if(get_field('duracion')) {
 						echo get_field('duracion').' Minutos';
 					}

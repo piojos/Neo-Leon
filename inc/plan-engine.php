@@ -1,21 +1,13 @@
 <?php
 
 // First(Empty) Query ( .../planea-tu-visita )
-	if(htmlentities($_GET['date']) == "") { 
+	if(htmlentities($_GET['date']) == "") {
 		$_GET['audience'] = 'public';
 		$_GET['time'] = '120';
 		$_GET['date'] = date('d M Y');
 		$_GET['dateFormat'] = date('Ymd');
 	}
 
-// Function
-	function my_posts_where( $where ) {
-		$where = str_replace("meta_key = 'days_%_date", "meta_key LIKE 'days_%_date", $where);
-		$where = str_replace("meta_key = 'dates_%_start-day", "meta_key LIKE 'dates_%_start-day", $where);
-		$where = str_replace("meta_key = 'dates_%_end-day", "meta_key LIKE 'dates_%_end-day", $where);
-		return $where;
-	}
-	add_filter('posts_where', 'my_posts_where');
 
 // Vars
 	$time = $_GET['time'];
@@ -30,7 +22,7 @@
 			array(
 				'key'		=> 'days_%_date',
 				'compare'	=> '=',
-				'value'		=> $date
+				'value'		=> $_GET['dateFormat']
 			)
 		)
 	);
@@ -52,18 +44,22 @@
 	$the_queryExpo = new WP_Query( $argsExpo );
 	$postsExpo = $the_queryExpo->get_posts();
 
-	$slideDOS =array();
-	$slideCUATRO =array();
-	$slideSEIS =array();
-	$museoH =array();
-	$museoN =array();
-	$museoP =array();
+	$slideDOS = array();
+	$slideCUATRO = array();
+	$slideSEIS = array();
+	$museoH = array();
+	$museoN = array();
+	$museoP = array();
 
 	$dur = 0;
 	$exit = true;
 	$isExpoAdded = false;
 	$isExpoTemAdded = false;
 	$duracion120 = 120;
+
+
+
+
 
 
 
@@ -92,11 +88,6 @@
 
 
 
-
-
-
-
-
 // ***
 	if($_GET['dateFormat']!= ''){
 
@@ -114,7 +105,7 @@
 						break;
 					}
 				}
-			} 
+			}
 			foreach($museoH as $post) {
 				if($post->post_type == 'post' && $post->expo_status == 'Temporal' && $isExpoTemAdded != true){
 					if($duracion120 - $post->duracion >= 0){
@@ -124,16 +115,15 @@
 						break;
 					}
 				}
-			} 
+			}
 			foreach($museoH as $post) {
 				if($post->post_type == 'eventos'){
-
-					if($duracion120 - $post->duracion >= 0){
+					// if($duracion120 - $post->duracion >= 0){
 						array_push($slideDOS,$post);
-						$duracion120 -= $post->duracion;
-					}
+					// 	$duracion120 -= $post->duracion;
+					// }
 				}
-			} 
+			}
 			if (count($slideDOS)>0 ){ ?>
 				<div class="events">
 					<wrap>
@@ -148,7 +138,7 @@
 							<div class="slider">
 								<ul class="rslides"><?php
 									foreach($slideDOS as $post) {
-									 	echo get_template_part('inc/slide');
+										echo get_template_part('inc/slide');
 									} ?>
 								</ul>
 							</div>
@@ -160,7 +150,7 @@
 			$duracion120 = 120;
 			$isExpoAdded = false;
 			$isExpoTemAdded = false;
-		
+
 		} // END 2 Horas
 
 
@@ -199,10 +189,10 @@
 			}
 			foreach($museoH as $post) {
 				if($post->post_type == 'eventos'){
-					if($duracion120 - $post->duracion >= 0){
+					// if($duracion120 - $post->duracion >= 0){
 						array_push($slideDOS,$post);
-						$duracion120 -= $post->duracion;
-					}
+					// 	$duracion120 -= $post->duracion;
+					// }
 				}
 			}
 			if (count($slideDOS)>0 ){ ?>
@@ -219,7 +209,7 @@
 							<div class="slider">
 								<ul class="rslides"><?php
 									foreach($slideDOS as $post) {
-									 	echo get_template_part('inc/slide');
+										echo get_template_part('inc/slide');
 									} ?>
 								</ul>
 							</div>
@@ -258,14 +248,14 @@
 			}
 			foreach($museoN as $postN) {
 				if($postN->post_type == 'eventos'){
-					if($duracion120 - $postN->duracion >= 0){
+					// if($duracion120 - $postN->duracion >= 0){
 						array_push($slideCUATRO,$postN);
-						$duracion120 -= $postN->duracion;
-					}
+					// 	$duracion120 -= $postN->duracion;
+					// }
 				}
 			}
-			if(count($slideCUATRO) > 0 ) { 
-   			 	echo get_template_part('inc/plan','commute'); ?>
+			if(count($slideCUATRO) > 0 ) {
+				echo get_template_part('inc/plan','commute'); ?>
 
 				<div class="events">
 					<wrap>
@@ -276,17 +266,17 @@
 							<div></div>
 						</div>
 						<div class="title">
-			   				<div class="slider">
-			   					<ul class="rslides"><?php
-							   		foreach($slideCUATRO as $post) {
-						   			 	echo get_template_part('inc/slide');
+							<div class="slider">
+								<ul class="rslides"><?php
+									foreach($slideCUATRO as $post) {
+										echo get_template_part('inc/slide');
 									} ?>
 								</ul>
 							</div>
 						</div>
 					</wrap>
-				</div><?php 
-		   	}
+				</div><?php
+			}
 
 			$duracion120 = 120;
 			$isExpoAdded = false;
@@ -330,10 +320,10 @@
 			}
 			foreach($museoH as $post) {
 				if($post->post_type == 'eventos'){
-					if($duracion120 - $post->duracion >= 0){
+					// if($duracion120 - $post->duracion >= 0){
 						array_push($slideDOS,$post);
-						$duracion120 -= $post->duracion;
-					}
+					// 	$duracion120 -= $post->duracion;
+					// }
 				}
 			}
 
@@ -389,14 +379,14 @@
 			}
 			foreach($museoN as $postN) {
 				if($postN->post_type == 'eventos'){
-					if($duracion120 - $postN->duracion >= 0){
+					// if($duracion120 - $postN->duracion >= 0){
 						array_push($slideCUATRO,$postN);
-						$duracion120 -= $postN->duracion;
-					}
+					// 	$duracion120 -= $postN->duracion;
+					// }
 				}
 			}
-			if (count($slideCUATRO) > 0) { 
-   			 	echo get_template_part('inc/plan','commute'); ?>
+			if (count($slideCUATRO) > 0) {
+				echo get_template_part('inc/plan','commute'); ?>
 				<div class="events">
 					<wrap>
 						<div class="line">
@@ -449,14 +439,14 @@
 			}
 			foreach($museoP as $postP) {
 				if($postP->post_type == 'eventos'){
-					if($duracion120 - $postP->duracion >= 0){
+					// if($duracion120 - $postP->duracion >= 0){
 						array_push($slideSEIS,$postP);
-						$duracion120 -= $postP->duracion;
-					}
+					// 	$duracion120 -= $postP->duracion;
+					// }
 				}
 			}
-			if(count($museoP)>0 ) { 
-   			 	echo get_template_part('inc/plan','commute'); ?>
+			if(count($museoP)>0 ) {
+				echo get_template_part('inc/plan','commute'); ?>
 				<div class="events">
 					<wrap>
 						<div class="line">
