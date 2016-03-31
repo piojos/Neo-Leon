@@ -34,7 +34,7 @@
 			$terms = get_terms('event-type');
 			$count = count($terms);
 			if ( $count > 0 ){
-				echo '<select name="evType" id="evType"><option value="">Todos los tipos de eventos</option>';
+				echo '<select class="selFire" name="evType" id="evType"><option value="">Todos los tipos de eventos</option>';
 				foreach ( $terms as $term ) {
 					echo '<option value="'.$term->slug.'" ';
 						if ($term->slug == $_GET["evType"]){
@@ -45,7 +45,7 @@
 				echo '</select>';
 			} ?>
 			<label><span>presentados </span> en</label>
-			<select name="museum" id="museum">
+			<select class="selFire" name="museum" id="museum">
 				<option value="1">los 3 Museos</option>
 				<option value="Museo de Historia Mexicana"<?php if ('Museo de Historia Mexicana' == $_GET['museum']){ echo 'selected'; } ?>>Museo de Historia Mexicana</option>
 				<option value="Museo del Noreste"<?php if ('Museo del Noreste' == $_GET['museum']){ echo 'selected'; } ?>>Museo del Noreste</option>
@@ -58,7 +58,12 @@
 				} else {
 					echo $_GET['date'];
 				} ?>">
-			<input type="hidden" id="dateFormat" name="dateFormat" value="<?php echo $_GET['dateFormat'] ?>">
+			<input type="hidden" id="dateFormat" name="dateFormat"  value="<?php
+				if(htmlentities($_GET['dateFormat']) == "") {
+					echo date('Ymd');
+				} else {
+					echo $_GET['dateFormat'];
+				} ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
 		</form><?php
@@ -73,14 +78,14 @@
 
 		<form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url('planea-tu-visita')); ?>">
 			<label>Soy</label>
-			<select name="audience" id="museum">
+			<select class="selFire" name="audience" id="audience">
 				<option value="public">público general</option>
 				<option value="tourist">un turista</option>
 				<option value="student">un estudiante</option>
 				<option value="academic">un académico</option>
 			</select>
 			<label><span>y </span> cuento con</label>
-			<select name="time" id="museum">
+			<select class="selFire" name="time" id="time">
 				<option value="120">2 horas</option>
 				<option value="240">4 horas</option>
 				<option value="360">6 horas</option>
@@ -92,7 +97,12 @@
 				} else {
 					echo $_GET['date'];
 				} ?>">
-			<input type="hidden" id="dateFormat" name="dateFormat"  value="<?php echo $_GET['dateFormat'] ?>">
+			<input type="hidden" id="dateFormat" name="dateFormat"  value="<?php
+				if(htmlentities($_GET['dateFormat']) == "") {
+					echo date('Ymd');
+				} else {
+					echo $_GET['dateFormat'];
+				} ?>">
 			<br>
 			<input type="submit" id="searchsubmit" value="Planea mi Visita">
 		</form><?php
@@ -112,14 +122,14 @@
 			$terms = get_terms('event-type');
 			$count = count($terms);
 			if ( $count > 0 ){
-				echo '<select name="evType" id="evType"><option value="">Todos los tipos de eventos</option>';
+				echo '<select class="selFire" name="evType" id="evType"><option value="">Todos los tipos de eventos</option>';
 				foreach ( $terms as $term ) {
 					echo '<option value="'.$term->slug.'">'.$term->name.'</option>';
 				}
 				echo '</select>';
 			} ?>
 			<label><span>presentados </span> en</label>
-			<select name="museum" id="museum">
+			<select class="selFire" name="museum" id="museum">
 				<option value="1">los 3 Museos</option>
 				<option value="Museo de Historia Mexicana">Museo de Historia Mexicana</option>
 				<option value="Museo del Noreste">Museo del Noreste</option>
@@ -138,6 +148,21 @@
 
 
 	endif; ?>
+
+<script>
+
+var sel = document.getElementsByClassName('selFire');
+sel.addEventListener('click', function(el){
+	var options = this.children;
+	for(var i=0; i < this.childElementCount; i++){
+		options[i].style.color = '#52318E';
+	}
+	var selected = this.children[this.selectedIndex];
+	selected.style.color = '#9B81C9';
+}, false);
+
+</script>
+
 
 	</div>
 </div>
