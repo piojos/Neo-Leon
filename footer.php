@@ -49,7 +49,7 @@
 			</ul>
 			<div class="copyright">
 				<p><?php the_field('f_address', 'option')?>. Todos los derechos reservados 3 Museos &copy; <?php echo current_time('Y'); ?></p>
-				<p><a href="http://archivo.nl.gob.mx/?P=transparencia_mhm">Transparencia</a> |
+				<p><a href="http://nl.gob.mx/transparencia">Transparencia</a> |
 				<a href="<?php echo esc_url( home_url( '/privacidad' ) ); ?>">Privacidad</a></p>
 			</div>
 		</wrap>
