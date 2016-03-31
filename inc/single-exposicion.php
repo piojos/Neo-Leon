@@ -71,7 +71,39 @@
 		endwhile;
 		echo '</audio></div></body></html>';
 
-		wp_footer();
+		wp_footer(); ?>
+
+		<script>
+			var $container = $('.masonry');
+			$container.imagesLoaded( function() {
+				$container.masonry({
+					itemSelector: 'li',
+					percentPosition: true
+				});
+			});
+			$( "a.search-btn, a.close-search" ).click(function() {
+				$( "header" ).toggleClass( "show-search" );
+			});
+
+			$(document).ready(function() {
+				$.simpleWeather({
+					location: 'Monterrey, MX',
+					woeid: '',
+					unit: 'c',
+					success: function(weather) {
+						html = '<i class="icon-'+weather.code+'"></i>';
+						html += '<ul><li>+ &nbsp;'+weather.high+'</li>';
+						html += '<li>– &nbsp;'+weather.low+'</li></ul>';
+						$("#temp-hold").html(html);
+					},
+					error: function(error) {
+						$("#temp-hold").html('<p>'+error+'</p>');
+					}
+				});
+			});
+		</script>
+
+		<?php
 	else :
 		get_footer();
 	endif; ?>
