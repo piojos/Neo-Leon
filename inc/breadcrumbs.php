@@ -47,7 +47,7 @@
 		}
 
 // 404
-	} elseif(is_404()) { 										 ?>
+	} elseif(is_404()) { ?>
 
 		404: Lo que buscas no existe. <span class="text">
 		<a href="<?php echo home_url(); ?>" title="3 Museos">Volver a Inicio</a><?php

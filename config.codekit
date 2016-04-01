@@ -432,6 +432,15 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/heading.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/heading.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/img\/giveitup.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -764,8 +773,8 @@
 		},
 	"\/js\/clamp.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/clamp.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/clamp.min-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -775,8 +784,8 @@
 		},
 	"\/js\/imagesloaded.pkgd.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/imagesloaded.pkgd.js",
 		"outputAbbreviatedPath": "\/js\/min\/imagesloaded.pkgd-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -786,8 +795,8 @@
 		},
 	"\/js\/jquery.fitvids.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/jquery.fitvids.js",
 		"outputAbbreviatedPath": "\/js\/min\/jquery.fitvids-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -795,10 +804,21 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/js\/jquery.simpleWeather.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
+		"inputAbbreviatedPath": "\/js\/jquery.simpleWeather.js",
+		"outputAbbreviatedPath": "\/js\/min\/jquery.simpleWeather-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/jquery.simpleWeather.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/jquery.simpleWeather.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/jquery.simpleWeather.min-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -808,8 +828,8 @@
 		},
 	"\/js\/jquery.zoom.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/jquery.zoom.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/jquery.zoom.min-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -819,8 +839,8 @@
 		},
 	"\/js\/masonry.pkgd.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/masonry.pkgd.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/masonry.pkgd.min-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -830,8 +850,8 @@
 		},
 	"\/js\/mediaelement-and-player.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/mediaelement-and-player.js",
 		"outputAbbreviatedPath": "\/js\/min\/mediaelement-and-player-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -841,8 +861,8 @@
 		},
 	"\/js\/mediaelement-and-player.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/mediaelement-and-player.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/mediaelement-and-player.min-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -852,8 +872,8 @@
 		},
 	"\/js\/mep-feature-playlist.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/mep-feature-playlist.js",
 		"outputAbbreviatedPath": "\/js\/min\/mep-feature-playlist-min.js",
 		"outputPathIsOutsideProject": 0,
@@ -861,60 +881,25 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/js\/min\/clamp.min-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/clamp.min-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/clamp.min-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/min\/mediaelement-and-player-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/mediaelement-and-player-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/mediaelement-and-player-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/min\/mediaelement-and-player.min-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/mediaelement-and-player.min-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/mediaelement-and-player.min-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/js\/min\/mep-feature-playlist-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/js\/min\/mep-feature-playlist-min.js",
-		"outputAbbreviatedPath": "\/js\/min\/min\/mep-feature-playlist-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/js\/responsiveslides.min.js": {
 		"fileType": 64,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/js\/responsiveslides.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/responsiveslides.min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
+		},
+	"\/mini-slider.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/mini-slider.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
 		},
 	"\/page-archivo-de-exposiciones.php": {
 		"fileType": 8192,
@@ -930,6 +915,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/page-cafe.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/page-eventos-pasados.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/page-eventos-pasados.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
@@ -1235,6 +1229,15 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/slide.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/slide.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
