@@ -115,7 +115,7 @@
 				$("#temp-hold").html(html);
 			},
 			error: function(error) {
-				$("#temp-hold").html('<p>'+error+'</p>');
+				$("#temp-hold").html('<p style="display:none;">'+error+'</p>');
 			}
 		});
 	});
