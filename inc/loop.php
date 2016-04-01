@@ -37,6 +37,23 @@
 				'order' => 'ASC'
 			)
 		);
+	} elseif (is_page('eventos-pasados')) {
+		query_posts(
+			array(
+				'post_type'		=> 'eventos',
+				'posts_per_page' => 12,
+				'paged'			=> get_query_var( 'paged' ),
+				'meta_query'	=> array(
+					array(
+						'key'		=> 'days_%_date',
+						'compare'	=> '<=',
+						'value'		=> $today,
+					)
+				),
+				'orderby' => 'meta_value_num',
+				'order' => 'DESC'
+			)
+		);
 	} elseif (is_page('videos')) {
 		query_posts(
 			array(
