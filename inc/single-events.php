@@ -76,11 +76,17 @@
 
 
 					<?php
-						$email = get_field('email');
+						$emails = get_field('emails');
 						$phone = get_field('phone');
-						if ($email or $phone) {
+						if ($emails or $phone) {
 							echo '<h2>Contacto</h2><p class="contact-info">';
-							if($email) {echo '<a href="mailto:'.$email.'@3museos.com">'.$email.'@3museos.com</a><br>';}
+							if($emails) {
+								while (have_rows('emails')) {
+									the_row();
+									$email = get_sub_field('email');
+									echo '<a href="mailto:'.$email.'">'.$email.'</a><br>';
+								}
+							}
 							echo '<a href="tel:'.$phone.'">'.$phone.'</a></p>';
 						}
 					 ?>
