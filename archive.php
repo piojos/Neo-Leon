@@ -20,7 +20,6 @@
 
 		<section id="<?php
 			if(get_post_type() == 'eventos') { echo 'events-post'; }
-			elseif(get_post_type() == 'noticias') { echo 'news-post'; }
 			else { echo 'news-post'; }
 		?>"><?php
 
