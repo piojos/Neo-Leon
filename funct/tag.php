@@ -1,16 +1,20 @@
-<?php 
+<?php
 
 if($post->post_type == 'post'){
-	echo 'Exposición '.get_field('expo_status'); 
+	echo 'Exposición '.get_field('expo_status');
 } elseif($post->post_type == 'eventos') {
-	$terms = get_the_terms( $post->ID, 'event-type'); 
-	$count = count($terms); 
+	$terms = get_the_terms( $post->ID, 'event-type');
+	$count = count($terms);
 
-	if ( $count > 0 ) { 
+	if ( $count > 0 ) {
 		echo '<span>Evento: </span>';
-		foreach ( $terms as $term ) { 
-			echo $term->name.' '; 
-		} 
+		foreach ( $terms as $term ) {
+			if($term->name == 'Ciclo') {
+				echo '<img src="'. get_template_directory_uri() .'/img/cicleIcon.svg">'. $term->name.' ';
+			} else {
+				echo $term->name.' ';
+			}
+		}
 	}
 } elseif($post->post_type == 'page') {
 
@@ -21,8 +25,8 @@ if($post->post_type == 'post'){
 		echo $parent->post_title;
 	}
 
-} else { 
-	echo get_post_type(); 
+} else {
+	echo get_post_type();
 }
 
 ?>

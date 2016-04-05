@@ -95,7 +95,17 @@ input[type="text"] {
 	padding-top: 0;
 }
 
+.cards .tag.ciclo-type {
+    background: #2AAED0;
+}
 
+.cards .tag.ciclo-type > img {
+    display: inline-block;
+    min-height: initial;
+    width: 25px;
+    margin-bottom: .15em;
+    vertical-align: middle;
+}
 
 
 

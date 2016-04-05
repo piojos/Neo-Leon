@@ -22,10 +22,12 @@
 
 	// Imagen afuera
 	} else {
+		$getTax = wp_get_post_terms($post->ID, 'event-type');
+		$curTax = $getTax[0]->slug;
 
 		if($img_med) { ?>
 			<div class="feature-img">
-				<div class="tag">
+				<div class="tag <?php echo $curTax .'-type'; ?>">
 					<?php echo get_template_part('funct/tag'); ?>
 				</div>
 				<img src="<?php if(get_field('wider')){ echo $img_large[0]; } else { echo $img_card[0]; } ?>" atl="3 museos"><?php
@@ -51,7 +53,7 @@
 
 		// Si no tenía imagen
 		if(!$img_med) { ?>
-			<div class="tag">
+			<div class="tag <?php echo $curTax .'-type'; ?>">
 				<?php echo get_template_part('funct/tag'); ?>
 			</div><?php
 		}
