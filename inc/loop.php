@@ -20,6 +20,25 @@
 		global $post;
 		$pSlug = $post->post_name;
 
+		$cicloQ = new WP_Query( array(
+			'post_type' => 'eventos',
+			'event-type' => 'ciclo',
+			'meta_query'	=> array(
+				array(
+					'key'		=> 'days_%_date',
+					'compare'	=> '>=',
+					'value'		=> $today,
+				)
+			),
+		) );
+
+
+		$excCiclos = array();
+
+		while ( $cicloQ->have_posts() ) {
+			$cicloQ->the_post();
+			$excCiclos[] = $post->ID;
+		}
 
 		query_posts(
 			array(
@@ -34,6 +53,7 @@
 					)
 				),
 				'orderby' => 'meta_value_num',
+				'post__not_in' => $excCiclos,
 				'order' => 'ASC'
 			)
 		);
@@ -92,10 +112,17 @@
 
 	if ( have_posts() ) {
 		echo '<ul class="masonry cards">';
-		while ( have_posts() ) { the_post();
 
+		if ($paged < 2) {
+			while ( $cicloQ->have_posts() ) {
+				$cicloQ->the_post();
+				echo get_template_part('inc/cards');
+			}
+		}
+
+		while ( have_posts() ) {
+			the_post();
 			echo get_template_part('inc/cards');
-
 		}
 		echo '</ul>';
 
