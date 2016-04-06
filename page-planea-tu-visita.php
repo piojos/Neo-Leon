@@ -44,7 +44,7 @@
 				</a></li>
 				<li><a href="#" id="tab2">
 					<img src="<?php the_field('publ-icon'); ?>"/>
-					Transporte Público
+					Transporte <span>Público</span>
 				</a></li>
 				<li><a href="#" id="tab3">
 					<img src="<?php the_field('hand-icon'); ?>"/>
@@ -58,12 +58,13 @@
 		</div>
 
 		<div class="map-slider">
+			<button id="toggleInfo">INFO</button>
 			<div class="slide" id="tab1C">
 				<div class="info">
 					<?php the_field('auto-details');?>
 				</div>
 
-				<div class="map"><?php
+				<div class="map loaded"><?php
 					if( have_rows('auto-map-pins') ): ?>
 						<div class="acf-map"><?php
 							while ( have_rows('auto-map-pins') ) : the_row();
@@ -137,29 +138,22 @@
 </div>
 
 
-
-<style type="text/css">
-
-.acf-map {
-	width: 100%;
-	height: 30em;
-}
-
-</style>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript">
+// (function($) {
 
 
-(function($) {
+	// ACF GMaps Code
 
 	function new_map( $el ) {
 		var $markers = $el.find('.marker');
 		var args = {
-			zoom		: 16,
+			zoom		: 14,
 			center		: new google.maps.LatLng(0, 0),
 			mapTypeId	: google.maps.MapTypeId.ROADMAP,
-			scrollwheel: false,
-			styles: [{"featureType":"road","stylers":[{"hue":"#5e00ff"},{"saturation":-79}]},{"featureType":"poi","stylers":[{"saturation":-78},{"hue":"#6600ff"},{"lightness":-47},{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"lightness":22}]},{"featureType":"landscape","stylers":[{"hue":"#6600ff"},{"saturation":-11}]},{},{},{"featureType":"water","stylers":[{"saturation":-65},{"hue":"#1900ff"},{"lightness":8}]},{"featureType":"road.local","stylers":[{"weight":1.3},{"lightness":30}]},{"featureType":"transit","stylers":[{"visibility":"simplified"},{"hue":"#5e00ff"},{"saturation":-16}]},{"featureType":"transit.line","stylers":[{"saturation":-72}]},{}]
+			scrollwheel	: false,
+			draggable	: false,
+			styles		: [{"featureType":"road","stylers":[{"hue":"#5e00ff"},{"saturation":-79}]},{"featureType":"poi","stylers":[{"saturation":-78},{"hue":"#6600ff"},{"lightness":-47},{"visibility":"off"}]},{"featureType":"road.local","stylers":[{"lightness":22}]},{"featureType":"landscape","stylers":[{"hue":"#6600ff"},{"saturation":-11}]},{},{},{"featureType":"water","stylers":[{"saturation":-65},{"hue":"#1900ff"},{"lightness":8}]},{"featureType":"road.local","stylers":[{"weight":1.3},{"lightness":30}]},{"featureType":"transit","stylers":[{"visibility":"simplified"},{"hue":"#5e00ff"},{"saturation":-16}]},{"featureType":"transit.line","stylers":[{"saturation":-72}]},{}]
 		};
 		var map = new google.maps.Map( $el[0], args);
 		map.markers = [];
@@ -197,8 +191,8 @@
 			bounds.extend( latlng );
 		});
 		if( map.markers.length == 1 ) {
-		    map.setCenter( bounds.getCenter() );
-		    map.setZoom( 16 );
+			map.setCenter( bounds.getCenter() );
+			map.setZoom( 16 );
 		} else {
 			map.fitBounds( bounds );
 		}
@@ -212,32 +206,49 @@
 	});
 
 
+
+
+	// Toggle routes
+
+	$('a#open-map').click(function(event){
+		event.preventDefault();
+		$('.show-maps').toggleClass('open');
+	});
+
+
+
+
+	// Tabs
+
 	$('.show-maps .tabs li a:not(:first)').addClass('inactive');
+	$('button#toggleInfo').click(function(event){
+		$('.map-slider .info').toggleClass('open');
+	});
 	$('.map-slider .slide').hide();
 	$('.map-slider .slide:first').show();
 	$('.show-maps .tabs li a').click(function(event){
 		event.preventDefault();
 		var t = $(this).attr('id');
 
-		if($(this).hasClass('inactive')){ //this is the start of our condition
+		if($(this).hasClass('inactive')){
 			$('.show-maps .tabs li a').addClass('inactive');
 			$('#'+t).removeClass('inactive');
 			$('.map-slider .slide').hide();
 			$('#'+ t +'C').fadeIn('slow');
 			$('#'+ t +'C .acf-map').each(function(){
-				map = new_map( $(this) );
-				console.log(map);
-				var center = map.getCenter();
-				google.maps.event.trigger(map, "resize");
-				map.setCenter(center);
+				if($(this).parent().hasClass('loaded')) {
+				} else {
+					map = new_map( $(this) );
+					// console.log(map);
+					var center = map.getCenter();
+					google.maps.event.trigger(map, "resize");
+					map.setCenter(center);
+				}
+				$(this).parent().addClass('loaded');
 			});
 		}
 	});
-	$('a#open-map').click(function(event){
-		event.preventDefault();
-		$('.show-maps').toggleClass('open');
-	});
-})(jQuery);
+// })(jQuery);
 </script>
 
 <?php get_footer(); ?>
