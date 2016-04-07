@@ -1,6 +1,11 @@
-<?php 
-$bClass = ' cafe ';
-get_header(); 
+<?php
+
+	/*
+	 * Template Name: Formato de Cafe
+	 */
+
+	$bClass = ' cafe ';
+	get_header();
 
 echo get_template_part('inc/slider'); ?>
 
@@ -22,12 +27,12 @@ echo get_template_part('inc/slider'); ?>
 		});
 
 		$( 'a.rslides_nav' ).click(function() {
-			$('.video video').each(function() { 
-				$(this)[0].player.pause(); 
+			$('.video video').each(function() {
+				$(this)[0].player.pause();
 			});
-			$("iframe").each(function() { 
+			$("iframe").each(function() {
 				var src= $(this).attr('src');
-				$(this).attr('src',src);  
+				$(this).attr('src',src);
 			});
 		});
 
