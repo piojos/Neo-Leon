@@ -38,6 +38,10 @@
 				'key'		=> 'expo_status',
 				'compare'	=> 'IN',
 				'value'		=> array('Temporal','Permanente')
+			),
+			array(
+				'key'     => 'temporal',
+				'value'   => 'actual'
 			)
 		)
 	);
