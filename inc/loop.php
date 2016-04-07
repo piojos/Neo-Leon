@@ -109,14 +109,15 @@
 	}
 
 
-
 	if ( have_posts() ) {
 		echo '<ul class="masonry cards">';
 
-		if ($paged < 2) {
-			while ( $cicloQ->have_posts() ) {
-				$cicloQ->the_post();
-				echo get_template_part('inc/cards');
+		if ($excCiclos) {
+			if ($paged < 2) {
+				while ( $cicloQ->have_posts() ) {
+					$cicloQ->the_post();
+					echo get_template_part('inc/cards');
+				}
 			}
 		}
 
