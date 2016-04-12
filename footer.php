@@ -1,12 +1,17 @@
 <?php
-	global $nl;
-	if($nl) {
+	$onNL = get_field('on_nl', 'option');
+	$hideNL = get_field('nl-hide');
+	echo $hideNL;
+	if($hideNL) {
+		$nlM = '';
+	} elseif($onNL) {
 		$nlM = ' class="newsletter"';
 	} ?>
 
 	<footer<?php echo $nlM; ?>>
 		<wrap><?php
-			if($nl) {
+
+			if($hideNL) {} elseif($onNL) {
 				get_template_part('inc/newsletter');
 			}
 

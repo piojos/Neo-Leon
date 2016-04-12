@@ -1082,17 +1082,14 @@ footer .switch {
   }
 }
 
-footer.newsletter {
-  margin-top: 2.5em;
-}
 footer.newsletter ul {
   padding-top: 0;
 }
 
 div.newsletter {
   background-color: #52318e;
-  overflow: auto;
-  padding: 1.25em 1em 1em;
+  overflow: hidden;
+  padding: 1.25em 1em;
   position: relative;
   top: -2.5em;
 }
