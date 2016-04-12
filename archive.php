@@ -5,7 +5,6 @@
 	 */
 
 	get_header();
-	$nl = get_field('nl-activate');
 
 
 	if($post->post_type == 'pieza') {

@@ -7,7 +7,6 @@
 		$bClass = 'single-videos live';
 	}
 	get_header();
-	$nl = get_field('nl-activate');
 	while (have_posts()) : the_post(); ?>
 
 
