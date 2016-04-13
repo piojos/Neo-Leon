@@ -65,7 +65,13 @@
 					echo $_GET['dateFormat'];
 				} ?>">
 			<br>
-			<input type="submit" id="searchsubmit" value="Actualiza los Resultados">
+			<input type="submit" id="searchsubmit" value="<?php
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				if(($post->post_name == 'eventos')) {
+					echo 'Busca eventos hoy';
+				} else {
+					echo 'Actualiza los Resultados';
+				} ?>">
 		</form><?php
 
 

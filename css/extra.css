@@ -436,3 +436,8 @@ div.wpcf7-validation-errors {background-color: #f7e700;}
 		display: inherit;
 		margin: 0 auto;
 	}
+
+.hidespan > span,
+.hidespan > img {
+	display: none;
+}

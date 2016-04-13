@@ -97,9 +97,9 @@ if(is_front_page()) :
 
 
 // Eventos
-elseif(get_post_type() == 'eventos') :
+elseif($post->post_name == 'eventos') :
 
-	$post_object = get_field('ftd-events', 'options');
+	$post_object = get_field('ftd_events');
 	$count = count($post_object);
 
 	if( $post_object ):
@@ -111,8 +111,15 @@ elseif(get_post_type() == 'eventos') :
 		setup_postdata( $post );
 			$oBgImg = get_post_thumbnail_id();
 			$bgImgSrc = wp_get_attachment_image_src($oBgImg, 'largest');
-			$rgba = hex2rgba($color, 0.8);
-			$expoEnd = strtotime(get_field('end_time')); ?>
+
+			$expoEnd = strtotime(get_field('end_time'));
+			$terms = get_the_terms( $post->ID, 'event-type');
+			foreach ( $terms as $term ) {
+				if($term->name == 'Ciclo') {
+					$color = '#2AAED0';
+					$rgba = hex2rgba($color, 0.8);
+				}
+			} ?>
 
 			<li class="slide">
 				<a href="<?php the_permalink(); ?>">
@@ -123,9 +130,12 @@ elseif(get_post_type() == 'eventos') :
 							echo $bgImgSrc[0];
 						} ?>'); background-size: cover;"></div>
 				</a>
-				<div class="caption" <?php if(get_sub_field('color')) {echo 'style="background-color:'.$rgba.';"';} ?>>
+				<div class="caption" <?php
+				if($color) {
+					echo 'style="background-color:'.$rgba.';"';
+				} ?>>
 					<a href="<?php the_permalink(); ?>">
-						<h2><?php echo get_template_part('funct/tag'); ?></h2>
+						<h2 class="hidespan"><?php echo get_template_part('funct/tag'); ?></h2>
 						<h1><?php if(get_field('logo')) {
 								$logoA = get_field('logo');
 								$logoSrc = wp_get_attachment_image_src($logoA, 'large');
@@ -160,9 +170,11 @@ elseif(get_post_type() == 'eventos') :
 
 					</div>
 				</div>
-			</li>
+			</li><?php
 
-		<?php wp_reset_postdata();
+			wp_reset_postdata();
+			$color = 0;
+			$rgba = 0;
 		endforeach;
 	echo '</ul></div>';
 	endif;

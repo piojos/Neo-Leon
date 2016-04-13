@@ -43,7 +43,7 @@
 		query_posts(
 			array(
 				'post_type'		=> $pSlug,
-				'posts_per_page' => 12,
+				'posts_per_page' => 4,
 				'paged'			=> get_query_var( 'paged' ),
 				'meta_query'	=> array(
 					array(
